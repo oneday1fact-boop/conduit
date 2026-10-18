@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 2,
+  "contentVersion": 3,
   "dailyLaunchDate": "2026-10-17",
   "description": "CONDUIT puzzle library, content version 2. Includes 500 additional validated puzzles.",
   "approvedCompounds": [
