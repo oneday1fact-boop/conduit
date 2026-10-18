@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 1,
+  "contentVersion": 2,
   "dailyLaunchDate": "2026-10-17",
-  "description": "CONDUIT puzzle content. Publish updated versions of this JSON file to add or revise puzzles without rebuilding the app.",
+  "description": "CONDUIT puzzle library, content version 2. Includes 500 additional validated puzzles.",
   "approvedCompounds": [
     "armband",
     "armchair",
@@ -5014,6 +5014,8006 @@
         "RING",
         "GAME",
         "PACK"
+      ]
+    },
+    {
+      "id": "closed-v2-black-bird-house-fly-wheel",
+      "name": "Curious Secret",
+      "chain": [
+        "BLACK",
+        "BIRD",
+        "HOUSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "BEAM",
+        "WALK",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-work-day-light",
+      "name": "Misty Daydream",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "DAY",
+        "LIGHT"
+      ],
+      "decoys": [
+        "FOOD",
+        "MAIL",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-work-room",
+      "name": "Echoing Archive",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "SHELF",
+        "LIFT",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-drop-kick-back-fire",
+      "name": "Paper Bookmark",
+      "chain": [
+        "RAIN",
+        "DROP",
+        "KICK",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "HEAD",
+        "STICK",
+        "GAME"
+      ]
+    },
+    {
+      "id": "closed-v2-off-line-work-man-kind",
+      "name": "Shadow Compass",
+      "chain": [
+        "OFF",
+        "LINE",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "SHINE",
+        "TAIL",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-book-case-work-horse",
+      "name": "Clever Cipher",
+      "chain": [
+        "HAND",
+        "BOOK",
+        "CASE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "HOG",
+        "HEAD",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-ground-water-fall-back-yard",
+      "name": "Pocket Riddle",
+      "chain": [
+        "GROUND",
+        "WATER",
+        "FALL",
+        "BACK",
+        "YARD"
+      ],
+      "decoys": [
+        "COAT",
+        "POT",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-over-head-light-house-work",
+      "name": "Curious Meadow",
+      "chain": [
+        "OVER",
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "WORK"
+      ],
+      "decoys": [
+        "BALL",
+        "KICK",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-horse-fly-paper-back-pack",
+      "name": "Mellow Garden",
+      "chain": [
+        "HORSE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "STAR",
+        "BOOK",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-side-line",
+      "name": "Curious Trail",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "SIDE",
+        "LINE"
+      ],
+      "decoys": [
+        "NOTE",
+        "TOWN",
+        "WRECK"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-book-worm",
+      "name": "Open Monument",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "HILL",
+        "OFF",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-park-land-mark-down-fall",
+      "name": "Cobalt Secret",
+      "chain": [
+        "PARK",
+        "LAND",
+        "MARK",
+        "DOWN",
+        "FALL"
+      ],
+      "decoys": [
+        "RING",
+        "OVER",
+        "WALK"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-side-walk-way",
+      "name": "Still Voyage",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "SIDE",
+        "WALK",
+        "WAY"
+      ],
+      "decoys": [
+        "FIRE",
+        "BOY",
+        "SHIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-board-room-mate",
+      "name": "Mosaic Voyage",
+      "chain": [
+        "HAND",
+        "OVER",
+        "BOARD",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "SHOW",
+        "NET",
+        "BOY"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-ball-park-way-side",
+      "name": "Blue Thread",
+      "chain": [
+        "FOOT",
+        "BALL",
+        "PARK",
+        "WAY",
+        "SIDE"
+      ],
+      "decoys": [
+        "BERRY",
+        "SONG",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-arm-chair-lift-off-load",
+      "name": "Satin Gallery",
+      "chain": [
+        "ARM",
+        "CHAIR",
+        "LIFT",
+        "OFF",
+        "LOAD"
+      ],
+      "decoys": [
+        "MELON",
+        "WOOD",
+        "STAR"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-field-work-load",
+      "name": "Shadow Riddle",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "NUT",
+        "LIGHT",
+        "FLOWER"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-fast-ball-boy",
+      "name": "Lantern Detour",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "FAST",
+        "BALL",
+        "BOY"
+      ],
+      "decoys": [
+        "TOOTH",
+        "WASH",
+        "COAT"
+      ]
+    },
+    {
+      "id": "closed-v2-over-coat-tail-gate-post",
+      "name": "Copper Window",
+      "chain": [
+        "OVER",
+        "COAT",
+        "TAIL",
+        "GATE",
+        "POST"
+      ],
+      "decoys": [
+        "WOOD",
+        "FALL",
+        "BED"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-work-shop-lift",
+      "name": "Blue Daydream",
+      "chain": [
+        "FISH",
+        "NET",
+        "WORK",
+        "SHOP",
+        "LIFT"
+      ],
+      "decoys": [
+        "BIRD",
+        "SHAKE",
+        "BREAK"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-boat-man",
+      "name": "Pocket Puzzle",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "BOAT",
+        "MAN"
+      ],
+      "decoys": [
+        "MARK",
+        "BACK",
+        "POST"
+      ]
+    },
+    {
+      "id": "closed-v2-river-bank-note-book-shelf",
+      "name": "Mosaic Detour",
+      "chain": [
+        "RIVER",
+        "BANK",
+        "NOTE",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "CLUB",
+        "GAME",
+        "FALL"
+      ]
+    },
+    {
+      "id": "closed-v2-lip-stick-up-side-bar",
+      "name": "Copper Footpath",
+      "chain": [
+        "LIP",
+        "STICK",
+        "UP",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "STONE",
+        "BIRD",
+        "GATE"
+      ]
+    },
+    {
+      "id": "closed-v2-day-light-house-work-room",
+      "name": "Blue Envelope",
+      "chain": [
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "PIT",
+        "MELON",
+        "BONE"
+      ]
+    },
+    {
+      "id": "closed-v2-line-work-day-break-out",
+      "name": "Silver Whisper",
+      "chain": [
+        "LINE",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "OUT"
+      ],
+      "decoys": [
+        "MOON",
+        "BUTTER",
+        "LIFT"
+      ]
+    },
+    {
+      "id": "closed-v2-over-board-walk-out-work",
+      "name": "Dusky Thread",
+      "chain": [
+        "OVER",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "BOW",
+        "SHIP",
+        "BROW"
+      ]
+    },
+    {
+      "id": "closed-v2-drop-kick-back-fire-wood",
+      "name": "Soft Shelter",
+      "chain": [
+        "DROP",
+        "KICK",
+        "BACK",
+        "FIRE",
+        "WOOD"
+      ],
+      "decoys": [
+        "FOOD",
+        "PRINT",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-book-case-work-man-hole",
+      "name": "Wild Compass",
+      "chain": [
+        "BOOK",
+        "CASE",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "DRUM",
+        "FOOD",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-work-horse-fly",
+      "name": "Blue Ribbon",
+      "chain": [
+        "HAND",
+        "OVER",
+        "WORK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "BLACK",
+        "BANK",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-out-side-line",
+      "name": "Shadow Harbor",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "LINE"
+      ],
+      "decoys": [
+        "DAY",
+        "CLUB",
+        "GATE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-side-line-work-room",
+      "name": "Secret Shortcut",
+      "chain": [
+        "OUT",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BED",
+        "GATE",
+        "KICK"
+      ]
+    },
+    {
+      "id": "closed-v2-house-fly-paper-work-shop",
+      "name": "Signal Shortcut",
+      "chain": [
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "STONE",
+        "STICK",
+        "SHORE"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-out-work-horse",
+      "name": "Brisk Window",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "BLACK",
+        "LIFE",
+        "PIPE"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-work-room",
+      "name": "Echoing Ribbon",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "SEA",
+        "POST",
+        "TOOTH"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-water-melon",
+      "name": "Bright Passage",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "BUTTER",
+        "FOOD",
+        "WORK"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-work-day-bed",
+      "name": "Secret Pocket",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "LAND",
+        "BROW",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-work-day-break",
+      "name": "Indigo Trail",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "BACK",
+        "TIME",
+        "PACK"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-work-day-dream",
+      "name": "Frosted Cabinet",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "EAR",
+        "LIP",
+        "BONE"
+      ]
+    },
+    {
+      "id": "closed-v2-ground-water-side-walk-out",
+      "name": "Rustic Bookmark",
+      "chain": [
+        "GROUND",
+        "WATER",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "BUTTER",
+        "BOOK",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-park-side-line-work-book",
+      "name": "Mosaic Mirage",
+      "chain": [
+        "PARK",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "SHELL",
+        "FALL",
+        "BERRY"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-book-case",
+      "name": "Shadow Envelope",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "PAD",
+        "GAME",
+        "KIND"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-fall-out-field",
+      "name": "Copper Station",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "FALL",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "LINE",
+        "HORSE",
+        "BOARD"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-line-work-day",
+      "name": "Misty Trail",
+      "chain": [
+        "UP",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "POST",
+        "CLUB",
+        "DROP"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-shop-lift",
+      "name": "Crimson Pattern",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "SHOP",
+        "LIFT"
+      ],
+      "decoys": [
+        "PIPE",
+        "CAKE",
+        "PACK"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-man-hole",
+      "name": "Distant Pattern",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "GATE",
+        "BIRD",
+        "RIVER"
+      ]
+    },
+    {
+      "id": "closed-v2-mark-down-fall-back-drop",
+      "name": "Solar Footnote",
+      "chain": [
+        "MARK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "DROP"
+      ],
+      "decoys": [
+        "HOUSE",
+        "WALK",
+        "COAT"
+      ]
+    },
+    {
+      "id": "closed-v2-gate-way-side-line-work",
+      "name": "Bright Current",
+      "chain": [
+        "GATE",
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "PASTE",
+        "HOLD",
+        "FOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-work-room-mate",
+      "name": "Still Envelope",
+      "chain": [
+        "FISH",
+        "NET",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "GATE",
+        "SURF",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-line-work-load",
+      "name": "Signal Riddle",
+      "chain": [
+        "UP",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "CAKE",
+        "BAND",
+        "KICK"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-drop-kick-back-water",
+      "name": "Soft Mirage",
+      "chain": [
+        "RAIN",
+        "DROP",
+        "KICK",
+        "BACK",
+        "WATER"
+      ],
+      "decoys": [
+        "CHAIR",
+        "WORM",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-back-yard-work-horse-shoe",
+      "name": "Ivory Parade",
+      "chain": [
+        "BACK",
+        "YARD",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "SHIELD",
+        "BOAT",
+        "MELON"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-out-field",
+      "name": "Shadow Beacon",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "TOWN",
+        "BLACK",
+        "WRECK"
+      ]
+    },
+    {
+      "id": "closed-v2-over-board-walk-out-field",
+      "name": "Gentle Signal",
+      "chain": [
+        "OVER",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "WOOD",
+        "OFF",
+        "WATER"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-pack-horse-fly",
+      "name": "Open Current",
+      "chain": [
+        "FALL",
+        "BACK",
+        "PACK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "BEAM",
+        "PIT",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-back-water-side-walk-out",
+      "name": "Velvet Glimmer",
+      "chain": [
+        "BACK",
+        "WATER",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "PIPE",
+        "BIRD",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-sea-shore-line-work-man",
+      "name": "Midnight Gallery",
+      "chain": [
+        "SEA",
+        "SHORE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "STICK",
+        "FLOWER",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-back-pack",
+      "name": "Curious Window",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "LID",
+        "SLIDE",
+        "BAG"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-boat-man",
+      "name": "Wild Mirage",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "BOAT",
+        "MAN"
+      ],
+      "decoys": [
+        "CAKE",
+        "WHEEL",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-day-light-house-work-horse",
+      "name": "Shadow Orbit",
+      "chain": [
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "MELON",
+        "POST",
+        "SIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-space-ship-yard-work-room",
+      "name": "Brisk Echo",
+      "chain": [
+        "SPACE",
+        "SHIP",
+        "YARD",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "PIT",
+        "PACK",
+        "BOAT"
+      ]
+    },
+    {
+      "id": "closed-v2-tooth-brush-fire-light-house",
+      "name": "Still Ribbon",
+      "chain": [
+        "TOOTH",
+        "BRUSH",
+        "FIRE",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "HILL",
+        "SEA",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-surf-board-walk-out-field",
+      "name": "Quiet Ribbon",
+      "chain": [
+        "SURF",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "SHELF",
+        "DOWN",
+        "BOW"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-work-man",
+      "name": "Winter Pattern",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BIRD",
+        "HOG",
+        "BALL"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-work-horse-fly",
+      "name": "Blue Trail",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "SLIDE",
+        "BEAM",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-side-line-work",
+      "name": "Open Garden",
+      "chain": [
+        "FALL",
+        "OUT",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "SHIP",
+        "SHOE",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-field-work-man",
+      "name": "Winter Voyage",
+      "chain": [
+        "WALK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "MILK",
+        "CLUB",
+        "MILL"
+      ]
+    },
+    {
+      "id": "closed-v2-off-side-walk-out-work",
+      "name": "Indigo Orbit",
+      "chain": [
+        "OFF",
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "PASTE",
+        "PAD",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-line-work-book-mark-down",
+      "name": "Woven Telescope",
+      "chain": [
+        "LINE",
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN"
+      ],
+      "decoys": [
+        "SLIDE",
+        "KEY",
+        "LIFT"
+      ]
+    },
+    {
+      "id": "closed-v2-park-way-side-line-work",
+      "name": "Clever Station",
+      "chain": [
+        "PARK",
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "FISH",
+        "HOLE",
+        "SONG"
+      ]
+    },
+    {
+      "id": "closed-v2-house-work-book-mark-down",
+      "name": "Indigo Window",
+      "chain": [
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN"
+      ],
+      "decoys": [
+        "SHELL",
+        "BED",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-ball-park-side",
+      "name": "Signal Envelope",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BALL",
+        "PARK",
+        "SIDE"
+      ],
+      "decoys": [
+        "BUTTER",
+        "BLACK",
+        "FLOWER"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-back-fire-ball",
+      "name": "Misty Whisper",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "BALL"
+      ],
+      "decoys": [
+        "SHIP",
+        "NUT",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-back-fire-light",
+      "name": "Winter Parade",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "LIGHT"
+      ],
+      "decoys": [
+        "PIN",
+        "RING",
+        "BEAM"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-water-side-bar",
+      "name": "Misty Cipher",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "WATER",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "BERRY",
+        "TEA",
+        "BOAT"
+      ]
+    },
+    {
+      "id": "closed-v2-ground-water-fall-out-side",
+      "name": "Curious Echo",
+      "chain": [
+        "GROUND",
+        "WATER",
+        "FALL",
+        "OUT",
+        "SIDE"
+      ],
+      "decoys": [
+        "SHOP",
+        "MILK",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-work-book-mark-down",
+      "name": "Velvet Cabinet",
+      "chain": [
+        "OUT",
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN"
+      ],
+      "decoys": [
+        "KIND",
+        "CAKE",
+        "PAD"
+      ]
+    },
+    {
+      "id": "closed-v2-sea-shore-line-work-load",
+      "name": "Echoing Registry",
+      "chain": [
+        "SEA",
+        "SHORE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "LIGHT",
+        "BAR",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-head-light-house-boat-load",
+      "name": "Copper Keepsake",
+      "chain": [
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "BOAT",
+        "LOAD"
+      ],
+      "decoys": [
+        "FALL",
+        "SHELF",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-side-walk-out-work-book",
+      "name": "Pocket Orbit",
+      "chain": [
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "SHORE",
+        "PIPE",
+        "FLY"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-work-book",
+      "name": "Curious Keepsake",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "BRUSH",
+        "PIT",
+        "LIP"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-fly-paper-boy",
+      "name": "Distant Ribbon",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BOY"
+      ],
+      "decoys": [
+        "EAR",
+        "ROLL",
+        "MAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-break-water",
+      "name": "Tidal Pattern",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "SHOW",
+        "MARK",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-fire-work-man",
+      "name": "Ivory Cipher",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "LIFE",
+        "STICK",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-work-mate",
+      "name": "Paper Riddle",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "FAST",
+        "MELON",
+        "WHEEL"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-field-work-load",
+      "name": "Wild Meadow",
+      "chain": [
+        "WALK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "BRUSH",
+        "PASTE",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-out-side-show",
+      "name": "Brisk Beacon",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "GROUND",
+        "CUP",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-room-mate",
+      "name": "Copper Parade",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "SIDE",
+        "FALL",
+        "BOY"
+      ]
+    },
+    {
+      "id": "closed-v2-head-light-house-work-man",
+      "name": "Ivory Glimmer",
+      "chain": [
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "SHOW",
+        "WORM",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-day-light-house-fly-wheel",
+      "name": "Distant Monument",
+      "chain": [
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "DRUM",
+        "CHAIR",
+        "HOLE"
+      ]
+    },
+    {
+      "id": "closed-v2-club-house-work-book-worm",
+      "name": "Tidal Garden",
+      "chain": [
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "PARK",
+        "TEA",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-fall-back-yard",
+      "name": "Open Beacon",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "FALL",
+        "BACK",
+        "YARD"
+      ],
+      "decoys": [
+        "BOARD",
+        "SPACE",
+        "STICK"
+      ]
+    },
+    {
+      "id": "closed-v2-back-water-side-walk-way",
+      "name": "Frosted Ribbon",
+      "chain": [
+        "BACK",
+        "WATER",
+        "SIDE",
+        "WALK",
+        "WAY"
+      ],
+      "decoys": [
+        "WORM",
+        "WRECK",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-day-break",
+      "name": "Amber Monument",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "MARK",
+        "PIPE",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-water-fall-out",
+      "name": "Clever Trail",
+      "chain": [
+        "KICK",
+        "BACK",
+        "WATER",
+        "FALL",
+        "OUT"
+      ],
+      "decoys": [
+        "CLUB",
+        "CUP",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-book-case",
+      "name": "Faint Trail",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "PIPE",
+        "PAD",
+        "MILK"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-work-book",
+      "name": "Paper Telescope",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "TIME",
+        "NUT",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-work-horse",
+      "name": "Bright Gallery",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "EAR",
+        "COAT",
+        "BAR"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-side-bar",
+      "name": "Cobalt Riddle",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "MOON",
+        "SPACE",
+        "KICK"
+      ]
+    },
+    {
+      "id": "closed-v2-sun-light-house-work-mate",
+      "name": "Silver Gallery",
+      "chain": [
+        "SUN",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "HOLE",
+        "SHELL",
+        "PAD"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-work-book",
+      "name": "Lucky Current",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "WHEEL",
+        "RIVER",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-field-work-room",
+      "name": "Distant Postcard",
+      "chain": [
+        "FALL",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "UP",
+        "MILL",
+        "STONE"
+      ]
+    },
+    {
+      "id": "closed-v2-park-side-line-work-load",
+      "name": "Frosted Station",
+      "chain": [
+        "PARK",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "DREAM",
+        "NUT",
+        "BOW"
+      ]
+    },
+    {
+      "id": "closed-v2-back-water-fall-out-field",
+      "name": "Clever Thread",
+      "chain": [
+        "BACK",
+        "WATER",
+        "FALL",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "PRINT",
+        "MILL",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-man",
+      "name": "Ivory Puzzle",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "SURF",
+        "POT",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-break-down-fall-back-pack",
+      "name": "Woven Orbit",
+      "chain": [
+        "BREAK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "SIDE",
+        "SEA",
+        "STAR"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-fire-wood",
+      "name": "Lantern Beacon",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "WOOD"
+      ],
+      "decoys": [
+        "MOON",
+        "BANK",
+        "SONG"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-work-book-case",
+      "name": "Winter Puzzle",
+      "chain": [
+        "FISH",
+        "NET",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "LIP",
+        "COAT",
+        "BAG"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-light-house-hold",
+      "name": "Ivory Envelope",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "HOLD"
+      ],
+      "decoys": [
+        "SLIDE",
+        "KEY",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-work-day-break-out-side",
+      "name": "Midnight Bookmark",
+      "chain": [
+        "WORK",
+        "DAY",
+        "BREAK",
+        "OUT",
+        "SIDE"
+      ],
+      "decoys": [
+        "BUTTER",
+        "STAR",
+        "SHIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-book-mark-down-fall-back",
+      "name": "Winter Window",
+      "chain": [
+        "BOOK",
+        "MARK",
+        "DOWN",
+        "FALL",
+        "BACK"
+      ],
+      "decoys": [
+        "STAR",
+        "BOAT",
+        "SONG"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-man",
+      "name": "Frosted Echo",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "MILK",
+        "ACHE",
+        "NOTE"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-work-book-mark-down",
+      "name": "Dusky Lantern",
+      "chain": [
+        "FOOT",
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN"
+      ],
+      "decoys": [
+        "SHINE",
+        "PAD",
+        "NIGHT"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-out-work-shop",
+      "name": "Mosaic Keepsake",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "OUT",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "SHELL",
+        "KEY",
+        "BROW"
+      ]
+    },
+    {
+      "id": "closed-v2-star-fish-net-work-room",
+      "name": "Amber Ribbon",
+      "chain": [
+        "STAR",
+        "FISH",
+        "NET",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BROW",
+        "STICK",
+        "NOTE"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-fire-break-out",
+      "name": "Clever Riddle",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "OUT"
+      ],
+      "decoys": [
+        "FISH",
+        "TAIL",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-work-day-dream",
+      "name": "Signal Keepsake",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "SHINE",
+        "BALL",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-fall-back-fire",
+      "name": "Distant Shelter",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "FALL",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "LINE",
+        "TAIL",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-work-man",
+      "name": "Lantern Meadow",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BIRD",
+        "WAY",
+        "TOOTH"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-work-book",
+      "name": "Pocket Current",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "RIVER",
+        "SHORE",
+        "STAR"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-work-book-shelf",
+      "name": "Lucky Secret",
+      "chain": [
+        "HAND",
+        "OVER",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "BLACK",
+        "BANK",
+        "TOOTH"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-man-kind",
+      "name": "Clever Daydream",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "SEA",
+        "BUTTER",
+        "DOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-space-walk-out-side-show",
+      "name": "Rustic Current",
+      "chain": [
+        "SPACE",
+        "WALK",
+        "OUT",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "GAME",
+        "PIN",
+        "LIP"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-water-side-walk",
+      "name": "Paper Meadow",
+      "chain": [
+        "KICK",
+        "BACK",
+        "WATER",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "MAIL",
+        "EYE",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-cup-board-walk-out-side",
+      "name": "Rustic Crossing",
+      "chain": [
+        "CUP",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "SIDE"
+      ],
+      "decoys": [
+        "POT",
+        "HOLE",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-water-side-bar",
+      "name": "Satin Echo",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "WATER",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "ARM",
+        "LOAD",
+        "SURF"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-day-bed",
+      "name": "Crimson Station",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "WORM",
+        "RAIN",
+        "SONG"
+      ]
+    },
+    {
+      "id": "closed-v2-water-side-line-work-room",
+      "name": "Silent Trail",
+      "chain": [
+        "WATER",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "LIGHT",
+        "BRUSH",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-work-horse-fly-wheel",
+      "name": "Crimson Notebook",
+      "chain": [
+        "FIRE",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "WASH",
+        "SHOW",
+        "WALK"
+      ]
+    },
+    {
+      "id": "closed-v2-drop-kick-back-fire-break",
+      "name": "Ivory Keepsake",
+      "chain": [
+        "DROP",
+        "KICK",
+        "BACK",
+        "FIRE",
+        "BREAK"
+      ],
+      "decoys": [
+        "NUT",
+        "LID",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-side-walk-out-work-man",
+      "name": "Rustic Cipher",
+      "chain": [
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BOW",
+        "WASH",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-shop",
+      "name": "Tidal Harbor",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "BANK",
+        "BREAK",
+        "NIGHT"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-yard-work-day",
+      "name": "Solar Glimmer",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "YARD",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "BALL",
+        "PIN",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-lift-off-side-walk-way",
+      "name": "Distant Notebook",
+      "chain": [
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "WALK",
+        "WAY"
+      ],
+      "decoys": [
+        "BACK",
+        "BAND",
+        "PIT"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-work-book",
+      "name": "Winter Footpath",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "BRUSH",
+        "CLUB",
+        "PAD"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-fast-food",
+      "name": "Wild Orbit",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "FAST",
+        "FOOD"
+      ],
+      "decoys": [
+        "SHOW",
+        "WORM",
+        "PIT"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-water-fall",
+      "name": "Golden Meadow",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "WATER",
+        "FALL"
+      ],
+      "decoys": [
+        "SHAKE",
+        "ROLL",
+        "PIPE"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-fire-light-house",
+      "name": "Amber Footpath",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "MATE",
+        "UP",
+        "OFF"
+      ]
+    },
+    {
+      "id": "closed-v2-shore-line-work-room-mate",
+      "name": "Winter Whisper",
+      "chain": [
+        "SHORE",
+        "LINE",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "TOOTH",
+        "PIN",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-walk-out-field",
+      "name": "Ivory Notebook",
+      "chain": [
+        "UP",
+        "SIDE",
+        "WALK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "NIGHT",
+        "BALL",
+        "ARM"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-day-light",
+      "name": "Frosted Glimmer",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY",
+        "LIGHT"
+      ],
+      "decoys": [
+        "BERRY",
+        "KEY",
+        "LIFT"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-work-room-mate",
+      "name": "Velvet Meadow",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "SHAKE",
+        "WAY",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-shop-lift",
+      "name": "Soft Map",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "SHOP",
+        "LIFT"
+      ],
+      "decoys": [
+        "SONG",
+        "NUT",
+        "SHELF"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-work-day-light",
+      "name": "Echoing Footpath",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "WORK",
+        "DAY",
+        "LIGHT"
+      ],
+      "decoys": [
+        "LIFE",
+        "RING",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-light-house-work-room",
+      "name": "Silver Notebook",
+      "chain": [
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "SHELF",
+        "NIGHT",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-work-room-mate",
+      "name": "Hollow Footpath",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "BAG",
+        "SHINE",
+        "WORM"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-yard-work-load",
+      "name": "Brisk Station",
+      "chain": [
+        "FALL",
+        "BACK",
+        "YARD",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "SHOE",
+        "FLY",
+        "STICK"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-out-work-book",
+      "name": "Crimson Ribbon",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "CHAIR",
+        "BOW",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-lift-off-line-work-room",
+      "name": "Velvet Gallery",
+      "chain": [
+        "LIFT",
+        "OFF",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "MOON",
+        "FISH",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-yard-work-mate",
+      "name": "Winter Waypoint",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "YARD",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "LID",
+        "WOOD",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-butter-fly-paper-work-load",
+      "name": "Indigo Shortcut",
+      "chain": [
+        "BUTTER",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "PASTE",
+        "PARK",
+        "KIND"
+      ]
+    },
+    {
+      "id": "closed-v2-side-line-work-book-mark",
+      "name": "Clouded Telescope",
+      "chain": [
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "MARK"
+      ],
+      "decoys": [
+        "STAR",
+        "SHIP",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-tooth-brush-fire-work-man",
+      "name": "Curious Shortcut",
+      "chain": [
+        "TOOTH",
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "NIGHT",
+        "SHIP",
+        "SEA"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-work-mate",
+      "name": "Indigo Bookmark",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "TEA",
+        "BANK",
+        "SHELF"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-work-horse",
+      "name": "Lantern Waypoint",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "STONE",
+        "HILL",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-work-day",
+      "name": "Cobalt Meadow",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "PACK",
+        "KEY",
+        "SPACE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-day-dream",
+      "name": "Winter Trail",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "HOLD",
+        "SHELL",
+        "SPACE"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-break-out",
+      "name": "Bright Detour",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "OUT"
+      ],
+      "decoys": [
+        "TEA",
+        "UP",
+        "CASE"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-book-mark",
+      "name": "Quiet Echo",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "BOOK",
+        "MARK"
+      ],
+      "decoys": [
+        "SHORE",
+        "WOOD",
+        "WIND"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-fall-back-bone",
+      "name": "Dusky Parade",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "FALL",
+        "BACK",
+        "BONE"
+      ],
+      "decoys": [
+        "SURF",
+        "HOG",
+        "PIPE"
+      ]
+    },
+    {
+      "id": "closed-v2-surf-board-walk-out-work",
+      "name": "Indigo Compass",
+      "chain": [
+        "SURF",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "KICK",
+        "HILL",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-fly-paper",
+      "name": "Shadow Telescope",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "FLOWER",
+        "FAST",
+        "ACHE"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-light-house-fly",
+      "name": "Brisk Crossing",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "FLY"
+      ],
+      "decoys": [
+        "HILL",
+        "DRUM",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-down-fall-out",
+      "name": "Copper Horizon",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "DOWN",
+        "FALL",
+        "OUT"
+      ],
+      "decoys": [
+        "FLY",
+        "KICK",
+        "BAG"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-book-mark-down-hill",
+      "name": "Paper Pattern",
+      "chain": [
+        "HAND",
+        "BOOK",
+        "MARK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "MELON",
+        "RIVER",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-out-work-man",
+      "name": "Frosted Window",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "HOG",
+        "MARK",
+        "LIGHT"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-water-melon",
+      "name": "Distant Voyage",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "TIME",
+        "HORSE",
+        "FIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-walk-out-field",
+      "name": "Mosaic Echo",
+      "chain": [
+        "RING",
+        "SIDE",
+        "WALK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "KICK",
+        "MELON",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-work-shop-lift-off",
+      "name": "Midnight Riddle",
+      "chain": [
+        "OUT",
+        "WORK",
+        "SHOP",
+        "LIFT",
+        "OFF"
+      ],
+      "decoys": [
+        "HOLE",
+        "STICK",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-fire-work-mate",
+      "name": "Solar Cipher",
+      "chain": [
+        "KICK",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "OFF",
+        "BIRD",
+        "GATE"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-down-fall",
+      "name": "Crimson Footpath",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "DOWN",
+        "FALL"
+      ],
+      "decoys": [
+        "CHAIR",
+        "GATE",
+        "FIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-back-fire-work",
+      "name": "Clever Lantern",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK"
+      ],
+      "decoys": [
+        "HOLD",
+        "STAR",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-key-board-walk-out-side",
+      "name": "Quiet Glimmer",
+      "chain": [
+        "KEY",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "SIDE"
+      ],
+      "decoys": [
+        "FLY",
+        "BOAT",
+        "DREAM"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-boat-load",
+      "name": "Crimson Beacon",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "BOAT",
+        "LOAD"
+      ],
+      "decoys": [
+        "DREAM",
+        "NET",
+        "PARK"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-fire-man",
+      "name": "Tidal Registry",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "MAN"
+      ],
+      "decoys": [
+        "BUTTER",
+        "SHELL",
+        "WAY"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-work-book-mark-down",
+      "name": "Paper Beacon",
+      "chain": [
+        "PAPER",
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN"
+      ],
+      "decoys": [
+        "BLACK",
+        "WALK",
+        "BAND"
+      ]
+    },
+    {
+      "id": "closed-v2-sea-shore-line-work-book",
+      "name": "Ivory Mirage",
+      "chain": [
+        "SEA",
+        "SHORE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "HEAD",
+        "FLOWER",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-work-day",
+      "name": "Winter Meadow",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "TEA",
+        "TIME",
+        "UP"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-work-shop-lift",
+      "name": "Indigo Footnote",
+      "chain": [
+        "HAND",
+        "OUT",
+        "WORK",
+        "SHOP",
+        "LIFT"
+      ],
+      "decoys": [
+        "SUN",
+        "CLUB",
+        "BOY"
+      ]
+    },
+    {
+      "id": "closed-v2-star-fish-net-work-horse",
+      "name": "Bright Pocket",
+      "chain": [
+        "STAR",
+        "FISH",
+        "NET",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "SEA",
+        "SLIDE",
+        "STONE"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-light-house-fly-paper",
+      "name": "Open Bookmark",
+      "chain": [
+        "MOON",
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "DROP",
+        "SHORE",
+        "LIFT"
+      ]
+    },
+    {
+      "id": "closed-v2-shop-lift-off-line-work",
+      "name": "Faint Postcard",
+      "chain": [
+        "SHOP",
+        "LIFT",
+        "OFF",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "MAIL",
+        "CUP",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-work-book",
+      "name": "Echoing Orbit",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "WOOD",
+        "FLOWER",
+        "DREAM"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-out-work-day",
+      "name": "Clever Glimmer",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "PIPE",
+        "CUP",
+        "SHIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-day-dream",
+      "name": "Rustic Gallery",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "BOW",
+        "SHELF",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-butter-fly-paper-back-drop",
+      "name": "Echoing Telescope",
+      "chain": [
+        "BUTTER",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "DROP"
+      ],
+      "decoys": [
+        "NUT",
+        "CASE",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-stick-up-side-walk-way",
+      "name": "Brisk Parade",
+      "chain": [
+        "STICK",
+        "UP",
+        "SIDE",
+        "WALK",
+        "WAY"
+      ],
+      "decoys": [
+        "BIRD",
+        "BOAT",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-back-pack-horse",
+      "name": "Paper Echo",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "BACK",
+        "PACK",
+        "HORSE"
+      ],
+      "decoys": [
+        "PASTE",
+        "BERRY",
+        "ROOM"
+      ]
+    },
+    {
+      "id": "closed-v2-mark-down-fall-back-fire",
+      "name": "Cobalt Mirage",
+      "chain": [
+        "MARK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "BOAT",
+        "RIVER",
+        "HEAD"
+      ]
+    },
+    {
+      "id": "closed-v2-book-case-work-day-dream",
+      "name": "Winter Lantern",
+      "chain": [
+        "BOOK",
+        "CASE",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "HOLD",
+        "HEAD",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-ball-park-side-bar",
+      "name": "Ivory Shelter",
+      "chain": [
+        "FIRE",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "STICK",
+        "BIRD",
+        "RIVER"
+      ]
+    },
+    {
+      "id": "closed-v2-line-work-book-case-load",
+      "name": "Indigo Lantern",
+      "chain": [
+        "LINE",
+        "WORK",
+        "BOOK",
+        "CASE",
+        "LOAD"
+      ],
+      "decoys": [
+        "TOWN",
+        "DRUM",
+        "KEY"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-work-day",
+      "name": "Woven Parade",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "FLOWER",
+        "PAD",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-work-day-break-down",
+      "name": "Silver Keepsake",
+      "chain": [
+        "PAPER",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "DOWN"
+      ],
+      "decoys": [
+        "BRUSH",
+        "PAD",
+        "MILL"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-work-day-bed",
+      "name": "Faint Shortcut",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "PRINT",
+        "HEAD",
+        "UP"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-fire-break-water",
+      "name": "Cobalt Bridge",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "SHORE",
+        "SHOE",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-net-ball-park-side-show",
+      "name": "Lucky Gallery",
+      "chain": [
+        "NET",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "TAIL",
+        "FALL",
+        "CASE"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-ball-park-land-mark",
+      "name": "Mellow Shelter",
+      "chain": [
+        "SNOW",
+        "BALL",
+        "PARK",
+        "LAND",
+        "MARK"
+      ],
+      "decoys": [
+        "CUP",
+        "DAY",
+        "BAR"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-book-shelf",
+      "name": "Paper Lantern",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "SHELL",
+        "DOWN",
+        "RIVER"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-man-hole",
+      "name": "Silent Compass",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "BROW",
+        "BANK",
+        "UP"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-day",
+      "name": "North Harbor",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "MELON",
+        "UP",
+        "WORM"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-book-shelf",
+      "name": "Misty Garden",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "HOLD",
+        "HEAD",
+        "KIND"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-work-shop",
+      "name": "Paper Footpath",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "BED",
+        "BOAT",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-side-line-work-book-case",
+      "name": "Shadow Bookmark",
+      "chain": [
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "SURF",
+        "BANK",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-back-yard-work-room-mate",
+      "name": "Shadow Footnote",
+      "chain": [
+        "BACK",
+        "YARD",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "ROLL",
+        "HAND",
+        "OFF"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-back-drop-kick",
+      "name": "Brisk Registry",
+      "chain": [
+        "WATER",
+        "FALL",
+        "BACK",
+        "DROP",
+        "KICK"
+      ],
+      "decoys": [
+        "STONE",
+        "KEY",
+        "HEAD"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-back-drop",
+      "name": "Velvet Voyage",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "DROP"
+      ],
+      "decoys": [
+        "NOTE",
+        "SNOW",
+        "BOARD"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-ball-park-side-walk",
+      "name": "Tidal Footnote",
+      "chain": [
+        "FIRE",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "PACK",
+        "POST",
+        "HOLD"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-book-case-work-day",
+      "name": "Frosted Detour",
+      "chain": [
+        "HAND",
+        "BOOK",
+        "CASE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "SHORE",
+        "BOY",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-work-man-hole",
+      "name": "Clouded Meadow",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "TAIL",
+        "LAND",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-book-shelf",
+      "name": "Blue Shelter",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "CHAIR",
+        "LIGHT",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-tooth-brush-fire-fly-paper",
+      "name": "Satin Cabinet",
+      "chain": [
+        "TOOTH",
+        "BRUSH",
+        "FIRE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "COAT",
+        "PIPE",
+        "POST"
+      ]
+    },
+    {
+      "id": "closed-v2-off-side-line-work-man",
+      "name": "Woven Keepsake",
+      "chain": [
+        "OFF",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "ARM",
+        "SLIDE",
+        "BREAK"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-yard-work",
+      "name": "Lantern Station",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "YARD",
+        "WORK"
+      ],
+      "decoys": [
+        "CUP",
+        "SHELF",
+        "PARK"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-work-load",
+      "name": "Midnight Trail",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "SLIDE",
+        "BOW",
+        "SNOW"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-horse-shoe",
+      "name": "Wild Lantern",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "FAST",
+        "TAIL",
+        "POST"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-fly-paper-back",
+      "name": "Gentle Mirage",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BACK"
+      ],
+      "decoys": [
+        "SHORE",
+        "GATE",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-work-horse-shoe",
+      "name": "Mellow Lantern",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "MARK",
+        "SNOW",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-down-hill",
+      "name": "Brisk Current",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "TAIL",
+        "ACHE",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-day-break",
+      "name": "Mellow Telescope",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "BLACK",
+        "PACK",
+        "BOW"
+      ]
+    },
+    {
+      "id": "closed-v2-shop-lift-off-side-walk",
+      "name": "Hidden Bookmark",
+      "chain": [
+        "SHOP",
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "HOUSE",
+        "SHINE",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-work-shop",
+      "name": "Silent Echo",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "CHAIR",
+        "PASTE",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-work-man-hole",
+      "name": "Clever Window",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "LIGHT",
+        "LID",
+        "OFF"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-walk-out-work",
+      "name": "Woven Puzzle",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "HOG",
+        "WHEEL",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-yard-work-horse-fly-wheel",
+      "name": "Brisk Footnote",
+      "chain": [
+        "YARD",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "STICK",
+        "WAY",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-line-work-day-break-fast",
+      "name": "Midnight Telescope",
+      "chain": [
+        "LINE",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "FAST"
+      ],
+      "decoys": [
+        "SUN",
+        "SLIDE",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-field-work-horse",
+      "name": "Lantern Keepsake",
+      "chain": [
+        "WALK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "BAG",
+        "SHAKE",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-work-book-shelf",
+      "name": "Solar Gallery",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "SURF",
+        "NUT",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-side-bar",
+      "name": "Solar Echo",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "BERRY",
+        "LIP",
+        "COAT"
+      ]
+    },
+    {
+      "id": "closed-v2-over-work-horse-fly-wheel",
+      "name": "Misty Footnote",
+      "chain": [
+        "OVER",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "GAME",
+        "SHELL",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-work-man",
+      "name": "Solar Trail",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "EYE",
+        "SHOW",
+        "LIFT"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-work-day-bed",
+      "name": "Golden Notebook",
+      "chain": [
+        "FISH",
+        "NET",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "ROLL",
+        "COAT",
+        "PIT"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-fire-work-horse",
+      "name": "Rustic Notebook",
+      "chain": [
+        "KICK",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "RIVER",
+        "WASH",
+        "SEA"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-man-hole",
+      "name": "Distant Trail",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "HOLD",
+        "TIME",
+        "MELON"
+      ]
+    },
+    {
+      "id": "closed-v2-lift-off-side-walk-out",
+      "name": "Curious Thread",
+      "chain": [
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "BACK",
+        "SHAKE",
+        "WORM"
+      ]
+    },
+    {
+      "id": "closed-v2-break-water-side-walk-way",
+      "name": "Crimson Meadow",
+      "chain": [
+        "BREAK",
+        "WATER",
+        "SIDE",
+        "WALK",
+        "WAY"
+      ],
+      "decoys": [
+        "SEA",
+        "TAIL",
+        "SHOP"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-side-show",
+      "name": "Curious Garden",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "BOAT",
+        "POST",
+        "WHEEL"
+      ]
+    },
+    {
+      "id": "closed-v2-bag-pipe-line-work-man",
+      "name": "Secret Parade",
+      "chain": [
+        "BAG",
+        "PIPE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "FALL",
+        "SONG",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-water-side-bar",
+      "name": "Dusky Echo",
+      "chain": [
+        "FALL",
+        "BACK",
+        "WATER",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "GATE",
+        "ACHE",
+        "DREAM"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-head-wind-surf",
+      "name": "Midnight Shelter",
+      "chain": [
+        "HAND",
+        "OVER",
+        "HEAD",
+        "WIND",
+        "SURF"
+      ],
+      "decoys": [
+        "PIPE",
+        "WRECK",
+        "TOOTH"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-work-day-light",
+      "name": "Clever Keepsake",
+      "chain": [
+        "HAND",
+        "OVER",
+        "WORK",
+        "DAY",
+        "LIGHT"
+      ],
+      "decoys": [
+        "GATE",
+        "FISH",
+        "FALL"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-work-book-shelf",
+      "name": "Frosted Riddle",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "CAKE",
+        "WASH",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-work-load",
+      "name": "Winter Thread",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "KEY",
+        "BERRY",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-house-work-day-break-water",
+      "name": "Pocket Detour",
+      "chain": [
+        "HOUSE",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "BONE",
+        "SLIDE",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-way-side-show",
+      "name": "Winding Thread",
+      "chain": [
+        "MOON",
+        "WALK",
+        "WAY",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "PRINT",
+        "BIRD",
+        "PAPER"
+      ]
+    },
+    {
+      "id": "closed-v2-note-book-case-work-day",
+      "name": "Velvet Trail",
+      "chain": [
+        "NOTE",
+        "BOOK",
+        "CASE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "WAY",
+        "DRUM",
+        "BOAT"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-work-man",
+      "name": "Echoing Signal",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "SPACE",
+        "BAND",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-load",
+      "name": "Still Signal",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "RAIN",
+        "BED",
+        "BREAK"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-water-side-bar",
+      "name": "Lucky Thread",
+      "chain": [
+        "KICK",
+        "BACK",
+        "WATER",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "CASE",
+        "HAND",
+        "CLUB"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-book",
+      "name": "Wild Current",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "BED",
+        "MOON",
+        "WIND"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-work-mate",
+      "name": "Shadow Keepsake",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "ARM",
+        "FALL",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-light-house-work-man",
+      "name": "Soft Telescope",
+      "chain": [
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "CHAIR",
+        "POT",
+        "HILL"
+      ]
+    },
+    {
+      "id": "closed-v2-shop-lift-off-side-show",
+      "name": "Mosaic Pattern",
+      "chain": [
+        "SHOP",
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "ARM",
+        "ROLL",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-fire-light",
+      "name": "Velvet Footpath",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "LIGHT"
+      ],
+      "decoys": [
+        "ROOM",
+        "FOOD",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-bag-pipe-line-work-book",
+      "name": "Soft Ribbon",
+      "chain": [
+        "BAG",
+        "PIPE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "CLUB",
+        "HEAD",
+        "GROUND"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-book-shelf",
+      "name": "Winter Footnote",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "BUTTER",
+        "BOARD",
+        "FALL"
+      ]
+    },
+    {
+      "id": "closed-v2-space-walk-out-work-mate",
+      "name": "Wild Bookmark",
+      "chain": [
+        "SPACE",
+        "WALK",
+        "OUT",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "UP",
+        "BAG",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-boat-man-hole",
+      "name": "Copper Riddle",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "BOAT",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "BOW",
+        "HOG",
+        "BOY"
+      ]
+    },
+    {
+      "id": "closed-v2-over-work-day-break-water",
+      "name": "Brisk Signal",
+      "chain": [
+        "OVER",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "BALL",
+        "HOLD",
+        "WORM"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-water-melon",
+      "name": "Pocket Pattern",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "ROLL",
+        "BOOK",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-horse-shoe",
+      "name": "Hidden Notebook",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "RING",
+        "OFF",
+        "HOG"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-field-work-book",
+      "name": "Hidden Trail",
+      "chain": [
+        "HAND",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "BIRD",
+        "BRUSH",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-star-ship-yard-work-horse",
+      "name": "Faint Parade",
+      "chain": [
+        "STAR",
+        "SHIP",
+        "YARD",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "CLUB",
+        "SEA",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-club-house-work-room-mate",
+      "name": "Echoing Footnote",
+      "chain": [
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "NUT",
+        "BLACK",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-work-horse",
+      "name": "Curious Voyage",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "BROW",
+        "PIN",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-fast-food",
+      "name": "Mellow Ribbon",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "FAST",
+        "FOOD"
+      ],
+      "decoys": [
+        "NUT",
+        "CLUB",
+        "BOOK"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-work-horse",
+      "name": "Still Registry",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "KIND",
+        "BOW",
+        "FLOWER"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-book-case",
+      "name": "Wild Crossing",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "CAKE",
+        "BAND",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-shop",
+      "name": "Midnight Map",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "PIT",
+        "ROLL",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-man-hole",
+      "name": "Brisk Secret",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "BUTTER",
+        "SHIP",
+        "MELON"
+      ]
+    },
+    {
+      "id": "closed-v2-yard-work-day-break-out",
+      "name": "Curious Crossing",
+      "chain": [
+        "YARD",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "OUT"
+      ],
+      "decoys": [
+        "POST",
+        "SEA",
+        "KEY"
+      ]
+    },
+    {
+      "id": "closed-v2-back-yard-work-day-dream",
+      "name": "Winding Voyage",
+      "chain": [
+        "BACK",
+        "YARD",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "FLOWER",
+        "POT",
+        "FLY"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-fire-break-water",
+      "name": "Open Meadow",
+      "chain": [
+        "KICK",
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "BOW",
+        "SONG",
+        "HOG"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-ball-game",
+      "name": "Satin Signal",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "BALL",
+        "GAME"
+      ],
+      "decoys": [
+        "SHIP",
+        "COAT",
+        "BAND"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-back-fire-man",
+      "name": "Mellow Shortcut",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "MAN"
+      ],
+      "decoys": [
+        "DAY",
+        "MOON",
+        "MAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-off-line-work-book-case",
+      "name": "Silver Secret",
+      "chain": [
+        "OFF",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "RIVER",
+        "HOLD",
+        "WRECK"
+      ]
+    },
+    {
+      "id": "closed-v2-black-bird-house-work-man",
+      "name": "Open Postcard",
+      "chain": [
+        "BLACK",
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "DOWN",
+        "SURF",
+        "MARK"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-out-work-book",
+      "name": "Echoing Detour",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "LIP",
+        "CHAIR",
+        "HILL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-light-house-work-day",
+      "name": "Winding Gallery",
+      "chain": [
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "BLACK",
+        "ACHE",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-out-field-work",
+      "name": "Indigo Pattern",
+      "chain": [
+        "MOON",
+        "WALK",
+        "OUT",
+        "FIELD",
+        "WORK"
+      ],
+      "decoys": [
+        "STICK",
+        "NUT",
+        "WORM"
+      ]
+    },
+    {
+      "id": "closed-v2-off-shore-line-work-load",
+      "name": "Faint Archive",
+      "chain": [
+        "OFF",
+        "SHORE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "MOON",
+        "KEY",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-ball-park-side-bar",
+      "name": "Woven Crossing",
+      "chain": [
+        "HAND",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "SHOE",
+        "LIP",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-out-work-room",
+      "name": "Midnight Footpath",
+      "chain": [
+        "MOON",
+        "WALK",
+        "OUT",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BONE",
+        "TIME",
+        "HEAD"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-day-break",
+      "name": "Lantern Harbor",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "GROUND",
+        "SONG",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-star-board-walk-out-field",
+      "name": "Copper Bookmark",
+      "chain": [
+        "STAR",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "POT",
+        "SUN",
+        "MELON"
+      ]
+    },
+    {
+      "id": "closed-v2-walk-out-work-room-mate",
+      "name": "Satin Ribbon",
+      "chain": [
+        "WALK",
+        "OUT",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "FLY",
+        "PARK",
+        "OFF"
+      ]
+    },
+    {
+      "id": "closed-v2-wash-board-walk-way-side",
+      "name": "Copper Cipher",
+      "chain": [
+        "WASH",
+        "BOARD",
+        "WALK",
+        "WAY",
+        "SIDE"
+      ],
+      "decoys": [
+        "CHAIR",
+        "BOW",
+        "MARK"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-water-side-line",
+      "name": "Secret Gallery",
+      "chain": [
+        "FALL",
+        "BACK",
+        "WATER",
+        "SIDE",
+        "LINE"
+      ],
+      "decoys": [
+        "TIME",
+        "MATE",
+        "DAY"
+      ]
+    },
+    {
+      "id": "closed-v2-over-work-book-case-load",
+      "name": "Clouded Passage",
+      "chain": [
+        "OVER",
+        "WORK",
+        "BOOK",
+        "CASE",
+        "LOAD"
+      ],
+      "decoys": [
+        "DRUM",
+        "PACK",
+        "FLY"
+      ]
+    },
+    {
+      "id": "closed-v2-over-work-horse-fly-paper",
+      "name": "Golden Detour",
+      "chain": [
+        "OVER",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "MAIL",
+        "TAIL",
+        "SONG"
+      ]
+    },
+    {
+      "id": "closed-v2-house-fly-paper-back-drop",
+      "name": "Rustic Lantern",
+      "chain": [
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "DROP"
+      ],
+      "decoys": [
+        "HAND",
+        "RIVER",
+        "PARK"
+      ]
+    },
+    {
+      "id": "closed-v2-net-work-horse-fly-paper",
+      "name": "Signal Current",
+      "chain": [
+        "NET",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "BRUSH",
+        "DROP",
+        "LIGHT"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-back-fire-man",
+      "name": "Blue Voyage",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "MAN"
+      ],
+      "decoys": [
+        "LAND",
+        "MELON",
+        "OVER"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-ball-park-land-mark",
+      "name": "Copper Orbit",
+      "chain": [
+        "HAND",
+        "BALL",
+        "PARK",
+        "LAND",
+        "MARK"
+      ],
+      "decoys": [
+        "KIND",
+        "SEA",
+        "KEY"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-ball-park-way-side",
+      "name": "Faint Pocket",
+      "chain": [
+        "HAND",
+        "BALL",
+        "PARK",
+        "WAY",
+        "SIDE"
+      ],
+      "decoys": [
+        "LIFE",
+        "HILL",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-fire-fly-wheel",
+      "name": "Crimson Envelope",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "FIRE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "STAR",
+        "SONG",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-work-load",
+      "name": "Woven Postcard",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "GATE",
+        "CLUB",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-head-light-house-boat-man",
+      "name": "Rustic Pattern",
+      "chain": [
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "BOAT",
+        "MAN"
+      ],
+      "decoys": [
+        "HAND",
+        "SHOW",
+        "OFF"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-field-work",
+      "name": "Lantern Lantern",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "FIELD",
+        "WORK"
+      ],
+      "decoys": [
+        "TOOTH",
+        "BEAM",
+        "FOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-back-yard-work-room",
+      "name": "Midnight Footnote",
+      "chain": [
+        "PAPER",
+        "BACK",
+        "YARD",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "CAKE",
+        "HAND",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-sun-light-house-work-load",
+      "name": "Still Lantern",
+      "chain": [
+        "SUN",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "PIPE",
+        "WHEEL",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-work-shop-lift-off",
+      "name": "Lantern Cipher",
+      "chain": [
+        "FOOT",
+        "WORK",
+        "SHOP",
+        "LIFT",
+        "OFF"
+      ],
+      "decoys": [
+        "MAIL",
+        "BAG",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-side-line-work-man-hole",
+      "name": "North Secret",
+      "chain": [
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "DREAM",
+        "BOARD",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-head-light-house",
+      "name": "Solar Telescope",
+      "chain": [
+        "HAND",
+        "OVER",
+        "HEAD",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "FOOT",
+        "LID",
+        "SURF"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-day-bed",
+      "name": "Clouded Mirage",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "BLACK",
+        "BANK",
+        "FLOWER"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-back-pack-horse",
+      "name": "Paper Orbit",
+      "chain": [
+        "WATER",
+        "FALL",
+        "BACK",
+        "PACK",
+        "HORSE"
+      ],
+      "decoys": [
+        "DREAM",
+        "POST",
+        "EYE"
+      ]
+    },
+    {
+      "id": "closed-v2-shore-line-work-book-worm",
+      "name": "Signal Cipher",
+      "chain": [
+        "SHORE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "BROW",
+        "MAIL",
+        "BREAK"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-out-work-horse",
+      "name": "Hollow Crossing",
+      "chain": [
+        "MOON",
+        "WALK",
+        "OUT",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "GAME",
+        "RIVER",
+        "BED"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-ball-park-side-show",
+      "name": "Misty Orbit",
+      "chain": [
+        "HAND",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "BIRD",
+        "SHINE",
+        "SHIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-work-book-worm",
+      "name": "Rustic Voyage",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "ACHE",
+        "HOLE",
+        "UP"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-fire-man-hole",
+      "name": "Distant Waypoint",
+      "chain": [
+        "KICK",
+        "BACK",
+        "FIRE",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "FOOT",
+        "WIND",
+        "STAR"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-ball-room-mate",
+      "name": "North Puzzle",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BALL",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "MAIL",
+        "SHELF",
+        "BOOK"
+      ]
+    },
+    {
+      "id": "closed-v2-surf-board-walk-out-side",
+      "name": "Winding Daydream",
+      "chain": [
+        "SURF",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "SIDE"
+      ],
+      "decoys": [
+        "BAG",
+        "SUN",
+        "BLACK"
+      ]
+    },
+    {
+      "id": "closed-v2-off-shore-line-man-kind",
+      "name": "Shadow Passage",
+      "chain": [
+        "OFF",
+        "SHORE",
+        "LINE",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "LAND",
+        "RAIN",
+        "SPACE"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-book-worm",
+      "name": "Faint Whisper",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "BOAT",
+        "NIGHT",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-ball-park-way-side-walk",
+      "name": "Soft Orbit",
+      "chain": [
+        "BALL",
+        "PARK",
+        "WAY",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "PIT",
+        "KEY",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-star-ship-yard-work-man",
+      "name": "Misty Gallery",
+      "chain": [
+        "STAR",
+        "SHIP",
+        "YARD",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "WATER",
+        "BRUSH",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-mark-down-fall-out-field",
+      "name": "Clever Archive",
+      "chain": [
+        "MARK",
+        "DOWN",
+        "FALL",
+        "OUT",
+        "FIELD"
+      ],
+      "decoys": [
+        "SUN",
+        "SEA",
+        "KIND"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-light-house-work-day",
+      "name": "Bright Voyage",
+      "chain": [
+        "MOON",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "WAY",
+        "SHIP",
+        "BONE"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-fire-ball-room",
+      "name": "Midnight Window",
+      "chain": [
+        "KICK",
+        "BACK",
+        "FIRE",
+        "BALL",
+        "ROOM"
+      ],
+      "decoys": [
+        "SHINE",
+        "OFF",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-over-board-walk-way-side",
+      "name": "Open Passage",
+      "chain": [
+        "OVER",
+        "BOARD",
+        "WALK",
+        "WAY",
+        "SIDE"
+      ],
+      "decoys": [
+        "SHELF",
+        "EAR",
+        "WRECK"
+      ]
+    },
+    {
+      "id": "closed-v2-net-ball-park-side-bar",
+      "name": "Wild Glimmer",
+      "chain": [
+        "NET",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "RIVER",
+        "LID",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-fast-ball",
+      "name": "Woven Bookmark",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "FAST",
+        "BALL"
+      ],
+      "decoys": [
+        "SPACE",
+        "KIND",
+        "BEAM"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-out-field-work",
+      "name": "Amber Shortcut",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "OUT",
+        "FIELD",
+        "WORK"
+      ],
+      "decoys": [
+        "GROUND",
+        "MILL",
+        "SHELF"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-side-walk",
+      "name": "Gentle Glimmer",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "LAND",
+        "BOW",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-chair-lift-off-side-line",
+      "name": "Ivory Gallery",
+      "chain": [
+        "CHAIR",
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "LINE"
+      ],
+      "decoys": [
+        "HOG",
+        "FOOT",
+        "CLUB"
+      ]
+    },
+    {
+      "id": "closed-v2-break-water-fall-out-work",
+      "name": "Misty Echo",
+      "chain": [
+        "BREAK",
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "NUT",
+        "EYE",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-fire-break",
+      "name": "North Daydream",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "BREAK"
+      ],
+      "decoys": [
+        "BANK",
+        "TOWN",
+        "RING"
+      ]
+    },
+    {
+      "id": "closed-v2-butter-fly-paper-work-man",
+      "name": "Rustic Horizon",
+      "chain": [
+        "BUTTER",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BAND",
+        "SPACE",
+        "SHOW"
+      ]
+    },
+    {
+      "id": "closed-v2-break-down-fall-back-water",
+      "name": "Winter Envelope",
+      "chain": [
+        "BREAK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "WATER"
+      ],
+      "decoys": [
+        "LOAD",
+        "SHOW",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-shore-line-work-day-dream",
+      "name": "Echoing Garden",
+      "chain": [
+        "SHORE",
+        "LINE",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "LAND",
+        "BLACK",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-fast-ball",
+      "name": "Misty Parade",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "FAST",
+        "BALL"
+      ],
+      "decoys": [
+        "FISH",
+        "PRINT",
+        "KEY"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-light-house-fly",
+      "name": "Indigo Glimmer",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "FLY"
+      ],
+      "decoys": [
+        "GATE",
+        "SLIDE",
+        "RAIN"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-work-mate",
+      "name": "Crimson Thread",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "WRECK",
+        "TAIL",
+        "SNOW"
+      ]
+    },
+    {
+      "id": "closed-v2-ground-water-side-line-work",
+      "name": "Wild Archive",
+      "chain": [
+        "GROUND",
+        "WATER",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "WRECK",
+        "TIME",
+        "SURF"
+      ]
+    },
+    {
+      "id": "closed-v2-star-fish-net-work-day",
+      "name": "Ivory Footpath",
+      "chain": [
+        "STAR",
+        "FISH",
+        "NET",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "SIDE",
+        "WHEEL",
+        "SURF"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-out-work-load",
+      "name": "Ivory Whisper",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "OUT",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "CUP",
+        "TOOTH",
+        "SHELF"
+      ]
+    },
+    {
+      "id": "closed-v2-book-case-work-horse-fly",
+      "name": "Quiet Bridge",
+      "chain": [
+        "BOOK",
+        "CASE",
+        "WORK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "WASH",
+        "SEA",
+        "PIT"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-yard-work-mate",
+      "name": "Cobalt Gallery",
+      "chain": [
+        "KICK",
+        "BACK",
+        "YARD",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "CHAIR",
+        "HOLE",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-back-yard-work",
+      "name": "Winding Keepsake",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "BACK",
+        "YARD",
+        "WORK"
+      ],
+      "decoys": [
+        "LID",
+        "SURF",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-work-book-case",
+      "name": "Soft Cabinet",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "WIND",
+        "BED",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-paper-work-day-break-fast",
+      "name": "Quiet Gallery",
+      "chain": [
+        "PAPER",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "FAST"
+      ],
+      "decoys": [
+        "UP",
+        "BOW",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-work-man-kind",
+      "name": "Solar Compass",
+      "chain": [
+        "HAND",
+        "OUT",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "BED",
+        "HOG",
+        "HILL"
+      ]
+    },
+    {
+      "id": "closed-v2-sun-light-house-work-horse",
+      "name": "Clever Shortcut",
+      "chain": [
+        "SUN",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "PARK",
+        "KICK",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-break-water-fall",
+      "name": "Frosted Meadow",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "WATER",
+        "FALL"
+      ],
+      "decoys": [
+        "TOWN",
+        "WIND",
+        "SHOW"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-light-house-work-mate",
+      "name": "Cobalt Lantern",
+      "chain": [
+        "MOON",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "POT",
+        "BALL",
+        "NIGHT"
+      ]
+    },
+    {
+      "id": "closed-v2-sea-shore-line-work-room",
+      "name": "Curious Shelter",
+      "chain": [
+        "SEA",
+        "SHORE",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "RING",
+        "KIND",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-eye-ball-park-side-show",
+      "name": "Paper Trail",
+      "chain": [
+        "EYE",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "BACK",
+        "CAKE",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-work-day-light-house",
+      "name": "Tidal Bridge",
+      "chain": [
+        "FOOT",
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "ARM",
+        "MAIL",
+        "RIVER"
+      ]
+    },
+    {
+      "id": "closed-v2-break-down-fall-back-fire",
+      "name": "Soft Gallery",
+      "chain": [
+        "BREAK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "EYE",
+        "RING",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-ball-park-way-side-show",
+      "name": "Distant Riddle",
+      "chain": [
+        "BALL",
+        "PARK",
+        "WAY",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "BLACK",
+        "STAR",
+        "BOARD"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-line-work-book",
+      "name": "Mellow Cabinet",
+      "chain": [
+        "UP",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "BANK",
+        "SURF",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-light-house-work-load",
+      "name": "Cobalt Ribbon",
+      "chain": [
+        "MOON",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "PASTE",
+        "DRUM",
+        "KICK"
+      ]
+    },
+    {
+      "id": "closed-v2-net-work-day-light-house",
+      "name": "North Orbit",
+      "chain": [
+        "NET",
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "TIME",
+        "MILL",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-house-fly-paper-back-fire",
+      "name": "Misty Lantern",
+      "chain": [
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "NOTE",
+        "EYE",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-work-load",
+      "name": "Solar Orbit",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "POST",
+        "CUP",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-star-light-house-work-book",
+      "name": "Gentle Whisper",
+      "chain": [
+        "STAR",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "GATE",
+        "LIFT",
+        "GAME"
+      ]
+    },
+    {
+      "id": "closed-v2-book-case-work-man-kind",
+      "name": "Lucky Echo",
+      "chain": [
+        "BOOK",
+        "CASE",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "ROLL",
+        "HOLD",
+        "STICK"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-out-work",
+      "name": "Bright Footnote",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "SHIELD",
+        "PRINT",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-yard-work-man",
+      "name": "Silent Meadow",
+      "chain": [
+        "KICK",
+        "BACK",
+        "YARD",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "STAR",
+        "DRUM",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-work-mate",
+      "name": "Indigo Map",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "BED",
+        "PACK",
+        "MILL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-work-horse",
+      "name": "Woven Monument",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "BLACK",
+        "PARK",
+        "RING"
+      ]
+    },
+    {
+      "id": "closed-v2-lift-off-line-work-shop",
+      "name": "Lucky Crossing",
+      "chain": [
+        "LIFT",
+        "OFF",
+        "LINE",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "SHINE",
+        "POT",
+        "BLACK"
+      ]
+    },
+    {
+      "id": "closed-v2-book-case-work-horse-shoe",
+      "name": "Echoing Keepsake",
+      "chain": [
+        "BOOK",
+        "CASE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "MELON",
+        "LID",
+        "HOLE"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-ball-park-side-show",
+      "name": "Lucky Trail",
+      "chain": [
+        "FIRE",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "CLUB",
+        "HILL",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-yard-work-day-break-fast",
+      "name": "Pocket Mirage",
+      "chain": [
+        "YARD",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "FAST"
+      ],
+      "decoys": [
+        "EAR",
+        "RAIN",
+        "WASH"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-water-side",
+      "name": "Signal Horizon",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "WATER",
+        "SIDE"
+      ],
+      "decoys": [
+        "BOAT",
+        "MILK",
+        "STAR"
+      ]
+    },
+    {
+      "id": "closed-v2-cup-board-walk-out-work",
+      "name": "Distant Garden",
+      "chain": [
+        "CUP",
+        "BOARD",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "MARK",
+        "SHOE",
+        "BACK"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-horse-shoe",
+      "name": "Golden Riddle",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "CAKE",
+        "COAT",
+        "SEA"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-work-horse-fly-paper",
+      "name": "Distant Footnote",
+      "chain": [
+        "FIRE",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "NUT",
+        "BONE",
+        "PIT"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-back-water-side",
+      "name": "Open Daydream",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "BACK",
+        "WATER",
+        "SIDE"
+      ],
+      "decoys": [
+        "SHIP",
+        "BUTTER",
+        "OVER"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-book-worm",
+      "name": "Woven Archive",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "STAR",
+        "EAR",
+        "DREAM"
+      ]
+    },
+    {
+      "id": "closed-v2-club-house-work-horse-shoe",
+      "name": "Hollow Meadow",
+      "chain": [
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "WIND",
+        "WASH",
+        "MARK"
+      ]
+    },
+    {
+      "id": "closed-v2-side-line-work-day-break",
+      "name": "Cobalt Pattern",
+      "chain": [
+        "SIDE",
+        "LINE",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "CLUB",
+        "POST",
+        "PAD"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-drop-kick-back-pack",
+      "name": "Satin Pattern",
+      "chain": [
+        "RAIN",
+        "DROP",
+        "KICK",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "HILL",
+        "PIN",
+        "LOAD"
+      ]
+    },
+    {
+      "id": "closed-v2-shore-line-work-book-shelf",
+      "name": "Amber Riddle",
+      "chain": [
+        "SHORE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "SHELF"
+      ],
+      "decoys": [
+        "GAME",
+        "NUT",
+        "ACHE"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-note-book-case-work",
+      "name": "Woven Shelter",
+      "chain": [
+        "FOOT",
+        "NOTE",
+        "BOOK",
+        "CASE",
+        "WORK"
+      ],
+      "decoys": [
+        "BERRY",
+        "POST",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-way-side-bar",
+      "name": "Paper Voyage",
+      "chain": [
+        "MOON",
+        "WALK",
+        "WAY",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "GAME",
+        "LID",
+        "CUP"
+      ]
+    },
+    {
+      "id": "closed-v2-side-walk-out-work-horse",
+      "name": "Solar Pattern",
+      "chain": [
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "BONE",
+        "FOOD",
+        "HOLE"
+      ]
+    },
+    {
+      "id": "closed-v2-out-work-day-light-house",
+      "name": "Signal Footpath",
+      "chain": [
+        "OUT",
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "HILL",
+        "SHELL",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-fly-paper-back",
+      "name": "Curious Station",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BACK"
+      ],
+      "decoys": [
+        "SURF",
+        "BREAK",
+        "RIVER"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-field-work-shop",
+      "name": "Gentle Ribbon",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "TOOTH",
+        "PRINT",
+        "STONE"
+      ]
+    },
+    {
+      "id": "closed-v2-horse-fly-paper-back-fire",
+      "name": "Silver Bridge",
+      "chain": [
+        "HORSE",
+        "FLY",
+        "PAPER",
+        "BACK",
+        "FIRE"
+      ],
+      "decoys": [
+        "SLIDE",
+        "SHIP",
+        "SEA"
+      ]
+    },
+    {
+      "id": "closed-v2-star-ship-yard-work-room",
+      "name": "Rustic Shelter",
+      "chain": [
+        "STAR",
+        "SHIP",
+        "YARD",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "KEY",
+        "BERRY",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-side-walk-out-work-shop",
+      "name": "Rustic Envelope",
+      "chain": [
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "LIP",
+        "BROW",
+        "LAND"
+      ]
+    },
+    {
+      "id": "closed-v2-head-light-house-fly-paper",
+      "name": "Quiet Notebook",
+      "chain": [
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "YARD",
+        "SHELF",
+        "BRUSH"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-work-mate",
+      "name": "Winding Crossing",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "HILL",
+        "SONG",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-tooth-brush-fire-break-fast",
+      "name": "Satin Parade",
+      "chain": [
+        "TOOTH",
+        "BRUSH",
+        "FIRE",
+        "BREAK",
+        "FAST"
+      ],
+      "decoys": [
+        "LINE",
+        "SURF",
+        "LOAD"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-man-kind",
+      "name": "Mosaic Compass",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "PACK",
+        "PIN",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-side-walk-out-field-work",
+      "name": "Echoing Puzzle",
+      "chain": [
+        "SIDE",
+        "WALK",
+        "OUT",
+        "FIELD",
+        "WORK"
+      ],
+      "decoys": [
+        "DOWN",
+        "BOW",
+        "BRUSH"
+      ]
+    },
+    {
+      "id": "closed-v2-out-field-work-day-light",
+      "name": "Lucky Postcard",
+      "chain": [
+        "OUT",
+        "FIELD",
+        "WORK",
+        "DAY",
+        "LIGHT"
+      ],
+      "decoys": [
+        "FLY",
+        "UP",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-day-light-house-work-man",
+      "name": "Quiet Cabinet",
+      "chain": [
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "DROP",
+        "BUTTER",
+        "BROW"
+      ]
+    },
+    {
+      "id": "closed-v2-sun-light-house-fly-wheel",
+      "name": "Velvet Bookmark",
+      "chain": [
+        "SUN",
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "WHEEL"
+      ],
+      "decoys": [
+        "LIFT",
+        "MAIL",
+        "BOOK"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-water-fall",
+      "name": "Hollow Secret",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "WATER",
+        "FALL"
+      ],
+      "decoys": [
+        "LID",
+        "SHOP",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-mark-down-fall-back-pack",
+      "name": "Echoing Current",
+      "chain": [
+        "MARK",
+        "DOWN",
+        "FALL",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "WASH",
+        "BAND",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-back-water-melon",
+      "name": "Bright Beacon",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "BACK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "OFF",
+        "BAR",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-drop-kick-back-fire-work",
+      "name": "Open Archive",
+      "chain": [
+        "DROP",
+        "KICK",
+        "BACK",
+        "FIRE",
+        "WORK"
+      ],
+      "decoys": [
+        "TAIL",
+        "STICK",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-night-club-house-boat-load",
+      "name": "Mosaic Pocket",
+      "chain": [
+        "NIGHT",
+        "CLUB",
+        "HOUSE",
+        "BOAT",
+        "LOAD"
+      ],
+      "decoys": [
+        "CUP",
+        "UP",
+        "BAG"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-work-day-break",
+      "name": "Ivory Waypoint",
+      "chain": [
+        "HAND",
+        "OVER",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "DRUM",
+        "LIP",
+        "STONE"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-work-book-case-load",
+      "name": "Frosted Secret",
+      "chain": [
+        "FIRE",
+        "WORK",
+        "BOOK",
+        "CASE",
+        "LOAD"
+      ],
+      "decoys": [
+        "PIT",
+        "MELON",
+        "CLUB"
+      ]
+    },
+    {
+      "id": "closed-v2-day-break-out-work-load",
+      "name": "Signal Bridge",
+      "chain": [
+        "DAY",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "BRUSH",
+        "RIVER",
+        "GROUND"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-fly-paper-boy",
+      "name": "Soft Postcard",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "BOY"
+      ],
+      "decoys": [
+        "TAIL",
+        "PIPE",
+        "SURF"
+      ]
+    },
+    {
+      "id": "closed-v2-work-horse-fly-paper-back",
+      "name": "Clever Echo",
+      "chain": [
+        "WORK",
+        "HORSE",
+        "FLY",
+        "PAPER",
+        "BACK"
+      ],
+      "decoys": [
+        "BANK",
+        "TAIL",
+        "NOTE"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-day-dream",
+      "name": "Blue Postcard",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "PARK",
+        "WORM",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-back-yard-work-day-bed",
+      "name": "Faint Lantern",
+      "chain": [
+        "BACK",
+        "YARD",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "BERRY",
+        "HOG",
+        "BAND"
+      ]
+    },
+    {
+      "id": "closed-v2-chair-lift-off-line-work",
+      "name": "Mosaic Gallery",
+      "chain": [
+        "CHAIR",
+        "LIFT",
+        "OFF",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "CLUB",
+        "POT",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-work-man-kind",
+      "name": "Soft Horizon",
+      "chain": [
+        "FALL",
+        "OUT",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "TEA",
+        "SEA",
+        "MOON"
+      ]
+    },
+    {
+      "id": "closed-v2-field-work-day-break-water",
+      "name": "Indigo Voyage",
+      "chain": [
+        "FIELD",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "WATER"
+      ],
+      "decoys": [
+        "HILL",
+        "SURF",
+        "WIND"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-out-work-shop",
+      "name": "Gentle Passage",
+      "chain": [
+        "MOON",
+        "WALK",
+        "OUT",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "DOWN",
+        "WOOD",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-case-work-horse-fly-paper",
+      "name": "Clouded Postcard",
+      "chain": [
+        "CASE",
+        "WORK",
+        "HORSE",
+        "FLY",
+        "PAPER"
+      ],
+      "decoys": [
+        "BAR",
+        "PAD",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-work-room-mate",
+      "name": "Mosaic Riddle",
+      "chain": [
+        "HAND",
+        "OUT",
+        "WORK",
+        "ROOM",
+        "MATE"
+      ],
+      "decoys": [
+        "HEAD",
+        "BUTTER",
+        "WAY"
+      ]
+    },
+    {
+      "id": "closed-v2-drop-kick-back-water-melon",
+      "name": "Paper Postcard",
+      "chain": [
+        "DROP",
+        "KICK",
+        "BACK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "KEY",
+        "BERRY",
+        "BEAM"
+      ]
+    },
+    {
+      "id": "closed-v2-case-work-day-break-out",
+      "name": "Winter Secret",
+      "chain": [
+        "CASE",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "OUT"
+      ],
+      "decoys": [
+        "WHEEL",
+        "TAIL",
+        "BOAT"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-fall-back-fire-work",
+      "name": "Misty Pattern",
+      "chain": [
+        "RAIN",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK"
+      ],
+      "decoys": [
+        "BLACK",
+        "SHOE",
+        "HAND"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-ball-park-way",
+      "name": "Echoing Map",
+      "chain": [
+        "FISH",
+        "NET",
+        "BALL",
+        "PARK",
+        "WAY"
+      ],
+      "decoys": [
+        "PIPE",
+        "LIGHT",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-work-room",
+      "name": "Ivory Horizon",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BAND",
+        "SHORE",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-black-bird-house-boat-man",
+      "name": "Silent Station",
+      "chain": [
+        "BLACK",
+        "BIRD",
+        "HOUSE",
+        "BOAT",
+        "MAN"
+      ],
+      "decoys": [
+        "WORM",
+        "LIFE",
+        "BED"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-work-man-kind",
+      "name": "Copper Voyage",
+      "chain": [
+        "FISH",
+        "NET",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "RING",
+        "HAND",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-over-work-shop-lift-off",
+      "name": "Secret Station",
+      "chain": [
+        "OVER",
+        "WORK",
+        "SHOP",
+        "LIFT",
+        "OFF"
+      ],
+      "decoys": [
+        "BALL",
+        "SNOW",
+        "SHOW"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-work-book-worm",
+      "name": "Secret Harbor",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "FLOWER",
+        "BERRY",
+        "PRINT"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-water-side",
+      "name": "Indigo Ribbon",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "WATER",
+        "SIDE"
+      ],
+      "decoys": [
+        "ROLL",
+        "LIP",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-line-work-room",
+      "name": "Open Harbor",
+      "chain": [
+        "UP",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "SPACE",
+        "BONE",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-fish-net-ball-park-side",
+      "name": "Signal Mirage",
+      "chain": [
+        "FISH",
+        "NET",
+        "BALL",
+        "PARK",
+        "SIDE"
+      ],
+      "decoys": [
+        "KIND",
+        "ROLL",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-side-line-work-horse-shoe",
+      "name": "Cobalt Voyage",
+      "chain": [
+        "SIDE",
+        "LINE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "MILK",
+        "FLOWER",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-off-line-work-day-break",
+      "name": "Lucky Waypoint",
+      "chain": [
+        "OFF",
+        "LINE",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "FLOWER",
+        "MAIL",
+        "FLY"
+      ]
+    },
+    {
+      "id": "closed-v2-back-yard-work-man-kind",
+      "name": "Open Station",
+      "chain": [
+        "BACK",
+        "YARD",
+        "WORK",
+        "MAN",
+        "KIND"
+      ],
+      "decoys": [
+        "SHIELD",
+        "KEY",
+        "WHEEL"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-work-horse-fly",
+      "name": "Winding Lantern",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "WORK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "SNOW",
+        "OFF",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-snow-fall-back-fire-light",
+      "name": "Solar Postcard",
+      "chain": [
+        "SNOW",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "LIGHT"
+      ],
+      "decoys": [
+        "MILK",
+        "BAG",
+        "ARM"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-work-day-break-down",
+      "name": "Pocket Crossing",
+      "chain": [
+        "FOOT",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "DOWN"
+      ],
+      "decoys": [
+        "BLACK",
+        "BAR",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-work-book-mark-down-hill",
+      "name": "Lucky Notebook",
+      "chain": [
+        "WORK",
+        "BOOK",
+        "MARK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "FISH",
+        "PIPE",
+        "FLOWER"
+      ]
+    },
+    {
+      "id": "closed-v2-ground-water-side-line-man",
+      "name": "Winding Map",
+      "chain": [
+        "GROUND",
+        "WATER",
+        "SIDE",
+        "LINE",
+        "MAN"
+      ],
+      "decoys": [
+        "SURF",
+        "BAND",
+        "DRUM"
+      ]
+    },
+    {
+      "id": "closed-v2-ball-park-side-walk-out",
+      "name": "Frosted Envelope",
+      "chain": [
+        "BALL",
+        "PARK",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "MAIL",
+        "BOOK",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-work-day-light-house-hold",
+      "name": "Hidden Postcard",
+      "chain": [
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "HOLD"
+      ],
+      "decoys": [
+        "SNOW",
+        "FLOWER",
+        "WASH"
+      ]
+    },
+    {
+      "id": "closed-v2-water-side-walk-out-work",
+      "name": "Indigo Mirage",
+      "chain": [
+        "WATER",
+        "SIDE",
+        "WALK",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "HOG",
+        "CHAIR",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-mate",
+      "name": "Faint Voyage",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "NUT",
+        "STAR",
+        "BAND"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-yard-work-shop",
+      "name": "Faint Harbor",
+      "chain": [
+        "FALL",
+        "BACK",
+        "YARD",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "BANK",
+        "CLUB",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-out-work-man",
+      "name": "Silent Whisper",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BONE",
+        "MOON",
+        "BERRY"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-out-side-walk",
+      "name": "Pocket Footnote",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "BEAM",
+        "MATE",
+        "LID"
+      ]
+    },
+    {
+      "id": "closed-v2-off-side-line-work-book",
+      "name": "Clouded Bridge",
+      "chain": [
+        "OFF",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "SHIELD",
+        "WHEEL",
+        "BROW"
+      ]
+    },
+    {
+      "id": "closed-v2-space-ship-yard-work-horse",
+      "name": "Solar Map",
+      "chain": [
+        "SPACE",
+        "SHIP",
+        "YARD",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "PRINT",
+        "PAD",
+        "SUN"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-out-work-room",
+      "name": "Winding Shelter",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "OUT",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "SEA",
+        "EAR",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-pack-horse",
+      "name": "Echoing Pattern",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "PACK",
+        "HORSE"
+      ],
+      "decoys": [
+        "SHIP",
+        "MAIL",
+        "BIRD"
+      ]
+    },
+    {
+      "id": "closed-v2-out-side-line-man-hole",
+      "name": "Clever Postcard",
+      "chain": [
+        "OUT",
+        "SIDE",
+        "LINE",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "STAR",
+        "CAKE",
+        "PACK"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-horse-fly",
+      "name": "Paper Shortcut",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE",
+        "FLY"
+      ],
+      "decoys": [
+        "OFF",
+        "BRUSH",
+        "WALK"
+      ]
+    },
+    {
+      "id": "closed-v2-field-work-day-light-house",
+      "name": "Secret Daydream",
+      "chain": [
+        "FIELD",
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE"
+      ],
+      "decoys": [
+        "PACK",
+        "WALK",
+        "COAT"
+      ]
+    },
+    {
+      "id": "closed-v2-tooth-brush-fire-work-room",
+      "name": "Ivory Bookmark",
+      "chain": [
+        "TOOTH",
+        "BRUSH",
+        "FIRE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BANK",
+        "OFF",
+        "TAIL"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-work-day-dream",
+      "name": "Crimson Riddle",
+      "chain": [
+        "HAND",
+        "OUT",
+        "WORK",
+        "DAY",
+        "DREAM"
+      ],
+      "decoys": [
+        "POT",
+        "CLUB",
+        "SHIP"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-work-man-hole",
+      "name": "Tidal Whisper",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "WORK",
+        "MAN",
+        "HOLE"
+      ],
+      "decoys": [
+        "NIGHT",
+        "ACHE",
+        "MILL"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-out-field-work-mate",
+      "name": "Brisk Detour",
+      "chain": [
+        "FALL",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "BALL",
+        "LIFT",
+        "BOAT"
+      ]
+    },
+    {
+      "id": "closed-v2-lift-off-side-line-work",
+      "name": "Shadow Daydream",
+      "chain": [
+        "LIFT",
+        "OFF",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "RIVER",
+        "MILK",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-book",
+      "name": "Copper Beacon",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "SHOE",
+        "FAST",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-ship-yard-work-shop-lift",
+      "name": "Distant Telescope",
+      "chain": [
+        "SHIP",
+        "YARD",
+        "WORK",
+        "SHOP",
+        "LIFT"
+      ],
+      "decoys": [
+        "WASH",
+        "TEA",
+        "TOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-case-book-mark-down-hill",
+      "name": "Silver Riddle",
+      "chain": [
+        "CASE",
+        "BOOK",
+        "MARK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "SLIDE",
+        "SHOE",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-water-side-bar",
+      "name": "Lucky Pattern",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "WATER",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "SONG",
+        "ACHE",
+        "BOARD"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-yard-work-day",
+      "name": "Gentle Puzzle",
+      "chain": [
+        "FALL",
+        "BACK",
+        "YARD",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "PIT",
+        "BANK",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-back-fire-break-down-hill",
+      "name": "Shadow Whisper",
+      "chain": [
+        "BACK",
+        "FIRE",
+        "BREAK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "BAR",
+        "SHOW",
+        "TIME"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-mate",
+      "name": "Soft Puzzle",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "BEAM",
+        "BONE",
+        "MELON"
+      ]
+    },
+    {
+      "id": "closed-v2-night-fall-back-fire-wood",
+      "name": "Cobalt Glimmer",
+      "chain": [
+        "NIGHT",
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WOOD"
+      ],
+      "decoys": [
+        "PIT",
+        "HOG",
+        "HORSE"
+      ]
+    },
+    {
+      "id": "closed-v2-up-side-line-work-man",
+      "name": "Woven Daydream",
+      "chain": [
+        "UP",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BED",
+        "FAST",
+        "BONE"
+      ]
+    },
+    {
+      "id": "closed-v2-head-light-house-work-horse",
+      "name": "Soft Pattern",
+      "chain": [
+        "HEAD",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "LIFT",
+        "LIP",
+        "BEAM"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-over-head-wind-shield",
+      "name": "Winter Compass",
+      "chain": [
+        "HAND",
+        "OVER",
+        "HEAD",
+        "WIND",
+        "SHIELD"
+      ],
+      "decoys": [
+        "SHOE",
+        "SHOW",
+        "FIRE"
+      ]
+    },
+    {
+      "id": "closed-v2-field-work-day-break-fast",
+      "name": "Midnight Signal",
+      "chain": [
+        "FIELD",
+        "WORK",
+        "DAY",
+        "BREAK",
+        "FAST"
+      ],
+      "decoys": [
+        "EYE",
+        "RAIN",
+        "BAND"
+      ]
+    },
+    {
+      "id": "closed-v2-park-land-mark-down-hill",
+      "name": "Bright Telescope",
+      "chain": [
+        "PARK",
+        "LAND",
+        "MARK",
+        "DOWN",
+        "HILL"
+      ],
+      "decoys": [
+        "SEA",
+        "MILL",
+        "WRECK"
+      ]
+    },
+    {
+      "id": "closed-v2-water-side-line-work-load",
+      "name": "Shadow Secret",
+      "chain": [
+        "WATER",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "FLY",
+        "SHELF",
+        "HOG"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-day-break",
+      "name": "Tidal Monument",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "DAY",
+        "BREAK"
+      ],
+      "decoys": [
+        "LAND",
+        "FOOD",
+        "DROP"
+      ]
+    },
+    {
+      "id": "closed-v2-break-water-fall-back-pack",
+      "name": "Dusky Pattern",
+      "chain": [
+        "BREAK",
+        "WATER",
+        "FALL",
+        "BACK",
+        "PACK"
+      ],
+      "decoys": [
+        "NET",
+        "GAME",
+        "POT"
+      ]
+    },
+    {
+      "id": "closed-v2-board-walk-out-side-show",
+      "name": "Pocket Shortcut",
+      "chain": [
+        "BOARD",
+        "WALK",
+        "OUT",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "CASE",
+        "BAND",
+        "CHAIR"
+      ]
+    },
+    {
+      "id": "closed-v2-shore-line-work-horse-shoe",
+      "name": "Wild Harbor",
+      "chain": [
+        "SHORE",
+        "LINE",
+        "WORK",
+        "HORSE",
+        "SHOE"
+      ],
+      "decoys": [
+        "EAR",
+        "STONE",
+        "CLUB"
+      ]
+    },
+    {
+      "id": "closed-v2-down-fall-back-yard-work",
+      "name": "Silent Map",
+      "chain": [
+        "DOWN",
+        "FALL",
+        "BACK",
+        "YARD",
+        "WORK"
+      ],
+      "decoys": [
+        "BOARD",
+        "FLOWER",
+        "SHIELD"
+      ]
+    },
+    {
+      "id": "closed-v2-fast-ball-park-side-show",
+      "name": "Ivory Ribbon",
+      "chain": [
+        "FAST",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "SHOW"
+      ],
+      "decoys": [
+        "HOG",
+        "SHOP",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-light-house-work-horse",
+      "name": "Cobalt Whisper",
+      "chain": [
+        "FIRE",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "HORSE"
+      ],
+      "decoys": [
+        "LIFT",
+        "PIPE",
+        "SHELL"
+      ]
+    },
+    {
+      "id": "closed-v2-light-house-work-book-worm",
+      "name": "Secret Monument",
+      "chain": [
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "PIPE",
+        "KEY",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-work-day-light-house-boat",
+      "name": "North Detour",
+      "chain": [
+        "WORK",
+        "DAY",
+        "LIGHT",
+        "HOUSE",
+        "BOAT"
+      ],
+      "decoys": [
+        "KEY",
+        "MILK",
+        "RAIN"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-fall-out-work",
+      "name": "Lucky Footpath",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "FALL",
+        "OUT",
+        "WORK"
+      ],
+      "decoys": [
+        "BUTTER",
+        "RIVER",
+        "POST"
+      ]
+    },
+    {
+      "id": "closed-v2-way-side-line-work-day",
+      "name": "North Bridge",
+      "chain": [
+        "WAY",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "DAY"
+      ],
+      "decoys": [
+        "SEA",
+        "LIFE",
+        "PIN"
+      ]
+    },
+    {
+      "id": "closed-v2-moon-walk-out-side-bar",
+      "name": "Crimson Archive",
+      "chain": [
+        "MOON",
+        "WALK",
+        "OUT",
+        "SIDE",
+        "BAR"
+      ],
+      "decoys": [
+        "PAD",
+        "BOAT",
+        "CASE"
+      ]
+    },
+    {
+      "id": "closed-v2-star-fish-net-work-shop",
+      "name": "Curious Footpath",
+      "chain": [
+        "STAR",
+        "FISH",
+        "NET",
+        "WORK",
+        "SHOP"
+      ],
+      "decoys": [
+        "SHELL",
+        "RING",
+        "WATER"
+      ]
+    },
+    {
+      "id": "closed-v2-off-side-line-work-room",
+      "name": "Silent Crossing",
+      "chain": [
+        "OFF",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "BOW",
+        "PASTE",
+        "SPACE"
+      ]
+    },
+    {
+      "id": "closed-v2-ring-side-line-work-man",
+      "name": "Copper Garden",
+      "chain": [
+        "RING",
+        "SIDE",
+        "LINE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "LAND",
+        "BUTTER",
+        "FISH"
+      ]
+    },
+    {
+      "id": "closed-v2-pack-horse-fly-paper-back",
+      "name": "Quiet Keepsake",
+      "chain": [
+        "PACK",
+        "HORSE",
+        "FLY",
+        "PAPER",
+        "BACK"
+      ],
+      "decoys": [
+        "HEAD",
+        "MARK",
+        "HILL"
+      ]
+    },
+    {
+      "id": "closed-v2-hand-out-field-work-room",
+      "name": "Clever Map",
+      "chain": [
+        "HAND",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "ROOM"
+      ],
+      "decoys": [
+        "PIPE",
+        "SURF",
+        "BERRY"
+      ]
+    },
+    {
+      "id": "closed-v2-gate-way-side-line-man",
+      "name": "Lantern Signal",
+      "chain": [
+        "GATE",
+        "WAY",
+        "SIDE",
+        "LINE",
+        "MAN"
+      ],
+      "decoys": [
+        "TOOTH",
+        "PASTE",
+        "SHAKE"
+      ]
+    },
+    {
+      "id": "closed-v2-horse-fly-paper-work-man",
+      "name": "Wild Bridge",
+      "chain": [
+        "HORSE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BANK",
+        "KEY",
+        "NUT"
+      ]
+    },
+    {
+      "id": "closed-v2-park-way-side-walk-out",
+      "name": "Paper Detour",
+      "chain": [
+        "PARK",
+        "WAY",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "POT",
+        "BOAT",
+        "DOWN"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-fly-paper-work-mate",
+      "name": "Woven Horizon",
+      "chain": [
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "WORK",
+        "MATE"
+      ],
+      "decoys": [
+        "TIME",
+        "WAY",
+        "MOON"
+      ]
+    },
+    {
+      "id": "closed-v2-water-fall-out-side-walk",
+      "name": "Winter Beacon",
+      "chain": [
+        "WATER",
+        "FALL",
+        "OUT",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "LIP",
+        "SHINE",
+        "BUTTER"
+      ]
+    },
+    {
+      "id": "closed-v2-fire-break-out-work-book",
+      "name": "Solar Signal",
+      "chain": [
+        "FIRE",
+        "BREAK",
+        "OUT",
+        "WORK",
+        "BOOK"
+      ],
+      "decoys": [
+        "GAME",
+        "MILK",
+        "LIFE"
+      ]
+    },
+    {
+      "id": "closed-v2-rain-water-side-line-work",
+      "name": "Mellow Voyage",
+      "chain": [
+        "RAIN",
+        "WATER",
+        "SIDE",
+        "LINE",
+        "WORK"
+      ],
+      "decoys": [
+        "BANK",
+        "LIFT",
+        "PASTE"
+      ]
+    },
+    {
+      "id": "closed-v2-club-house-work-day-bed",
+      "name": "Clouded Compass",
+      "chain": [
+        "CLUB",
+        "HOUSE",
+        "WORK",
+        "DAY",
+        "BED"
+      ],
+      "decoys": [
+        "PIN",
+        "SONG",
+        "SLIDE"
+      ]
+    },
+    {
+      "id": "closed-v2-river-bank-note-book-worm",
+      "name": "Dusky Monument",
+      "chain": [
+        "RIVER",
+        "BANK",
+        "NOTE",
+        "BOOK",
+        "WORM"
+      ],
+      "decoys": [
+        "SHOE",
+        "STAR",
+        "LIP"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-fly-paper-work",
+      "name": "Copper Echo",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "FLY",
+        "PAPER",
+        "WORK"
+      ],
+      "decoys": [
+        "SLIDE",
+        "HEAD",
+        "GAME"
+      ]
+    },
+    {
+      "id": "closed-v2-brush-fire-ball-park-way",
+      "name": "Echoing Voyage",
+      "chain": [
+        "BRUSH",
+        "FIRE",
+        "BALL",
+        "PARK",
+        "WAY"
+      ],
+      "decoys": [
+        "PIPE",
+        "BOOK",
+        "BERRY"
+      ]
+    },
+    {
+      "id": "closed-v2-fly-paper-back-water-melon",
+      "name": "Cobalt Telescope",
+      "chain": [
+        "FLY",
+        "PAPER",
+        "BACK",
+        "WATER",
+        "MELON"
+      ],
+      "decoys": [
+        "BRUSH",
+        "SHELL",
+        "WOOD"
+      ]
+    },
+    {
+      "id": "closed-v2-fall-back-fire-work-load",
+      "name": "Echoing Harbor",
+      "chain": [
+        "FALL",
+        "BACK",
+        "FIRE",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "SHOW",
+        "CLUB",
+        "BROW"
+      ]
+    },
+    {
+      "id": "closed-v2-gate-way-side-walk-out",
+      "name": "Indigo Garden",
+      "chain": [
+        "GATE",
+        "WAY",
+        "SIDE",
+        "WALK",
+        "OUT"
+      ],
+      "decoys": [
+        "TOOTH",
+        "OVER",
+        "NET"
+      ]
+    },
+    {
+      "id": "closed-v2-break-out-field-work-man",
+      "name": "Mosaic Envelope",
+      "chain": [
+        "BREAK",
+        "OUT",
+        "FIELD",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BOARD",
+        "MOON",
+        "BANK"
+      ]
+    },
+    {
+      "id": "closed-v2-sun-light-house-work-man",
+      "name": "Ivory Secret",
+      "chain": [
+        "SUN",
+        "LIGHT",
+        "HOUSE",
+        "WORK",
+        "MAN"
+      ],
+      "decoys": [
+        "BANK",
+        "SPACE",
+        "SHINE"
+      ]
+    },
+    {
+      "id": "closed-v2-bird-house-fly-paper-work",
+      "name": "Echoing Compass",
+      "chain": [
+        "BIRD",
+        "HOUSE",
+        "FLY",
+        "PAPER",
+        "WORK"
+      ],
+      "decoys": [
+        "OFF",
+        "FISH",
+        "FAST"
+      ]
+    },
+    {
+      "id": "closed-v2-foot-ball-park-side-walk",
+      "name": "Quiet Envelope",
+      "chain": [
+        "FOOT",
+        "BALL",
+        "PARK",
+        "SIDE",
+        "WALK"
+      ],
+      "decoys": [
+        "TAIL",
+        "WORM",
+        "ROLL"
+      ]
+    },
+    {
+      "id": "closed-v2-kick-back-yard-work-load",
+      "name": "Winding Pattern",
+      "chain": [
+        "KICK",
+        "BACK",
+        "YARD",
+        "WORK",
+        "LOAD"
+      ],
+      "decoys": [
+        "POT",
+        "SLIDE",
+        "EAR"
+      ]
+    },
+    {
+      "id": "closed-v2-pipe-line-work-book-case",
+      "name": "North Riddle",
+      "chain": [
+        "PIPE",
+        "LINE",
+        "WORK",
+        "BOOK",
+        "CASE"
+      ],
+      "decoys": [
+        "MILL",
+        "SHELL",
+        "WALK"
       ]
     }
   ]
