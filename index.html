@@ -2908,5 +2908,14 @@ async function startConduit() {
 
 void startConduit();
 </script>
+<script>
+// Register the offline app-shell cache. The service worker never touches game saves.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
+      .catch(error => console.warn("CONDUIT offline support could not register:", error));
+  });
+}
+</script>
 </body>
 </html>
