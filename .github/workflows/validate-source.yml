@@ -1,0 +1,23 @@
+name: CONDUIT source validation
+
+on:
+  push:
+    branches: [main, android-release-preparation-20261027]
+  pull_request:
+
+jobs:
+  check-source:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate puzzle library and release file structure
+        run: node scripts/validate-source.cjs
+      - name: Check service worker syntax
+        run: node --check www/service-worker.js
+      - name: Check web manifest JSON
+        run: node -e "JSON.parse(require('node:fs').readFileSync('www/manifest.webmanifest','utf8'))"
