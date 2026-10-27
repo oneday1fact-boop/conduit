@@ -1,0 +1,3432 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020617">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CONDUIT">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<title>CONDUIT - Compound Word Puzzle</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #eef3f9;
+    --panel: #ffffff;
+    --surface: #e8eef6;
+    --text: #142033;
+    --muted: #596b82;
+    --border: #ccd7e5;
+    --cyan: #007c94;
+    --cyan-bg: #e0f7fc;
+    --amber: #936000;
+    --amber-bg: #fff5d9;
+    --green: #08794f;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --bg: #020617;
+    --panel: #0c1528;
+    --surface: #142137;
+    --text: #edf5ff;
+    --muted: #9aadc7;
+    --border: #293951;
+    --cyan: #00e5f4;
+    --cyan-bg: #082b3b;
+    --amber: #ffc247;
+    --amber-bg: #302719;
+    --green: #39df9c;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background:
+      radial-gradient(circle at 10% 15%, #00bcd410, transparent 40%),
+      radial-gradient(circle at 90% 80%, #6366f115, transparent 40%),
+      var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  button, textarea { font: inherit; }
+
+  button {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  button:disabled {
+    cursor: default;
+    opacity: .5;
+  }
+
+  button:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 4px;
+  }
+
+  [hidden] { display: none !important; }
+
+  .app {
+    max-width: 480px;
+    margin: auto;
+    padding:
+      max(14px, env(safe-area-inset-top))
+      16px
+      max(24px, env(safe-area-inset-bottom));
+  }
+
+  header, .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .logo {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #00c7df, #4169e1);
+    color: #4169e1;
+    box-shadow: 0 0 22px #00d4ed25;
+  }
+
+  .logo svg { width: 36px; height: 36px; }
+  .brand h1 { font-size: 21px; letter-spacing: 1.2px; }
+
+  h1 {
+    margin: 0;
+    font-size: 21px;
+    letter-spacing: -.7px;
+  }
+
+  .subtitle {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .icon-button {
+    display: grid;
+    place-items: center;
+    width: auto;
+    min-width: 0;
+    flex: 1 1 0;
+    max-width: 52px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 800;
+  }
+
+  .icon-button[aria-pressed="true"] {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: var(--cyan-bg);
+  }
+
+  .mode-switch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 18px 0 12px;
+  }
+
+  .secondary, .mode-switch button {
+    min-height: 44px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .mode-switch .active {
+    background: var(--cyan-bg);
+    border-color: var(--cyan);
+    color: var(--cyan);
+  }
+
+  .panel {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--panel);
+  }
+
+  #puzzleTitle {
+    margin: 0 0 5px;
+    color: var(--cyan);
+    font-size: 15px;
+  }
+
+  #puzzleDescription {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .timer-area {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .label {
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  #timer {
+    display: block;
+    margin-top: 4px;
+    font: 700 17px ui-monospace, monospace;
+  }
+
+  .game-tools {
+    flex-wrap: wrap;
+    margin: 12px 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+
+  #hintButton {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--amber);
+    border-radius: 12px;
+    background: var(--amber-bg);
+    color: var(--amber);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .rule-banner {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .rule-banner strong { color: var(--cyan); }
+
+  #board {
+    width: 100%;
+    max-width: 320px;
+    margin: 12px auto;
+  }
+
+  .node {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 58px;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 15px;
+    background: var(--panel);
+    color: var(--text);
+  }
+
+  .node-label {
+    flex: 0 0 44px;
+    font-size: 9px;
+    letter-spacing: .5px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .node-word {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+  }
+
+  .node-symbol {
+    flex: 0 0 24px;
+    text-align: right;
+    font-size: 16px;
+  }
+
+  .endpoint {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-bg);
+    box-shadow: 0 0 18px #ffb70312;
+  }
+
+  .empty {
+    border-style: dashed;
+    color: var(--muted);
+  }
+
+  .empty .node-word {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .filled {
+    border-color: var(--cyan);
+    background: var(--cyan-bg);
+    color: var(--cyan);
+  }
+
+  .slot.target, .slot.drag-over {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  .slot:disabled { opacity: 1; }
+
+  .connection {
+    position: relative;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wire {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 4px;
+    background: var(--border);
+  }
+
+  .connection.valid .wire {
+    width: 4px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--cyan) 0 7px,
+      transparent 7px 11px
+    );
+    background-size: 100% 22px;
+    box-shadow: 0 0 10px var(--cyan);
+    animation: flow .7s linear infinite;
+  }
+
+  .connection-label {
+    position: relative;
+    z-index: 1;
+    max-width: calc(100% - 16px);
+    padding: 4px 12px;
+    border: 1px solid var(--cyan);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.4;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .connection.complete .wire {
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: none;
+  }
+
+  .connection.complete .connection-label {
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  @keyframes flow {
+    to { background-position: 0 22px; }
+  }
+
+  .bank-header {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  #wordBank {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tile {
+    min-height: 48px;
+    padding: 10px 4px;
+    touch-action: none;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+  }
+
+  .tile.selected {
+    background: var(--cyan);
+    color: var(--bg);
+    border-color: var(--cyan);
+    box-shadow: 0 0 14px #00d4ed40;
+  }
+
+  .tile.used { visibility: hidden; }
+
+  #status {
+    min-height: 0;
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  #storageWarning {
+    color: var(--amber);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  #unavailable {
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  #unavailable p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  footer {
+    margin-top: 0;
+    color: var(--muted);
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #020617d9;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+  }
+
+  .dialog {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--panel);
+    box-shadow: 0 20px 80px #0005;
+  }
+
+  .dialog h2 {
+    margin: 0 42px 14px 0;
+    font-size: 24px;
+  }
+
+  .dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .dialog p, .dialog li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .dialog ol { padding-left: 21px; }
+
+  .example {
+    padding: 13px;
+    border: 1px solid var(--cyan);
+    border-radius: 12px;
+    color: var(--cyan);
+    background: var(--cyan-bg);
+    font-weight: 750;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .primary {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px;
+    border: 0;
+    border-radius: 13px;
+    background: linear-gradient(110deg, #00bad5, #4776ed);
+    color: white;
+    font-weight: 800;
+  }
+
+  .muted { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+  .wide {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .practice-list {
+    display: grid;
+    gap: 9px;
+    margin: 18px 0;
+  }
+
+  .practice-choice {
+    min-height: 54px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    text-align: left;
+    font-weight: 700;
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 14px;
+    background: var(--surface);
+    text-align: center;
+  }
+
+  .result-value {
+    margin-top: 6px;
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  #manualShare {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 13px;
+  }
+
+  @media (max-width: 360px) {
+    .app { padding-left: 10px; padding-right: 10px; }
+    h1 { font-size: 16px; }
+    .brand { gap: 6px; }
+    .logo { flex-basis: 32px; width: 32px; height: 36px; }
+    .logo svg { width: 30px; height: 30px; }
+    .header-tools { gap: 2px; }
+    .icon-button { width: 30px; min-width: 30px; height: 36px; min-height: 36px; border-radius: 8px; font-size: 15px; }
+    #streakLabel { width: 100%; }
+  }
+
+@media (max-height: 750px) {
+  .app {
+    padding-top: max(8px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  header {
+    padding-bottom: 8px;
+  }
+
+  .mode-switch {
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .panel {
+    padding: 10px;
+  }
+
+  .game-tools {
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  .rule-banner {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  #board {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .node {
+    min-height: 48px;
+    padding: 8px;
+  }
+
+  .connection {
+    height: 28px;
+  }
+
+  .connection-label {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+
+  .tile {
+    min-height: 42px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+/* Compact iPhone layout */
+@media (max-width: 600px) and (max-height: 950px) {
+  .game-tools {
+    margin-top: 6px;
+    margin-bottom: 3px;
+  }
+
+  .rule-banner {
+    margin-top: 5px;
+    line-height: 1.2;
+  }
+
+  #board {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .node {
+    min-height: 42px;
+    padding: 7px 10px;
+    border-radius: 12px;
+  }
+
+  .connection {
+    height: 14px;
+  }
+
+  .panel {
+    padding: 10px;
+  }
+
+  .secondary,
+  .mode-switch button {
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+
+  #hintButton {
+    min-height: 40px;
+    padding: 8px 10px;
+  }
+}
+
+
+/* Single-row mobile header */
+header {
+  flex-wrap: nowrap;
+  gap: 6px;
+  padding-bottom: 10px;
+}
+
+.brand {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 6px;
+}
+
+.brand h1 {
+  font-size: 18px;
+  letter-spacing: .5px;
+}
+
+.subtitle {
+  font-size: 8px;
+  letter-spacing: .7px;
+}
+
+.header-tools {
+  flex: 0 0 auto;
+  width: auto;
+  gap: 3px;
+}
+
+.icon-button {
+  flex: 0 0 29px;
+  width: 29px;
+  max-width: 29px;
+  height: 34px;
+  min-height: 34px;
+  border-radius: 9px;
+  font-size: 11px;
+  overflow: hidden;
+}
+
+@media (max-width: 390px) {
+  .logo {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .icon-button {
+    flex-basis: 26px;
+    width: 26px;
+    max-width: 26px;
+    font-size: 10px;
+  }
+}
+
+
+/* CONDUIT compact layout v1 */
+@media (max-width: 600px) {
+  .app {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .mode-switch {
+    margin-top: 8px;
+    margin-bottom: 6px;
+    gap: 6px;
+  }
+
+  .game-tools {
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+
+  .rule-banner {
+    margin-top: 4px;
+    line-height: 1.2;
+  }
+
+  #board {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .node {
+    min-height: 40px;
+    padding: 6px 9px;
+    border-radius: 10px;
+  }
+
+  .connection {
+    height: 12px;
+  }
+
+  .connection-label {
+    padding: 1px 6px;
+    font-size: 10px;
+  }
+
+  .bank-header {
+    margin-bottom: 6px;
+  }
+
+  #wordBank {
+    gap: 7px;
+  }
+
+  .tile {
+    min-height: 42px;
+    padding: 7px 3px;
+  }
+
+  #status {
+    line-height: 1.2;
+  }
+}
+
+
+/* CONDUIT roomier layout v2 */
+@media (max-width: 600px) {
+  .app {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
+
+  .mode-switch {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  .game-tools {
+    margin-top: 7px;
+    margin-bottom: 4px;
+  }
+
+  .rule-banner {
+    margin-top: 6px;
+    line-height: 1.25;
+  }
+
+  #board {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+  .node {
+    min-height: 44px;
+    padding: 7px 10px;
+    border-radius: 11px;
+  }
+
+  .node-label {
+    flex-basis: 44px;
+  }
+
+  .node-symbol {
+    flex-basis: 20px;
+  }
+
+  .connection {
+    height: 16px;
+  }
+
+  .connection-label {
+    padding: 2px 7px;
+    font-size: 10px;
+  }
+
+  .bank-header {
+    margin-bottom: 8px;
+  }
+
+  #wordBank {
+    gap: 8px;
+  }
+
+  .tile {
+    min-height: 44px;
+    padding: 8px 4px;
+  }
+
+  #status {
+    line-height: 1.25;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<div class="app" id="app">
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 40 40" role="img" aria-label="Connected word nodes">
+          <path d="M10 10 L20 20 L30 10 M20 20 L30 30" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="4" y="4" width="12" height="12" rx="4" fill="#ffffff" stroke="currentColor" stroke-width="2"/>
+          <rect x="24" y="4" width="12" height="12" rx="4" fill="#ffffff" stroke="currentColor" stroke-width="2"/>
+          <rect x="14" y="14" width="12" height="12" rx="4" fill="#ffffff" stroke="currentColor" stroke-width="2"/>
+          <rect x="24" y="24" width="12" height="12" rx="4" fill="#ffffff" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </div>
+      <div>
+        <h1>CONDUIT</h1>
+        <div class="subtitle">Connect the words.</div>
+      </div>
+    </div>
+
+    <div class="header-tools" aria-label="Game controls">
+      <button id="helpButton" class="icon-button" title="How to play"
+        aria-label="How to play">?</button>
+      <button id="musicButton" class="icon-button" title="Background music: off"
+        aria-label="Turn background music on" aria-pressed="false">🎵</button>
+      <button id="soundButton" class="icon-button" title="Sound effects: off"
+        aria-label="Turn sound effects on" aria-pressed="false">🔊</button>
+      <button id="hapticsButton" class="icon-button" title="Haptic feedback: on"
+        aria-label="Turn haptic feedback off" aria-pressed="true">📳</button>
+      <button id="themeButton" class="icon-button" title="Switch day/night mode"
+        aria-label="Switch color theme">☀️</button>
+    </div>
+  </header>
+
+  <main>
+    <nav class="mode-switch" aria-label="Game mode">
+      <button id="dailyButton">Daily puzzle</button>
+      <button id="practiceButton">Practice</button>
+    </nav>
+
+    <section class="panel row" aria-label="Puzzle information">
+      <div>
+        <h2 id="puzzleTitle"></h2>
+        <div id="puzzleDescription"></div>
+      </div>
+
+      <div class="timer-area">
+        <span class="label">Play time</span>
+        <span id="timer">00:00</span>
+      </div>
+    </section>
+
+    <div class="row game-tools">
+      <span id="streakLabel">Daily streak: 0</span>
+      <button id="hintButton">Hint · 1 left</button>
+    </div>
+
+    <p class="rule-banner">
+      <strong>One word per connection.</strong><br>
+      Join neighboring words - no spaces, hyphens, or phrases.
+    </p>
+
+    <section id="unavailable" class="panel" hidden>
+      <h2>No daily puzzle scheduled</h2>
+      <p id="unavailableText"></p>
+      <button id="unavailablePractice" class="primary">
+        Try a practice puzzle
+      </button>
+    </section>
+
+    <section id="board" aria-label="Compound word chain"></section>
+
+    <section id="bankPanel" class="panel" aria-label="Word bank">
+      <div class="row bank-header">
+        <strong>WORD BANK</strong>
+        <span>Tap a word, then a slot</span>
+      </div>
+      <div id="wordBank"></div>
+    </section>
+
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <button id="resultsButton" class="secondary wide" hidden>
+      View result
+    </button>
+
+    <p id="storageWarning" role="alert" hidden>
+      This browser could not save your progress or preferences.
+      You can still play, but changes may be lost when you close it.
+    </p>
+  </main>
+
+ 
+</div>
+
+<div id="overlay" class="overlay" hidden>
+  <section id="dialog" class="dialog" role="dialog"
+    aria-modal="true" aria-labelledby="dialogTitle" tabindex="-1">
+  </section>
+</div>
+
+<script src="./admob-bridge.js"></script>
+<script>
+"use strict";
+
+/* ======================================================
+   RULES
+
+   A connection is valid only when:
+   1. Both tiles are words from the supplied puzzle.
+   2. The upper tile is joined directly to the lower tile.
+   3. The exact result is in APPROVED_COMPOUNDS.
+   4. Nothing is added, removed, respelled, or separated.
+
+   This is a curated offline word list, not a complete
+   English dictionary. Do not add a phrase merely by
+   deleting its spaces.
+====================================================== */
+
+const APPROVED_COMPOUNDS = new Set(`
+  firelight lighthouse housework workshop firefly houseboat firewood sunlight
+  boatload sunflower sunbeam household seashore shoreline lineman manhole
+  seashell seafood mankind raindrop dropkick kickback backbone raincoat
+  rainbow backyard snowball ballpark parkland landslide snowman ballgame
+  landmark bookcase casework shoplift bookmark bookshelf workload caseload
+  toothbrush brushfire firework toothpaste brushwood daybreak breakfast fastball
+  daydream daylight daybed waterfall fallout outfield fieldwork watermelon
+  waterside workbook starfish fishnet network starlight netball notebook
+  markdown downfall notepad downhill blackbird birdhouse blackberry birdsong
+  blackmail football footprint ballroom teacup cupboard boardwalk walkway
+  teapot cupcake boardroom keyboard wayside keyhole sideshow moonlight
+  moonbeam moonshine moonstone paperback backpack packhorse horseshoe paperboy
+  horsefly handbag bagpipe pipeline handball handbook handshake butterfly
+  flypaper buttermilk flywheel headlight headache headband armchair chairlift
+  liftoff offshore armband armpit offside earring ringside sidewalk
+  eardrum ringworm walkout overcoat coattail tailgate gateway overtime
+  overboard gatepost nightclub clubhouse nightfall nightlife windsurf surfboard
+  windmill windshield riverbank banknote riverbed bankroll groundhog hogwash
+  washroom roommate groundnut groundwater washboard lipstick stickup upside
+  stickpin uptown sidebar spaceship shipyard yardwork spacewalk shipwreck
+  eyeball eyelid eyebrow fireball firebreak fireman rainfall rainwater
+  snowfall moonwalk starboard starship bookworm paperwork handout handover
+  headwind footnote footwork backwater backdrop backfire outside outwork
+  offline offload overwork overload overhead housefly workday workman
+  workmate workroom workhorse shipmate shipload boatman ballboy parkway
+  parkside sideline casebook linework fallback breakdown breakout fastfood
+  fastlane breakwater
+`.trim().split(/\s+/));
+
+/* ======================================================
+   DAILY PUZZLE COLLECTION
+
+   One row = one daily puzzle.
+   Format: concise theme title, five-word chain, three decoy words.
+   The full collection is shuffled to vary the daily sequence.
+====================================================== */
+
+const DAILY_LAUNCH_DATE = "2026-10-17";
+
+const PUZZLE_DATA = [
+  ["Amber Footnote",
+   "FIRE BREAK OUT WORK SHOP", "ROLL FALL POST"],
+  ["Dusky Detour",
+   "GROUND HOG WASH BOARD ROOM", "DOWN HEAD HILL"],
+  ["Hidden Registry",
+   "BOOK CASE WORK DAY LIGHT", "FOOD WORM CHAIR"],
+  ["Quiet Signal",
+   "BACK YARD WORK BOOK WORM", "STONE BOW RAIN"],
+  ["Curious Enigma",
+   "NOTE BOOK MARK DOWN HILL", "PACK FOOT POT"],
+  ["Secret Detour",
+   "HOUSE WORK HORSE FLY PAPER", "SHELL HAND SHIP"],
+  ["Misty Beacon",
+   "BAG PIPE LINE MAN HOLE", "BAND BANK BAR"],
+  ["Distant Detour",
+   "NET BALL PARK SIDE LINE", "BOARD WIND RAIN"],
+  ["Hidden Enigma",
+   "FIRE FLY PAPER WORK LOAD", "TAIL PAD POST"],
+  ["Misty Sounding",
+   "BANK NOTE BOOK CASE WORK", "EYE FALL FAST"],
+  ["Hidden Aurora",
+   "STAR FISH NET BALL GAME", "HEAD SHELL SURF"],
+  ["Briny Tidewater",
+   "RAIN FALL OUT SIDE LINE", "HAND DROP LIFT"],
+  ["Briny Passage",
+   "TEA CUP BOARD WALK WAY", "POT CAKE ROOM"],
+  ["Hidden Index",
+   "NOTE BOOK MARK DOWN FALL", "PAD SHELF HILL"],
+  ["Hidden Overtime",
+   "BRUSH FIRE BALL ROOM MATE", "MILL RAIN PASTE"],
+  ["Curious Forage",
+   "BACK PACK HORSE FLY WHEEL", "SHIP SHOE SHOP"],
+  ["Faded Catalog",
+   "DAY LIGHT HOUSE WORK BOOK", "MAN MARK MATE"],
+  ["Blue Tidewater",
+   "SUN LIGHT HOUSE BOAT MAN", "POT WASH COAT"],
+  ["Hidden Beacon",
+   "HAND OUT SIDE LINE WORK", "LIFT FIRE BED"],
+  ["Silver Drift",
+   "WATER FALL BACK FIRE BALL", "TOOTH DRUM STICK"],
+  ["Quiet Catalog",
+   "FALL OUT FIELD WORK LOAD", "WOOD WORM WRECK"],
+  ["Tidal Tidewater",
+   "BAG PIPE LINE MAN KIND", "BLACK BOARD BOAT"],
+  ["Amber Mirage",
+   "HAND OVER WORK BOOK CASE", "BOY FIRE ROOM"],
+  ["Ink Margin",
+   "BRUSH FIRE WORK DAY BREAK", "BOY BOARD TOWN"],
+  ["Hidden Crossing",
+   "BREAK OUT SIDE LINE MAN", "SHIELD YARD TOOTH"],
+  ["Secret Ledger",
+   "BACK FIRE WORK SHOP LIFT", "BEAM SONG RING"],
+  ["Misty Current",
+   "BACK FIRE LIGHT HOUSE BOAT", "SHOP WHEEL SLIDE"],
+  ["Silent Catalog",
+   "BIRD HOUSE WORK BOOK SHELF", "LIGHT LINE LIP"],
+  ["Distant Footpath",
+   "COAT TAIL GATE WAY SIDE", "BUTTER CAKE CASE"],
+  ["Curious Waypoint",
+   "HAND OVER COAT TAIL GATE", "EYE MOON PACK"],
+  ["Quiet Mirage",
+   "SEA SHORE LINE MAN HOLE", "SHELL FOOD KIND"],
+  ["Faint Drift",
+   "KEY BOARD WALK WAY SIDE", "HOLE ROOM SHOW"],
+  ["Wandering Sounding",
+   "BACK FIRE BREAK WATER SIDE", "PASTE HORSE BIRD"],
+  ["Velvet Enigma",
+   "KICK BACK FIRE WORK DAY", "TAIL ACHE FOOT"],
+  ["Velvet Signal",
+   "NOTE BOOK CASE WORK MAN", "GATE MILL BAR"],
+  ["Curious Paradox",
+   "BACK FIRE WORK MAN HOLE", "SONG BLACK RING"],
+  ["Curious Index",
+   "BRUSH FIRE WORK BOOK SHELF", "KIND LAND LID"],
+  ["Curious Ledger",
+   "TOOTH BRUSH FIRE WORK SHOP", "PASTE WOOD LIGHT"],
+  ["Faded Registry",
+   "CLUB HOUSE WORK BOOK CASE", "WHEEL WIND WOOD"],
+  ["Amber Horizon",
+   "FIRE WORK DAY BREAK OUT", "ACHE PAD BANK"],
+  ["Silver Paradox",
+   "KICK BACK YARD WORK HORSE", "ARM SHOW SHELL"],
+  ["Dusky Cipher",
+   "CLUB HOUSE WORK DAY LIGHT", "STICK PAPER HOLD"],
+  ["Curious Footnote",
+   "BIRD HOUSE WORK DAY DREAM", "MATE GAME TAIL"],
+  ["Hidden Monsoon",
+   "NIGHT FALL OUT SIDE SHOW", "PIPE UP NET"],
+  ["Hidden Current",
+   "LINE WORK SHOP LIFT OFF", "PRINT BROW FIELD"],
+  ["Hidden Catalog",
+   "BRUSH FIRE WORK BOOK MARK", "HOG HOLD HOLE"],
+  ["Distant Downpour",
+   "SNOW FALL BACK DROP KICK", "BUTTER SURF FLOWER"],
+  ["Curious Registry",
+   "NET WORK BOOK MARK DOWN", "LID LAND TOWN"],
+  ["Distant Tidewater",
+   "DAY LIGHT HOUSE BOAT LOAD", "LID LIFE LIFT"],
+  ["Restless Scoreline",
+   "FAST BALL PARK LAND SLIDE", "BOY BREAK BROW"],
+  ["Velvet Registry",
+   "NIGHT FALL OUT WORK HORSE", "BOARD NUT UP"],
+  ["Faint Mirage",
+   "WATER SIDE LINE MAN KIND", "SHOE FIRE BOAT"],
+  ["Quiet Cipher",
+   "FALL OUT FIELD WORK SHOP", "BAG BALL BAND"],
+  ["Silver Mirage",
+   "EAR RING SIDE WALK WAY", "DRUM WORM OUT"],
+  ["Curious Passage",
+   "FLY PAPER BACK DROP KICK", "LAND HOG STAR"],
+  ["Quiet Index",
+   "BACK YARD WORK SHOP LIFT", "WOOD WORM WRECK"],
+  ["Hidden Paradox",
+   "BACK FIRE LIGHT HOUSE WORK", "HOLE LIFE TOOTH"],
+  ["Velvet Footnote",
+   "BREAK OUT FIELD WORK ROOM", "UP PARK TIME"],
+  ["Restless Encore",
+   "BACK FIRE BALL PARK WAY", "BONE LAND STICK"],
+  ["Salted Tidewater",
+   "PIPE LINE WORK MAN HOLE", "SONG TOOTH UP"],
+  ["Secret Paradox",
+   "BREAK OUT FIELD WORK HORSE", "BAG FOOD BOAT"],
+  ["Quiet Encore",
+   "HAND BALL PARK LAND SLIDE", "SHIELD BLACK HORSE"],
+  ["Golden Overtime",
+   "DAY BREAK FAST BALL ROOM", "HORSE HOUSE KEY"],
+  ["Electric Scoreline",
+   "KICK BACK FIRE BREAK DOWN", "NET GATE WASH"],
+  ["Quiet Passage",
+   "FLY PAPER WORK DAY LIGHT", "KICK PAD COAT"],
+  ["Salted Horizon",
+   "CUP BOARD WALK OUT FIELD", "DREAM DROP DRUM"],
+  ["Faint Cipher",
+   "LIGHT HOUSE WORK BOOK MARK", "NUT HAND BOAT"],
+  ["Hidden Tidewater",
+   "HAND BAG PIPE LINE MAN", "BALL BOOK SHAKE"],
+  ["Wandering Horizon",
+   "TAIL GATE WAY SIDE WALK", "TEA LIFE BOW"],
+  ["Silver Compass",
+   "KICK BACK FIRE WORK MAN", "WRECK SONG SLIDE"],
+  ["Quiet Registry",
+   "CLUB HOUSE WORK BOOK SHELF", "BEAM BED BERRY"],
+  ["Silver Cipher",
+   "BACK FIRE WORK DAY BREAK", "SHOW RAIN SHIELD"],
+  ["Misty Crossing",
+   "BANK NOTE BOOK CASE LOAD", "CUP DAY DOWN"],
+  ["Hidden Detour",
+   "HOUSE FLY PAPER WORK ROOM", "BUTTER BED FALL"],
+  ["Faded Ledger",
+   "CLUB HOUSE WORK SHOP LIFT", "BONE BOOK BOW"],
+  ["Wandering Crossing",
+   "FIRE LIGHT HOUSE BOAT MAN", "PIPE RAIN ARM"],
+  ["Tidal Crossing",
+   "BALL PARK SIDE LINE WORK", "SHELL GAME FISH"],
+  ["Quiet Beacon",
+   "MOON WALK OUT SIDE LINE", "SPACE GATE BAR"],
+  ["Hidden Cipher",
+   "DROP KICK BACK YARD WORK", "SHIELD SHINE SHIP"],
+  ["Dusky Ledger",
+   "NOTE BOOK CASE WORK HORSE", "STICK HOLE FISH"],
+  ["Secret Registry",
+   "STAR FISH NET WORK BOOK", "LIGHT BALL SHOP"],
+  ["Ink Catalog",
+   "BUTTER FLY PAPER BACK BONE", "MILK WHEEL YARD"],
+  ["Secret Archive",
+   "BALL PARK LAND MARK DOWN", "BREAK BROW BRUSH"],
+  ["Blue Passage",
+   "SPACE WALK WAY SIDE LINE", "SHIP BOW SHELL"],
+  ["Faded Archive",
+   "BUTTER FLY PAPER BACK YARD", "OFF OUT OVER"],
+  ["Salted Sounding",
+   "BALL PARK SIDE WALK WAY", "MARK BUTTER SHINE"],
+  ["Quiet Assembly",
+   "TOOTH BRUSH FIRE FLY WHEEL", "LIGHT WASH BROW"],
+  ["Briny Sounding",
+   "SHIP YARD WORK DAY DREAM", "SEA HORSE WOOD"],
+  ["Curious Encore",
+   "FAST BALL PARK WAY SIDE", "LIFT WATER TOWN"],
+  ["Faint Detour",
+   "SUN LIGHT HOUSE FLY PAPER", "BROW CHAIR MELON"],
+  ["Secret Cipher",
+   "BIRD HOUSE WORK SHOP LIFT", "MATE MELON MILK"],
+  ["Misty Passage",
+   "BLACK BIRD HOUSE BOAT LOAD", "BERRY SONG MAIL"],
+  ["Distant Crossing",
+   "LIFT OFF LINE WORK DAY", "TEA PASTE PARK"],
+  ["Hidden Encore",
+   "TOOTH BRUSH FIRE BALL GAME", "DAY MAN PIT"],
+  ["Silver Beacon",
+   "MOON WALK OUT WORK DAY", "MAIL SHORE RING"],
+  ["Distant Frontline",
+   "BREAK DOWN FALL BACK YARD", "LIP MATE BOAT"],
+  ["Amber Signal",
+   "BACK FIRE WORK DAY BED", "WOOD RIVER WALK"],
+  ["Distant Current",
+   "RIVER BANK NOTE BOOK CASE", "BED ROLL MARK"],
+  ["Secret Horizon",
+   "SNOW FALL OUT WORK MAN", "NIGHT SHAKE GROUND"],
+  ["Velvet Catalog",
+   "OVER WORK BOOK MARK DOWN", "HOG EAR TOWN"],
+  ["Briny Beacon",
+   "WATER FALL OUT SIDE SHOW", "ROLL KICK KEY"],
+  ["Amber Compass",
+   "FIRE WORK DAY BREAK DOWN", "NET NUT BROW"],
+  ["Distant Enigma",
+   "RAIN FALL BACK YARD WORK", "SHINE OFF SUN"],
+  ["Amber Catalog",
+   "HEAD LIGHT HOUSE WORK LOAD", "UP SHIP FLY"],
+  ["Hidden Compass",
+   "FIRE WORK SHOP LIFT OFF", "CASE BLACK PIT"],
+  ["Distant Passage",
+   "BREAK WATER FALL BACK DROP", "RAIN NIGHT SIDE"],
+  ["Wandering Current",
+   "SUN LIGHT HOUSE BOAT LOAD", "FLOWER BEAM HOLD"],
+  ["Ink Manuscript",
+   "BIRD HOUSE WORK BOOK MARK", "KEY KICK KIND"],
+  ["Amber Index",
+   "FIRE LIGHT HOUSE WORK SHOP", "FLY BOAT WOOD"],
+  ["Tidal Drift",
+   "WATER FALL BACK FIRE LIGHT", "BROW MILK HAND"],
+  ["Crooked Playbook",
+   "BREAK FAST BALL PARK LAND", "WAY WHEEL WIND"],
+  ["Ink Index",
+   "BRUSH FIRE FLY PAPER BOY", "BOARD BOAT BONE"],
+  ["Misty Mirage",
+   "SPACE SHIP YARD WORK BOOK", "WALK WRECK SHOP"],
+  ["Hidden Manuscript",
+   "BACK YARD WORK BOOK CASE", "SLIDE SNOW SONG"],
+  ["Distant Sounding",
+   "ARM CHAIR LIFT OFF SHORE", "BAND PIT SIDE"],
+  ["Secret Mirage",
+   "PARK SIDE LINE WORK ROOM", "POST LIFE BOW"],
+  ["Wandering Passage",
+   "FOOT WORK DAY BREAK WATER", "HOUSE WORM NET"],
+  ["Ink Archive",
+   "DAY LIGHT HOUSE WORK SHOP", "OVER PACK PAD"],
+  ["Quiet Barometer",
+   "SNOW BALL PARK LAND SLIDE", "MAN GAME MARK"],
+  ["Amber Archive",
+   "SUN LIGHT HOUSE WORK DAY", "SNOW HAND TEA"],
+  ["Secret Compass",
+   "HEAD LIGHT HOUSE WORK ROOM", "KIND PASTE BOW"],
+  ["Curious Margin",
+   "HAND OUT WORK DAY BREAK", "BONE ACHE WHEEL"],
+  ["Hidden Ledger",
+   "EYE BALL PARK LAND MARK", "SURF TAIL TEA"],
+  ["Salted Mirage",
+   "WASH BOARD WALK OUT WORK", "CHAIR CLUB HOLD"],
+  ["Hidden Rallypoint",
+   "DAY BREAK FAST BALL PARK", "DREAM LIGHT BED"],
+  ["Faded Barometer",
+   "NIGHT FALL BACK FIRE FLY", "BOOK NET BOW"],
+  ["Velvet Cipher",
+   "OUT FIELD WORK DAY BREAK", "RING MATE FAST"],
+  ["Curious Catalog",
+   "CASE WORK BOOK MARK DOWN", "PIN PIPE PIT"],
+  ["Faint Rallypoint",
+   "KICK BACK FIRE BREAK FAST", "TAIL MELON DOWN"],
+  ["Silver Tidewater",
+   "GROUND WATER FALL BACK BONE", "STICK EAR BOW"],
+  ["Distant Compass",
+   "HORSE FLY PAPER WORK BOOK", "BEAM MAIL CAKE"],
+  ["Silver Current",
+   "SHORE LINE WORK DAY BED", "HORSE HILL TAIL"],
+  ["Wandering Tidewater",
+   "WIND SURF BOARD WALK WAY", "MILL SHIELD ROOM"],
+  ["Hidden Drift",
+   "GROUND WATER SIDE WALK WAY", "WORM SNOW SHIP"],
+  ["Amber Manuscript",
+   "FLY PAPER BACK FIRE BALL", "MAIL PIT DOWN"],
+  ["Silent Registry",
+   "BRUSH FIRE FLY PAPER BACK", "BAR BEAM BED"],
+  ["Secret Passage",
+   "BALL PARK SIDE LINE MAN", "PAD HILL FISH"],
+  ["Secret Enigma",
+   "BREAK WATER FALL BACK FIRE", "PARK GROUND MOON"],
+  ["Velvet Index",
+   "BIRD HOUSE WORK DAY LIGHT", "NIGHT WHEEL NUT"],
+  ["Distant Beacon",
+   "BANK NOTE BOOK MARK DOWN", "FLY FOOD FOOT"],
+  ["Tidal Sounding",
+   "SPACE WALK WAY SIDE SHOW", "MILK DAY BONE"],
+  ["Amber Passage",
+   "OUT FIELD WORK HORSE FLY", "STICK SHIP MAN"],
+  ["Faded Index",
+   "BRUSH FIRE WORK BOOK CASE", "GAME GATE GROUND"],
+  ["Dusky Registry",
+   "BLACK BIRD HOUSE WORK BOOK", "NUT OFF OUT"],
+  ["Wandering Beacon",
+   "HAND OVER BOARD WALK OUT", "FISH MELON CAKE"],
+  ["Briny Horizon",
+   "HAND BALL PARK SIDE WALK", "BROW BOY MARK"],
+  ["Faint Tidewater",
+   "FOOT BALL PARK SIDE LINE", "LAND SUN POT"],
+  ["Quiet Ledger",
+   "FIELD WORK BOOK MARK DOWN", "DRUM EAR EYE"],
+  ["Secret Index",
+   "BIRD HOUSE WORK BOOK CASE", "HEAD HILL HOG"],
+  ["Quiet Footnote",
+   "FOOT BALL PARK LAND MARK", "PRINT ROOM SLIDE"],
+  ["Distant Horizon",
+   "DROP KICK BACK WATER FALL", "BLACK WASH BOAT"],
+  ["Tidal Passage",
+   "OFF SHORE LINE WORK MAN", "KIND BIRD SHELF"],
+  ["Distant Drift",
+   "OFF LINE WORK HORSE SHOE", "WAY WHEEL BANK"],
+  ["Quiet Drift",
+   "PAPER BACK WATER SIDE WALK", "HEAD WASH MOON"],
+  ["Faint Paradox",
+   "PAPER BACK FIRE WORK BOOK", "WIND HILL RING"],
+  ["Quiet Paradox",
+   "BACK FIRE FLY PAPER BOY", "BAND GROUND TIME"],
+  ["Silent Archive",
+   "WORK HORSE FLY PAPER BOY", "RAIN KICK SHOE"],
+  ["Faint Enigma",
+   "FIRE BALL PARK LAND MARK", "NET ROLL HOLE"],
+  ["Hidden Archive",
+   "FISH NET WORK DAY BREAK", "RIVER SHORE BUTTER"],
+  ["Quiet Current",
+   "STAR SHIP YARD WORK DAY", "BOOK SHELF TIME"],
+  ["Blue Horizon",
+   "DAY BREAK WATER FALL BACK", "BED NET BIRD"],
+  ["Hidden Sounding",
+   "SPACE WALK OUT WORK SHOP", "BOY BANK PARK"],
+  ["Tidal Horizon",
+   "EAR RING SIDE WALK OUT", "SLIDE SNOW SONG"],
+  ["Distant Cipher",
+   "OFF LINE WORK BOOK MARK", "EYE WHEEL POT"],
+  ["Curious Mirage",
+   "PARK SIDE WALK OUT FIELD", "SONG BOAT MELON"],
+  ["Amber Paradox",
+   "DAY BREAK OUT WORK SHOP", "LIP WORM CASE"],
+  ["Distant Mirage",
+   "OVER HEAD LIGHT HOUSE BOAT", "MELON BAR MOON"],
+  ["Quiet Margin",
+   "NET WORK DAY BREAK DOWN", "OUT POT WATER"],
+  ["Salted Drift",
+   "OFF SHORE LINE WORK HORSE", "SHELF MAIL MILK"],
+  ["Faint Horizon",
+   "FISH NET WORK HORSE FLY", "FOOT PAPER STAR"],
+  ["Amber Margin",
+   "SUN LIGHT HOUSE WORK ROOM", "CASE BONE FIRE"],
+  ["Faint Current",
+   "LIGHT HOUSE BOAT MAN HOLE", "FOOD LIFE PIPE"],
+  ["Curious Manuscript",
+   "YARD WORK BOOK CASE LOAD", "LID HOG GAME"],
+  ["Sudden Rallypoint",
+   "KICK BACK FIRE BALL BOY", "HILL FLY UP"],
+  ["Blue Current",
+   "RING SIDE LINE WORK SHOP", "BOW BOOK MAIL"],
+  ["Restless Thunderclap",
+   "HAND OVER HEAD WIND MILL", "ROLL UP SURF"],
+  ["Briny Crossing",
+   "KEY BOARD WALK OUT WORK", "WOOD STAR FOOD"],
+  ["Misty Drift",
+   "PARK SIDE WALK OUT WORK", "FLOWER HEAD DREAM"],
+  ["Silent Index",
+   "BUTTER FLY PAPER WORK DAY", "HOLE WALK SHINE"],
+  ["Curious Compass",
+   "FIRE BREAK OUT SIDE BAR", "PAD STAR TEA"],
+  ["Dusky Horizon",
+   "BREAK WATER SIDE WALK OUT", "MELON FIRE PIPE"],
+  ["Silver Horizon",
+   "STICK UP SIDE LINE WORK", "HOLE HILL BERRY"],
+  ["Curious Whistle",
+   "FISH NET BALL ROOM MATE", "HOLD CLUB POT"],
+  ["Curious Detour",
+   "PARK SIDE LINE WORK MATE", "HEAD PIT SHIP"],
+  ["Ink Ledger",
+   "HAND OVER WORK MAN KIND", "BREAK MELON SHELL"],
+  ["Amber Ledger",
+   "BACK YARD WORK BOOK MARK", "SUN SURF TAIL"],
+  ["Quiet Overtime",
+   "BREAK FAST BALL PARK SIDE", "BACK BED ACHE"],
+  ["Hidden Thunderclap",
+   "RAIN DROP KICK BACK BONE", "COAT BOW YARD"],
+  ["Hidden Footnote",
+   "CLUB HOUSE WORK MAN KIND", "FISH SHELL PACK"],
+  ["Restless Whistle",
+   "BREAK FAST BALL ROOM MATE", "YARD ACHE ARM"],
+  ["Quiet Enigma",
+   "WORK DAY BREAK FAST FOOD", "SUN NET BOAT"],
+  ["Velvet Paradox",
+   "HOUSE WORK BOOK CASE LOAD", "SIDE BRUSH SHELF"],
+  ["Faint Beacon",
+   "BACK WATER SIDE LINE WORK", "FALL HOLD BLACK"],
+  ["Dusky Passage",
+   "CASE WORK HORSE FLY WHEEL", "OVER DROP BAND"],
+  ["Briny Mirage",
+   "MOON LIGHT HOUSE BOAT LOAD", "BEAM SHINE STONE"],
+  ["Salted Crossing",
+   "MOON LIGHT HOUSE BOAT MAN", "LINE SLIDE OVER"],
+  ["Amber Enigma",
+   "FALL BACK FIRE WORK HORSE", "SIDE PIN WALK"],
+  ["Wandering Drift",
+   "HEAD WIND SURF BOARD ROOM", "SHORE FOOT WAY"],
+  ["Silent Footnote",
+   "BLACK BIRD HOUSE WORK LOAD", "PARK PASTE PIN"],
+  ["Hidden Downpour",
+   "DOWN FALL BACK PACK HORSE", "LID OVER NUT"],
+  ["Ink Registry",
+   "BUTTER FLY PAPER BACK FIRE", "HILL POT NIGHT"],
+  ["Quiet Horizon",
+   "BREAK WATER SIDE LINE WORK", "WOOD BACK LAND"],
+  ["Velvet Mirage",
+   "NOTE BOOK CASE WORK MATE", "SHINE WORM POT"],
+  ["Faint Compass",
+   "OVER COAT TAIL GATE WAY", "TIME BOARD POST"],
+  ["Wandering Roosting",
+   "GROUND HOG WASH ROOM MATE", "NUT WATER BOARD"],
+  ["Briny Drift",
+   "OFF SIDE LINE WORK HORSE", "POT SHOE BUTTER"],
+  ["Blue Beacon",
+   "CHAIR LIFT OFF SIDE WALK", "TOOTH TOWN UP"],
+  ["Salted Current",
+   "WATER FALL BACK FIRE FLY", "STONE WORK MAIL"],
+  ["Curious Archive",
+   "BLACK BIRD HOUSE WORK SHOP", "POT PRINT RAIN"],
+  ["Dusky Archive",
+   "PAPER BACK PACK HORSE SHOE", "BOY YARD FLY"],
+  ["Silver Detour",
+   "FALL BACK YARD WORK HORSE", "OFF WOOD LIGHT"],
+  ["Dusky Margin",
+   "DAY LIGHT HOUSE WORK LOAD", "NET NIGHT NOTE"],
+  ["Quiet Whistle",
+   "BACK FIRE BALL PARK SIDE", "ROLL SONG LOAD"],
+  ["Curious Cipher",
+   "BREAK OUT WORK ROOM MATE", "BERRY DREAM BALL"],
+  ["Cosmic Eclipse",
+   "OVER HEAD LIGHT HOUSE HOLD", "RING BEAM PASTE"],
+  ["Wandering Mirage",
+   "WAY SIDE LINE MAN KIND", "PIPE OFF PAD"],
+  ["Silent Manuscript",
+   "BACK YARD WORK DAY LIGHT", "FISH MILL SUN"],
+  ["Distant Paradox",
+   "HORSE FLY PAPER BACK DROP", "FLOWER FAST LIP"],
+  ["Uncharted Crossroads",
+   "LIP STICK UP SIDE SHOW", "PIN TOWN BAR"],
+  ["Velvet Archive",
+   "CLUB HOUSE WORK BOOK MARK", "ARM BACK BAG"],
+  ["Faded Manuscript",
+   "CASE WORK DAY BREAK DOWN", "LAND BLACK WIND"],
+  ["Blue Sounding",
+   "BOARD WALK OUT FIELD WORK", "SEA SHAKE SHELF"],
+  ["Tidal Current",
+   "LIFT OFF LINE WORK BOOK", "SNOW LIP PAPER"],
+  ["Quiet Compass",
+   "NIGHT FALL OUT WORK MAN", "SHELL CAKE PAPER"],
+  ["Velvet Starlore",
+   "BRUSH FIRE LIGHT HOUSE HOLD", "CUP DAY DOWN"],
+  ["Amber Detour",
+   "BACK FIRE WORK DAY DREAM", "SHORE WIND OUT"],
+  ["Secret Signal",
+   "FIRE LIGHT HOUSE FLY PAPER", "BANK DOWN EAR"],
+  ["Silver Squall",
+   "RAIN COAT TAIL GATE POST", "SONG EAR OVER"],
+  ["Tidal Mirage",
+   "SIDE LINE WORK SHOP LIFT", "MELON COAT WOOD"],
+  ["Quiet Sounding",
+   "OFF SHORE LINE WORK SHOP", "CASE SHELL BREAK"],
+  ["Silent Cipher",
+   "BACK YARD WORK BOOK SHELF", "UP WALK WASH"],
+  ["Misty Tidewater",
+   "SPACE SHIP YARD WORK DAY", "FALL WALK HOLD"],
+  ["Dusky Mirage",
+   "WORK BOOK MARK DOWN FALL", "SHORE STICK OFF"],
+  ["Ink Cipher",
+   "FAST BALL PARK LAND MARK", "BIRD BLACK BOARD"],
+  ["Secret Footnote",
+   "KICK BACK FIRE WORK LOAD", "CAKE OFF GATE"],
+  ["Quiet Manuscript",
+   "BACK PACK HORSE FLY PAPER", "SEA SHAKE SHELF"],
+  ["Dusky Compass",
+   "PARK SIDE LINE WORK HORSE", "MOON STAR SHOW"],
+  ["Faint Passage",
+   "OUT WORK DAY BREAK FAST", "SHIELD DOWN BROW"],
+  ["Hidden Mirage",
+   "DAY LIGHT HOUSE WORK MATE", "RIVER SHIP MARK"],
+  ["Salted Passage",
+   "FIRE BALL PARK SIDE LINE", "SONG PASTE BOAT"],
+  ["Dusky Manuscript",
+   "FALL OUT FIELD WORK BOOK", "UP WALK WASH"],
+  ["Dusky Enigma",
+   "SPACE WALK OUT WORK ROOM", "MOON HOLD FIRE"],
+  ["Secret Workshop",
+   "ARM CHAIR LIFT OFF SIDE", "POST POT PRINT"],
+  ["Restless Matchpoint",
+   "DROP KICK BACK PACK HORSE", "ROOM SEA SHAKE"],
+  ["Briny Current",
+   "KEY BOARD WALK OUT FIELD", "BLACK KICK HEAD"],
+  ["Silver Enigma",
+   "STAR FISH NET WORK MATE", "CASE MILK GATE"],
+  ["Misty Frontline",
+   "FALL BACK FIRE MAN KIND", "BLACK GROUND CASE"],
+  ["Amber Registry",
+   "RAIN FALL OUT WORK LOAD", "BREAK TIME SHAKE"],
+  ["Hidden Scoreline",
+   "EYE BALL PARK LAND SLIDE", "LID BROW MARK"],
+  ["Faded Footnote",
+   "FIELD WORK SHOP LIFT OFF", "FIRE FISH FLOWER"],
+  ["Curious Horizon",
+   "HOUSE FLY PAPER WORK DAY", "KEY WATER SHELL"],
+  ["Secret Manuscript",
+   "NIGHT CLUB HOUSE WORK SHOP", "FALL LIFE BOAT"],
+  ["Velvet Margin",
+   "HOUSE WORK HORSE FLY WHEEL", "CHAIR SURF GAME"],
+  ["Hidden Passage",
+   "BOARD WALK WAY SIDE SHOW", "SONG SPACE STAR"],
+  ["Amber Cipher",
+   "BOOK CASE WORK SHOP LIFT", "MARK SHELF LOAD"],
+  ["Hidden Margin",
+   "BLACK BIRD HOUSE WORK MATE", "DRUM BOOK MILL"],
+  ["Faded Cipher",
+   "CASE WORK SHOP LIFT OFF", "RAIN RING RIVER"],
+  ["Velvet Horizon",
+   "OFF SHORE LINE MAN HOLE", "PARK CHAIR FLY"],
+  ["Restless Blueprinting",
+   "CHAIR LIFT OFF SIDE SHOW", "STONE SUN SURF"],
+  ["Midnight Cosmos",
+   "RAIN FALL BACK FIRE LIGHT", "FLY GAME BREAK"],
+  ["Blue Crossing",
+   "MOON WALK WAY SIDE LINE", "CASE BERRY MELON"],
+  ["Distant Signal",
+   "FIELD WORK DAY BREAK OUT", "SNOW GAME BERRY"],
+  ["Faded Margin",
+   "FLY PAPER BACK FIRE BREAK", "WASH SHOW PIT"],
+  ["Curious Signal",
+   "PAPER WORK DAY BREAK OUT", "POST RING SHIELD"],
+  ["Salted Beacon",
+   "BOARD WALK OUT WORK ROOM", "MAN PACK RAIN"],
+  ["Silver Crossing",
+   "CHAIR LIFT OFF SHORE LINE", "SHELL SHIELD SHINE"],
+  ["Hidden Horizon",
+   "PAPER BACK FIRE WORK ROOM", "BAND FALL SHOE"],
+  ["Dusky Catalog",
+   "FIELD WORK BOOK CASE LOAD", "CLUB COAT CUP"],
+  ["Velvet Compass",
+   "RAIN FALL OUT WORK SHOP", "FOOT BROW ARM"],
+  ["Tidal Beacon",
+   "BRUSH FIRE LIGHT HOUSE BOAT", "BUTTER CAKE CASE"],
+  ["Silver Passage",
+   "BOARD WALK WAY SIDE BAR", "SHIP SHOE SHOP"],
+  ["Velvet Passage",
+   "SNOW BALL PARK SIDE WALK", "SHELL SONG SURF"],
+  ["Golden Encore",
+   "DAY BREAK FAST BALL GAME", "HAND HEAD HILL"],
+  ["Silver Sounding",
+   "CUP BOARD WALK WAY SIDE", "FIELD FIRE FISH"],
+  ["Dusky Paradox",
+   "FALL OUT WORK BOOK WORM", "SHIELD FLY LIFT"],
+  ["Secret Catalog",
+   "BUTTER FLY PAPER BACK PACK", "MILK MILL MOON"],
+  ["Blue Drift",
+   "SIDE LINE WORK ROOM MATE", "BREAK MOON SHELL"],
+  ["Quiet Crossing",
+   "SIDE WALK OUT WORK MATE", "LOAD BOARD STICK"],
+  ["Silent Blueprint",
+   "CHAIR LIFT OFF SIDE BAR", "SHOW SLIDE SNOW"],
+  ["Secret Margin",
+   "BRUSH FIRE WORK SHOP LIFT", "LIP LOAD MAIL"],
+  ["Velvet Ledger",
+   "HEAD LIGHT HOUSE WORK SHOP", "ACHE BAND BOAT"],
+  ["Quiet Tidewater",
+   "WATER FALL OUT WORK MAN", "HILL MARK DRUM"],
+  ["Hidden Sideline",
+   "KICK BACK FIRE MAN KIND", "TEA LIGHT LOAD"],
+  ["Hidden Signal",
+   "HAND BOOK MARK DOWN FALL", "OVER CLUB BERRY"],
+  ["Quiet Archive",
+   "PACK HORSE FLY PAPER BOY", "HOG FLOWER KEY"],
+  ["Silent Ledger",
+   "YARD WORK BOOK MARK DOWN", "OVER BAND WORM"],
+  ["Faint Crossing",
+   "WATER FALL OUT FIELD WORK", "MELON SIDE BOOK"],
+  ["Dusky Footnote",
+   "DOWN FALL OUT FIELD WORK", "PIT POST POT"],
+  ["Dusky Index",
+   "BRUSH FIRE LIGHT HOUSE WORK", "EYE FALL FAST"],
+  ["Faint Signal",
+   "BREAK OUT FIELD WORK DAY", "PRINT COAT HOLE"],
+  ["Silent Margin",
+   "BACK YARD WORK MAN HOLE", "RIVER CLUB DRUM"],
+  ["Dusky Signal",
+   "CLUB HOUSE WORK HORSE FLY", "STONE WAY KICK"],
+  ["Faint Sounding",
+   "HOG WASH BOARD WALK WAY", "BUTTER COAT STAR"],
+  ["Ink Footnote",
+   "BOOK MARK DOWN FALL OUT", "TIME TOOTH TOWN"],
+  ["Blue Mirage",
+   "OFF SHORE LINE WORK BOOK", "FIELD TEA CASE"],
+  ["Silver Signal",
+   "SUN LIGHT HOUSE WORK BOOK", "WAY SONG STAR"],
+  ["Velvet Detour",
+   "STICK UP SIDE WALK OUT", "PIPE MILK TOOTH"],
+  ["Quiet Detour",
+   "DOWN FALL OUT WORK SHOP", "YARD BACK MATE"],
+  ["Misty Horizon",
+   "NET WORK DAY BREAK WATER", "ROLL PACK RING"],
+  ["Velvet Manuscript",
+   "TOOTH BRUSH FIRE WORK HORSE", "RING GAME PACK"],
+];
+
+const LOCAL_PUZZLES = PUZZLE_DATA.map(([name, chainText, decoyText]) => ({
+  id: "closed-v1-" + chainText.toLowerCase().replaceAll(" ", "-"),
+  name,
+  chain: chainText.split(" "),
+  decoys: decoyText.split(" ")
+}));
+
+let PUZZLES = LOCAL_PUZZLES;
+const LOCAL_APPROVED_COMPOUNDS = new Set(APPROVED_COMPOUNDS);
+
+function bankWords(puzzle) {
+  return [...puzzle.chain.slice(1, -1), ...puzzle.decoys];
+}
+
+function pairLabel(puzzle, first, second) {
+  if (
+    typeof first !== "string" ||
+    typeof second !== "string" ||
+    !/^[A-Z]+$/.test(first) ||
+    !/^[A-Z]+$/.test(second)
+  ) return null;
+
+  const available = [...puzzle.chain, ...puzzle.decoys];
+
+  if (!available.includes(first) || !available.includes(second)) {
+    return null;
+  }
+
+  const combined = (first + second).toLowerCase();
+
+  return APPROVED_COMPOUNDS.has(combined) ? combined : null;
+}
+
+/*
+ * Startup checks catch malformed data or a puzzle whose
+ * intended answer is missing from the approved word list.
+ */
+function validatePuzzleCollection() {
+  for (const word of APPROVED_COMPOUNDS) {
+    if (!/^[a-z]+$/.test(word)) {
+      throw new Error("Approved compounds cannot contain spaces or hyphens.");
+    }
+  }
+
+  const seenChains = new Set();
+
+  for (const puzzle of PUZZLES) {
+    const allWords = [...puzzle.chain, ...puzzle.decoys];
+
+    if (
+      puzzle.chain.length !== 5 ||
+      puzzle.decoys.length !== 3 ||
+      new Set(allWords).size !== 8 ||
+      allWords.some(word => !/^[A-Z]+$/.test(word))
+    ) {
+      throw new Error("Invalid puzzle structure: " + puzzle.name);
+    }
+
+    const chainKey = puzzle.chain.join("|");
+
+    if (seenChains.has(chainKey)) {
+      throw new Error("Duplicate daily chain: " + puzzle.name);
+    }
+
+    seenChains.add(chainKey);
+
+    for (let i = 0; i < 4; i++) {
+      if (!pairLabel(puzzle, puzzle.chain[i], puzzle.chain[i + 1])) {
+        throw new Error(
+          "Unapproved connection: " +
+          puzzle.chain[i] + " + " + puzzle.chain[i + 1]
+        );
+      }
+    }
+  }
+
+  for (const forbidden of ["foodchain", "bowtie", "icecream"]) {
+    if (APPROVED_COMPOUNDS.has(forbidden)) {
+      throw new Error("A phrase was incorrectly added: " + forbidden);
+    }
+  }
+}
+
+validatePuzzleCollection();
+
+/* ======================================================
+   REMOTE PUZZLE CONTENT
+
+   Host puzzle-library.json beside this HTML file (or set
+   window.CONDUIT_CONFIG.puzzleLibraryUrl before this script)
+   to publish content updates without rebuilding the app.
+   A bundled library and the last valid downloaded library
+   remain available as fallbacks when offline.
+====================================================== */
+window.CONDUIT_CONFIG = {
+  puzzleLibraryUrl: "https://conduit.oneday1fact.workers.dev/puzzle-library.json"
+};
+const PUZZLE_LIBRARY_CACHE_KEY = "conduit-puzzle-library-cache-v1";
+const PUZZLE_LIBRARY_URL =
+  window.CONDUIT_CONFIG?.puzzleLibraryUrl || "puzzle-library.json";
+
+function validateLibraryPayload(payload) {
+  if (
+    !payload || payload.schemaVersion !== 1 ||
+    !Array.isArray(payload.puzzles) || payload.puzzles.length === 0 ||
+    !Array.isArray(payload.approvedCompounds)
+  ) {
+    throw new Error("Unsupported or incomplete puzzle library.");
+  }
+
+  if (payload.dailyLaunchDate && payload.dailyLaunchDate !== DAILY_LAUNCH_DATE) {
+    throw new Error("Puzzle library launch date does not match this game build.");
+  }
+
+  const nextApproved = new Set(
+    payload.approvedCompounds.filter(word => typeof word === "string")
+  );
+  const nextPuzzles = payload.puzzles.map(item => {
+    if (
+      !item || typeof item.name !== "string" || !item.name.trim() ||
+      typeof item.id !== "string" || !item.id.trim() ||
+      !Array.isArray(item.chain) || !Array.isArray(item.decoys)
+    ) throw new Error("A puzzle entry is malformed.");
+
+    return {
+      id: item.id,
+      name: item.name.trim(),
+      chain: [...item.chain],
+      decoys: [...item.decoys]
+    };
+  });
+
+  const previousApproved = new Set(APPROVED_COMPOUNDS);
+  const previousPuzzles = PUZZLES;
+  APPROVED_COMPOUNDS.clear();
+  nextApproved.forEach(word => APPROVED_COMPOUNDS.add(word));
+  PUZZLES = nextPuzzles;
+
+  try {
+    validatePuzzleCollection();
+  } catch (error) {
+    APPROVED_COMPOUNDS.clear();
+    previousApproved.forEach(word => APPROVED_COMPOUNDS.add(word));
+    PUZZLES = previousPuzzles;
+    throw error;
+  }
+
+  return payload;
+}
+
+function restoreLocalPuzzleLibrary() {
+  APPROVED_COMPOUNDS.clear();
+  LOCAL_APPROVED_COMPOUNDS.forEach(word => APPROVED_COMPOUNDS.add(word));
+  PUZZLES = LOCAL_PUZZLES;
+  validatePuzzleCollection();
+}
+
+async function loadRemotePuzzleLibrary() {
+  // Prefer fresh hosted content. A failed request never blocks offline play.
+  try {
+    const response = await fetch(PUZZLE_LIBRARY_URL, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`Puzzle library request failed (${response.status}).`);
+    const payload = validateLibraryPayload(await response.json());
+    try { localStorage.setItem(PUZZLE_LIBRARY_CACHE_KEY, JSON.stringify(payload)); } catch {}
+    return "remote";
+  } catch (remoteError) {
+    try {
+      const cached = localStorage.getItem(PUZZLE_LIBRARY_CACHE_KEY);
+      if (cached) {
+        validateLibraryPayload(JSON.parse(cached));
+        return "cached";
+      }
+    } catch (cacheError) {
+      console.warn("Saved CONDUIT puzzle library could not be used:", cacheError);
+    }
+    restoreLocalPuzzleLibrary();
+    console.info("Using the bundled CONDUIT puzzle library.", remoteError);
+    return "bundled";
+  }
+}
+
+/* ======================================================
+   STORAGE AND STATE
+
+   New storage key prevents old phrase-based results from
+   being counted as completed compound-only puzzles.
+====================================================== */
+
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "conduit-closed-compounds-v1";
+const PREVIOUS_STORAGE_KEY = "daily-chain-complete-v2";
+const DAY_MS = 86400000;
+
+function emptyStore() {
+  return {
+    records: {},
+    completedDates: [],
+    theme: "dark",
+    sound: false,
+    music: false,
+    haptics: true,
+    tutorialSeen: false
+  };
+}
+
+function loadStore() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+      const fresh = emptyStore();
+
+      // Carry over preferences only, not old puzzle results.
+      const previous = JSON.parse(
+        localStorage.getItem(PREVIOUS_STORAGE_KEY)
+      );
+
+      if (previous && typeof previous === "object") {
+        fresh.theme = previous.theme === "light" ? "light" : "dark";
+        fresh.sound = previous.sound === true;
+        fresh.music = previous.music === true;
+        fresh.haptics = previous.haptics !== false;
+      }
+
+      return fresh;
+    }
+
+    const saved = JSON.parse(raw);
+
+    if (!saved || typeof saved !== "object") return emptyStore();
+
+    return {
+      records:
+        saved.records &&
+        typeof saved.records === "object" &&
+        !Array.isArray(saved.records)
+          ? saved.records
+          : {},
+
+      completedDates: Array.isArray(saved.completedDates)
+        ? [...new Set(saved.completedDates.filter(value =>
+            typeof value === "string" &&
+            /^\d{4}-\d{2}-\d{2}$/.test(value)
+          ))]
+        : [],
+
+      theme: saved.theme === "light" ? "light" : "dark",
+      sound: saved.sound === true,
+      music: saved.music === true,
+      haptics: saved.haptics !== false,
+      tutorialSeen: saved.tutorialSeen === true
+    };
+  } catch {
+    return emptyStore();
+  }
+}
+
+let store = loadStore();
+let game = null;
+let mode = "daily";
+let selectedWord = null;
+let modalType = null;
+let previousFocus = null;
+let displayedDate = localDateKey();
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    $("storageWarning").hidden = true;
+  } catch {
+    $("storageWarning").hidden = false;
+  }
+}
+
+function validRecord(record, puzzle) {
+  if (
+    !record ||
+    record.puzzleId !== puzzle.id ||
+    !Array.isArray(record.slots) ||
+    record.slots.length !== 3
+  ) return false;
+
+  const placed = record.slots.filter(word => word !== null);
+  const allowed = bankWords(puzzle);
+
+  return (
+    placed.every(word => allowed.includes(word)) &&
+    new Set(placed).size === placed.length &&
+    Number.isFinite(record.elapsed) &&
+    record.elapsed >= 0 &&
+    Number.isInteger(record.hintsUsed) &&
+    record.hintsUsed >= 0 &&
+    record.hintsUsed <= 1
+  );
+}
+
+function saveGame() {
+  if (game) {
+    store.records[game.key] = {
+      puzzleId: game.puzzle.id,
+      slots: [...game.slots],
+      elapsed: game.elapsed,
+      hintsUsed: game.hintsUsed
+    };
+  }
+
+  persist();
+}
+
+/* ======================================================
+   CALENDAR AND STREAK
+====================================================== */
+
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function dateNumber(key) {
+  const [year, month, day] = key.split("-").map(Number);
+  return Math.floor(Date.UTC(year, month - 1, day) / DAY_MS);
+}
+
+function dateFromNumber(number) {
+  return new Date(number * DAY_MS).toISOString().slice(0, 10);
+}
+
+function previousDate(key) {
+  return dateFromNumber(dateNumber(key) - 1);
+}
+
+function dailyIndex(key) {
+  return dateNumber(key) - dateNumber(DAILY_LAUNCH_DATE);
+}
+
+function dailyStreak() {
+  const completed = new Set(store.completedDates);
+  let day = localDateKey();
+
+  if (!completed.has(day)) day = previousDate(day);
+
+  let count = 0;
+
+  while (completed.has(day)) {
+    count++;
+    day = previousDate(day);
+  }
+
+  return count;
+}
+
+function renderStreak() {
+  const streak = dailyStreak();
+
+  $("streakLabel").textContent =
+    `Daily streak: ${streak} ${streak === 1 ? "day" : "days"}`;
+}
+
+function recordCompletion() {
+  if (
+    game &&
+    game.mode === "daily" &&
+    !store.completedDates.includes(game.date)
+  ) {
+    store.completedDates.push(game.date);
+  }
+}
+
+function ensureCurrentDay() {
+  const today = localDateKey();
+
+  if (displayedDate !== today) {
+    displayedDate = today;
+    renderStreak();
+
+    if (mode === "daily") {
+      openPuzzle("daily");
+
+      if (game) {
+        setStatus("A new day has started. Your daily puzzle is ready.");
+      }
+
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/* ======================================================
+   ACTIVE PLAY TIMER
+====================================================== */
+
+let lastTick = performance.now();
+let clockRunning = false;
+
+function canRunClock() {
+  return Boolean(
+    game &&
+    !game.completed &&
+    !document.hidden &&
+    $("overlay").hidden
+  );
+}
+
+function formatTime(seconds) {
+  const total = Math.max(0, Math.floor(seconds));
+  const minutes = String(Math.floor(total / 60)).padStart(2, "0");
+  const remainder = String(total % 60).padStart(2, "0");
+  return `${minutes}:${remainder}`;
+}
+
+function updateTimer() {
+  $("timer").textContent = formatTime(game ? game.elapsed : 0);
+}
+
+function settleClock() {
+  const now = performance.now();
+
+  if (clockRunning && game && !game.completed) {
+    game.elapsed += Math.max(0, now - lastTick) / 1000;
+  }
+
+  lastTick = now;
+  clockRunning = canRunClock();
+  updateTimer();
+}
+
+function resetClockBaseline() {
+  lastTick = performance.now();
+  clockRunning = canRunClock();
+  updateTimer();
+}
+
+/* ======================================================
+   SOUND EFFECTS
+====================================================== */
+
+let audioContext = null;
+let audioMaster = null;
+let audioVersion = 0;
+
+function renderSoundButton() {
+  $("soundButton").textContent = store.sound ? "🔊" : "🔇";
+  $("soundButton").setAttribute("aria-pressed", String(store.sound));
+  $("soundButton").setAttribute("aria-label", store.sound ? "Turn sound effects off" : "Turn sound effects on");
+  $("soundButton").title = `Sound effects: ${store.sound ? "on" : "off"}`;
+}
+
+function renderMusicButton() {
+  $("musicButton").textContent = store.music ? "🎵" : "♪";
+  $("musicButton").setAttribute("aria-pressed", String(store.music));
+  $("musicButton").setAttribute("aria-label", store.music ? "Turn background music off" : "Turn background music on");
+  $("musicButton").title = `Background music: ${store.music ? "on" : "off"}`;
+}
+
+function renderHapticsButton() {
+  $("hapticsButton").setAttribute("aria-pressed", String(store.haptics));
+  $("hapticsButton").setAttribute("aria-label", store.haptics ? "Turn haptic feedback off" : "Turn haptic feedback on");
+  $("hapticsButton").title = `Haptic feedback: ${store.haptics ? "on" : "off"}`;
+  $("hapticsButton").style.opacity = store.haptics ? "1" : "0.62";
+}
+
+// Browser fallback: Android may support navigator.vibrate. For the packaged
+// iOS/Android app, expose a native bridge as window.ConduitNative.haptic(kind).
+function triggerHaptic(kind = "light") {
+  if (!store.haptics) return;
+  try {
+    if (typeof window.ConduitNative?.haptic === "function") {
+      window.ConduitNative.haptic(kind);
+      return;
+    }
+    const nativeHaptics = window.Capacitor?.Plugins?.Haptics;
+    if (nativeHaptics) {
+      const style = kind === "complete" ? "HEAVY" : kind === "success" ? "MEDIUM" : "LIGHT";
+      if (typeof nativeHaptics.impact === "function") {
+        void nativeHaptics.impact({ style });
+        return;
+      }
+      if (kind === "complete" && typeof nativeHaptics.notification === "function") {
+        void nativeHaptics.notification({ type: "SUCCESS" });
+        return;
+      }
+    }
+    if (typeof navigator.vibrate === "function") {
+      navigator.vibrate(kind === "complete" ? [25, 45, 45] : kind === "success" ? 22 : 12);
+    }
+  } catch {
+    // Haptic support varies by browser/device; never block gameplay.
+  }
+}
+
+function silenceAudio() {
+  audioVersion++;
+
+  if (audioContext && audioMaster) {
+    audioMaster.gain.setValueAtTime(0, audioContext.currentTime);
+  }
+}
+
+let bgmGain = null;
+let bgmTimer = null;
+let bgmStep = 0;
+
+async function startBgm() {
+  if (!store.music || document.hidden) return;
+  try {
+    const AudioClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioClass) return;
+    if (!audioContext) {
+      audioContext = new AudioClass();
+      audioMaster = audioContext.createGain();
+      audioMaster.gain.value = 0.16;
+      audioMaster.connect(audioContext.destination);
+    }
+    if (audioContext.state === "suspended") await audioContext.resume();
+    if (!store.music || document.hidden || audioContext.state !== "running") return;
+    if (!bgmGain) {
+      bgmGain = audioContext.createGain();
+      bgmGain.gain.value = 0;
+      bgmGain.connect(audioContext.destination);
+    }
+    bgmGain.gain.setTargetAtTime(0.075, audioContext.currentTime, 0.45);
+    if (bgmTimer) return;
+
+    // A warm, evolving electronic score: a soft chord bed, melodic motif,
+    // and gentle low pulse. All sounds are synthesized locally; no audio files
+    // or network requests are needed for the browser prototype.
+    const melody = [392.00, 493.88, 587.33, 493.88, 440.00, 523.25, 659.25, 523.25,
+                    349.23, 440.00, 523.25, 440.00, 392.00, 493.88, 587.33, 493.88];
+    const chords = [ [196.00, 246.94, 293.66], [174.61, 220.00, 261.63],
+                     [146.83, 196.00, 246.94], [164.81, 207.65, 246.94] ];
+    let step = 0;
+    const tone = (frequency, when, duration, volume, type = "sine", detune = 0) => {
+      const osc = audioContext.createOscillator();
+      const envelope = audioContext.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(frequency, when);
+      osc.detune.setValueAtTime(detune, when);
+      envelope.gain.setValueAtTime(0.0001, when);
+      envelope.gain.linearRampToValueAtTime(volume, when + Math.min(0.12, duration * 0.22));
+      envelope.gain.setTargetAtTime(0.0001, when + duration * 0.55, Math.max(0.06, duration * 0.16));
+      osc.connect(envelope);
+      envelope.connect(bgmGain);
+      osc.start(when);
+      osc.stop(when + duration);
+      osc.onended = () => { osc.disconnect(); envelope.disconnect(); };
+    };
+    const playStep = () => {
+      if (!store.music || document.hidden || !audioContext || audioContext.state !== "running") return;
+      const now = audioContext.currentTime + 0.02;
+      const note = melody[step % melody.length];
+      tone(note, now, 0.62, 0.14, "triangle");
+      tone(note * 2, now + 0.015, 0.44, 0.025, "sine", 4);
+      if (step % 4 === 0) {
+        const chord = chords[Math.floor(step / 4) % chords.length];
+        chord.forEach((frequency, i) => tone(frequency, now, 1.65, 0.035, "sine", i === 1 ? -3 : 3));
+        tone(chord[0] / 2, now, 0.5, 0.055, "triangle");
+      }
+      if (step % 2 === 0) {
+        // A soft percussive pulse adds momentum without becoming distracting.
+        tone(82.41, now, 0.18, 0.035, "sine");
+      }
+      step++;
+    };
+    playStep();
+    bgmTimer = window.setInterval(playStep, 520);
+  } catch {
+    // Background audio is optional and must never interrupt play.
+  }
+}
+
+function stopBgm() {
+  if (bgmTimer) window.clearInterval(bgmTimer);
+  bgmTimer = null;
+  if (bgmGain && audioContext) {
+    bgmGain.gain.setTargetAtTime(0, audioContext.currentTime, 0.08);
+  }
+}
+
+async function playSound(kind = "connection") {
+  if (!store.sound || document.hidden) return;
+
+  const version = audioVersion;
+
+  try {
+    const AudioClass =
+      window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioClass) return;
+
+    if (!audioContext) {
+      audioContext = new AudioClass();
+      audioMaster = audioContext.createGain();
+      audioMaster.gain.value = 0.16;
+      audioMaster.connect(audioContext.destination);
+    }
+
+    if (audioContext.state === "suspended") {
+      await audioContext.resume();
+    }
+
+    if (
+      !store.sound ||
+      document.hidden ||
+      version !== audioVersion ||
+      audioContext.state !== "running"
+    ) return;
+
+    audioMaster.gain.setValueAtTime(
+      0.16,
+      audioContext.currentTime
+    );
+
+    const notes = kind === "complete"
+      ? [523.25, 659.25, 783.99, 1046.50]
+      : kind === "toggle"
+        ? [659.25]
+        : [659.25, 880];
+
+    const start = audioContext.currentTime + 0.01;
+
+    notes.forEach((frequency, index) => {
+      const oscillator = audioContext.createOscillator();
+      const envelope = audioContext.createGain();
+      const when = start + index * 0.11;
+
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(frequency, when);
+
+      envelope.gain.setValueAtTime(0, when);
+      envelope.gain.linearRampToValueAtTime(0.6, when + 0.012);
+      envelope.gain.exponentialRampToValueAtTime(
+        0.001,
+        when + 0.20
+      );
+
+      oscillator.connect(envelope);
+      envelope.connect(audioMaster);
+
+      oscillator.start(when);
+      oscillator.stop(when + 0.22);
+
+      oscillator.onended = () => {
+        oscillator.disconnect();
+        envelope.disconnect();
+      };
+    });
+  } catch {
+    // Audio problems must not interrupt gameplay.
+  }
+}
+
+/* ======================================================
+   PUZZLE LOGIC
+====================================================== */
+
+function shuffled(words, seedText) {
+  let seed = 2166136261;
+
+  for (const character of seedText) {
+    seed = Math.imul(seed ^ character.charCodeAt(0), 16777619);
+  }
+
+  function random() {
+    seed = (seed + 0x6D2B79F5) | 0;
+
+    let value = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    value ^= value + Math.imul(value ^ (value >>> 7), 61 | value);
+
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  }
+
+  const result = [...words];
+
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result;
+}
+
+function chainFor(puzzle, slots) {
+  return [puzzle.chain[0], ...slots, puzzle.chain[4]];
+}
+
+function isSolved(puzzle, slots) {
+  if (slots.some(word => word === null)) return false;
+
+  const chain = chainFor(puzzle, slots);
+
+  return chain.slice(0, -1).every(
+    (word, index) => pairLabel(puzzle, word, chain[index + 1])
+  );
+}
+
+function poweredConnections() {
+  const connections = new Set();
+  if (!game) return connections;
+
+  const chain = chainFor(game.puzzle, game.slots);
+
+  for (let i = 0; i < chain.length - 1; i++) {
+    if (pairLabel(game.puzzle, chain[i], chain[i + 1])) {
+      connections.add(`${i}:${chain[i]}:${chain[i + 1]}`);
+    }
+  }
+
+  return connections;
+}
+
+function openPuzzle(nextMode, index = 0) {
+  settleClock();
+  saveGame();
+  closeModal(false);
+
+  mode = nextMode;
+  displayedDate = localDateKey();
+  selectedWord = null;
+
+  if (mode === "daily") {
+    index = dailyIndex(displayedDate);
+  }
+
+  if (!PUZZLES[index]) {
+    game = null;
+    render();
+    resetClockBaseline();
+    setStatus("Practice puzzles are still available.");
+    return;
+  }
+
+  const puzzle = PUZZLES[index];
+  const key = mode === "daily"
+    ? `daily:${displayedDate}`
+    : `practice:${puzzle.id}`;
+
+  const record = store.records[key];
+  const restored = validRecord(record, puzzle);
+
+  game = {
+    mode,
+    index,
+    date: displayedDate,
+    key,
+    puzzle,
+    slots: restored ? [...record.slots] : [null, null, null],
+    elapsed: restored ? record.elapsed : 0,
+    hintsUsed: restored ? record.hintsUsed : 0,
+    bankOrder: shuffled(bankWords(puzzle), key),
+    completed: false
+  };
+
+  game.completed = isSolved(puzzle, game.slots);
+
+  if (game.completed) recordCompletion();
+
+  render();
+  resetClockBaseline();
+  saveGame();
+
+  setStatus(
+    game.completed
+      ? "Chain completed. View your result or try practice."
+      : ""
+   );
+}
+
+function setStatus(message) {
+  $("status").textContent = message;
+}
+
+function placeWord(word, slot) {
+  if (!ensureCurrentDay()) return;
+
+  if (
+    !game ||
+    game.completed ||
+    !bankWords(game.puzzle).includes(word) ||
+    game.slots.includes(word) ||
+    !Number.isInteger(slot) ||
+    slot < 0 ||
+    slot > 2
+  ) return;
+
+  settleClock();
+
+  const before = poweredConnections();
+
+  game.slots[slot] = word;
+  selectedWord = null;
+
+  finishMove(
+    before,
+    `${word} placed in slot ${slot + 1}.`,
+    `slot-${slot}`
+  );
+}
+
+function removeWord(slot) {
+  if (!ensureCurrentDay() || !game || game.completed) return;
+
+  settleClock();
+
+  const removed = game.slots[slot];
+  if (!removed) return;
+
+  game.slots[slot] = null;
+  selectedWord = null;
+
+  saveGame();
+  render();
+
+  $(`slot-${slot}`).focus({ preventScroll: true });
+  setStatus(`${removed} returned to the word bank.`);
+}
+
+function finishMove(before, message, focusId) {
+  const after = poweredConnections();
+  const newConnection = [...after].some(pair => !before.has(pair));
+
+  game.completed = isSolved(game.puzzle, game.slots);
+
+  if (game.completed) recordCompletion();
+
+  resetClockBaseline();
+  saveGame();
+  render();
+
+  if (game.completed) {
+    setStatus("Chain complete! Four compound words connected.");
+    void playSound("complete");
+    triggerHaptic("complete");
+    showResults();
+  } else {
+    if (newConnection) {
+      void playSound("connection");
+      triggerHaptic("success");
+    }
+
+    setStatus(`${message} ${after.size} of 4 compounds connected.`);
+
+    if (focusId) {
+      $(focusId)?.focus({ preventScroll: true });
+    }
+  }
+}
+
+let hintAdInProgress = false;
+
+async function useHint() {
+  if (hintAdInProgress) return;
+
+  if (
+    !ensureCurrentDay() ||
+    !game ||
+    game.completed ||
+    game.hintsUsed >= 1
+  ) return;
+
+  const solution = game.puzzle.chain.slice(1, -1);
+  const target = solution.findIndex(
+    (word, index) => game.slots[index] !== word
+  );
+
+  if (target < 0) return;
+
+  if (!window.ConduitAdMob?.rewardHint) {
+    alert("Rewarded ads are not ready. Please try again.");
+    return;
+  }
+
+  hintAdInProgress = true;
+  const hintButton = document.getElementById("hintButton");
+  if (hintButton) hintButton.disabled = true;
+
+  try {
+    const earnedReward = await window.ConduitAdMob.rewardHint();
+
+    if (!earnedReward) {
+      alert("A hint is granted only after earning the ad reward.");
+      return;
+    }
+
+    if (
+      !ensureCurrentDay() ||
+      !game ||
+      game.completed ||
+      game.hintsUsed >= 1
+    ) return;
+
+    grantHint();
+  } catch (error) {
+    console.error("Rewarded hint ad failed:", error);
+    alert("The rewarded ad could not be completed. Please try again.");
+  } finally {
+    hintAdInProgress = false;
+    if (hintButton) hintButton.disabled = false;
+  }
+}
+
+function grantHint() {
+  if (
+    !ensureCurrentDay() ||
+    !game ||
+    game.completed ||
+    game.hintsUsed >= 1
+  ) return;
+
+  settleClock();
+
+  const before = poweredConnections();
+  const solution = game.puzzle.chain.slice(1, -1);
+
+  const target = solution.findIndex(
+    (word, index) => game.slots[index] !== word
+  );
+
+  if (target < 0) return;
+
+  const correctWord = solution[target];
+  const source = game.slots.indexOf(correctWord);
+  const displacedWord = game.slots[target];
+
+  if (source !== -1) {
+    game.slots[source] = displacedWord;
+  }
+
+  game.slots[target] = correctWord;
+  game.hintsUsed++;
+  selectedWord = null;
+
+  finishMove(
+    before,
+    `Hint used: ${correctWord} fits in slot ${target + 1}.`,
+    `slot-${target}`
+  );
+}
+/* ======================================================
+   RENDERING
+====================================================== */
+
+function render() {
+  $("dailyButton").classList.toggle("active", mode === "daily");
+  $("practiceButton").classList.toggle("active", mode === "practice");
+
+  $("dailyButton").setAttribute(
+    "aria-pressed", String(mode === "daily")
+  );
+
+  $("practiceButton").setAttribute(
+    "aria-pressed", String(mode === "practice")
+  );
+
+  renderStreak();
+  renderSoundButton();
+
+  $("unavailable").hidden = Boolean(game);
+  $("board").hidden = !game;
+  $("bankPanel").hidden = !game;
+
+  $("hintButton").disabled =
+    !game || game.completed || game.hintsUsed >= 1;
+
+  $("resultsButton").hidden = !game || !game.completed;
+
+  if (!game) {
+    const lastDate = dateFromNumber(
+      dateNumber(DAILY_LAUNCH_DATE) + PUZZLES.length - 1
+    );
+
+    $("puzzleTitle").textContent = "Daily puzzle";
+    $("puzzleDescription").textContent = displayedDate;
+    $("hintButton").textContent = "Hint";
+
+    $("unavailableText").textContent =
+      `This prototype includes daily puzzles from ` +
+      `${DAILY_LAUNCH_DATE} through ${lastDate}. ` +
+      `No puzzle is scheduled for ${displayedDate}. ` +
+      `More puzzles must be added to extend the schedule.`;
+
+    $("board").replaceChildren();
+    $("wordBank").replaceChildren();
+
+    updateTimer();
+    return;
+  }
+
+  $("puzzleTitle").textContent =
+    `${mode === "daily" ? "Daily" : "Practice"}: ${game.puzzle.name}`;
+
+  $("puzzleDescription").textContent = mode === "daily"
+    ? `${game.date} · 3 missing words · 3 decoys`
+    : "";
+
+  $("hintButton").textContent =
+    `Hint · ${1 - game.hintsUsed} left`;
+
+  renderBoard();
+  renderBank();
+  updateTimer();
+}
+
+function makeSpan(className, text) {
+  const span = document.createElement("span");
+  span.className = className;
+  span.textContent = text;
+  return span;
+}
+
+function renderBoard() {
+  const board = $("board");
+  board.replaceChildren();
+
+  const chain = chainFor(game.puzzle, game.slots);
+
+  chain.forEach((word, index) => {
+    if (index > 0) {
+      const combined = pairLabel(
+        game.puzzle,
+        chain[index - 1],
+        word
+      );
+
+      const connection = document.createElement("div");
+
+      connection.className =
+        "connection" +
+        (combined ? " valid" : "") +
+        (game.completed ? " complete" : "");
+
+      connection.setAttribute("role", "img");
+      connection.setAttribute(
+        "aria-label",
+        combined
+          ? `${chain[index - 1]} plus ${word} makes ${combined}. Valid compound.`
+          : chain[index - 1] && word
+            ? "These words do not make an approved single-word compound."
+            : "Connection not complete."
+      );
+
+      const wire = document.createElement("div");
+      wire.className = "wire";
+      wire.setAttribute("aria-hidden", "true");
+      connection.append(wire);
+
+      if (combined) {
+        const label = makeSpan("connection-label", `✓ ${combined}`);
+        label.setAttribute("aria-hidden", "true");
+        connection.append(label);
+      }
+
+      board.append(connection);
+    }
+
+    const endpoint = index === 0 || index === 4;
+    const node = document.createElement(endpoint ? "div" : "button");
+
+    node.className =
+      "node " +
+      (endpoint ? "endpoint" : `slot ${word ? "filled" : "empty"}`);
+
+    const label = makeSpan(
+      "node-label",
+      index === 0 ? "START" : index === 4 ? "END" : `SLOT ${index}`
+    );
+
+    const text = makeSpan("node-word", word || "Place word here");
+    const symbol = makeSpan(
+      "node-symbol",
+      endpoint ? "" : word ? "×" : "+"
+    );
+
+    symbol.setAttribute("aria-hidden", "true");
+    node.append(label, text, symbol);
+
+    if (!endpoint) {
+      const slot = index - 1;
+      node.id = `slot-${slot}`;
+      node.dataset.index = String(slot);
+      node.disabled = game.completed;
+
+      node.classList.toggle(
+        "target",
+        Boolean(selectedWord) && !game.completed
+      );
+
+      node.setAttribute(
+        "aria-label",
+        `Slot ${index}: ${word || "empty"}. ` +
+        (selectedWord
+          ? `Place ${selectedWord} here.`
+          : word
+            ? "Tap to return this word to the bank."
+            : "Select a word from the bank first.")
+      );
+
+      node.onclick = () => {
+        if (!ensureCurrentDay() || !game || game.completed) return;
+
+        if (selectedWord) {
+          placeWord(selectedWord, slot);
+        } else if (game.slots[slot]) {
+          removeWord(slot);
+        } else {
+          setStatus("First select a word from the bank.");
+        }
+      };
+
+      node.addEventListener("dragover", event => {
+        if (!game || game.completed) return;
+
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+        node.classList.add("drag-over");
+      });
+
+      node.addEventListener("dragleave", () => {
+        node.classList.remove("drag-over");
+      });
+
+      node.addEventListener("drop", event => {
+        event.preventDefault();
+        node.classList.remove("drag-over");
+        placeWord(event.dataTransfer.getData("text/plain"), slot);
+      });
+    }
+
+    board.append(node);
+  });
+}
+
+
+function enableTouchWordDrag(tile, word) {
+  let startX = 0;
+  let startY = 0;
+  let dragging = false;
+  let ghost = null;
+  let targetSlot = null;
+  let suppressClick = false;
+
+  tile.addEventListener("pointerdown", event => {
+    if (
+      event.pointerType === "mouse" ||
+      tile.disabled ||
+      !ensureCurrentDay() ||
+      !game ||
+      game.completed
+    ) return;
+
+    startX = event.clientX;
+    startY = event.clientY;
+    dragging = false;
+    suppressClick = false;
+  });
+
+  tile.addEventListener("pointermove", event => {
+    if (
+      event.pointerType === "mouse" ||
+      event.buttons === 0 ||
+      tile.disabled
+    ) return;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (!dragging && Math.hypot(dx, dy) > 10) {
+      dragging = true;
+      suppressClick = true;
+
+      ghost = tile.cloneNode(true);
+      ghost.removeAttribute("id");
+      ghost.style.position = "fixed";
+      ghost.style.pointerEvents = "none";
+      ghost.style.zIndex = "9999";
+      ghost.style.width = `${tile.getBoundingClientRect().width}px`;
+      ghost.style.opacity = "0.9";
+      document.body.append(ghost);
+    }
+
+    if (!dragging || !ghost) return;
+
+    event.preventDefault();
+
+    ghost.style.left = `${event.clientX - 20}px`;
+    ghost.style.top = `${event.clientY - 20}px`;
+
+    if (targetSlot) {
+      targetSlot.classList.remove("drag-over");
+      targetSlot = null;
+    }
+
+    const underPointer = document.elementFromPoint(
+      event.clientX,
+      event.clientY
+    );
+
+    const slot = underPointer?.closest(".slot");
+
+    if (slot && !slot.classList.contains("filled")) {
+      targetSlot = slot;
+      targetSlot.classList.add("drag-over");
+    }
+  });
+
+  tile.addEventListener("pointerup", event => {
+    if (!dragging) return;
+
+    event.preventDefault();
+
+    const underPointer = document.elementFromPoint(
+      event.clientX,
+      event.clientY
+    );
+
+    const slot = underPointer?.closest(".slot");
+
+    if (
+      slot &&
+      !slot.classList.contains("filled") &&
+      ensureCurrentDay() &&
+      game &&
+      !game.completed
+    ) {
+      const slotIndex = Number(slot.dataset.index);
+
+      if (Number.isInteger(slotIndex)) {
+        placeWord(word, slotIndex);
+      }
+    }
+
+    if (targetSlot) {
+      targetSlot.classList.remove("drag-over");
+    }
+
+    ghost?.remove();
+    ghost = null;
+    targetSlot = null;
+    dragging = false;
+  });
+
+  tile.addEventListener("pointercancel", () => {
+    if (targetSlot) {
+      targetSlot.classList.remove("drag-over");
+    }
+
+    ghost?.remove();
+    ghost = null;
+    targetSlot = null;
+    dragging = false;
+  });
+
+  tile.addEventListener("click", event => {
+    if (suppressClick) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      suppressClick = false;
+    }
+  }, true);
+}
+function renderBank() {
+  const bank = $("wordBank");
+  bank.replaceChildren();
+
+  game.bankOrder.forEach(word => {
+    const used = game.slots.includes(word);
+    const tile = document.createElement("button");
+
+    tile.id = `tile-${word}`;
+    tile.className =
+      "tile" +
+      (used ? " used" : "") +
+      (selectedWord === word ? " selected" : "");
+
+    tile.textContent = word;
+    tile.disabled = used || game.completed;
+    tile.draggable = !used && !game.completed;
+
+    tile.setAttribute(
+      "aria-pressed",
+      String(selectedWord === word)
+    );
+
+    if (used) tile.setAttribute("aria-hidden", "true");
+
+    tile.onclick = () => {
+      if (!ensureCurrentDay() || !game || game.completed) return;
+
+      selectedWord = selectedWord === word ? null : word;
+      render();
+
+      $(`tile-${word}`).focus({ preventScroll: true });
+
+      setStatus(
+        selectedWord
+          ? `${word} selected. Tap the slot where it should go.`
+          : "Selection cleared. Choose another word."
+      );
+    };
+
+    tile.addEventListener("dragstart", event => {
+      event.dataTransfer.setData("text/plain", word);
+      event.dataTransfer.effectAllowed = "move";
+    });
+
+    enableTouchWordDrag(tile, word);
+
+    bank.append(tile);
+  });
+}
+
+function applyTheme() {
+  const dark = store.theme === "dark";
+
+  document.documentElement.classList.toggle("dark", dark);
+
+  $("themeButton").textContent = dark ? "☀️" : "🌙";
+  $("themeButton").setAttribute(
+    "aria-label",
+    dark ? "Switch to light theme" : "Switch to dark theme"
+  );
+
+  document.querySelector('meta[name="theme-color"]')
+    .setAttribute("content", dark ? "#020617" : "#eef3f9");
+}
+
+/* ======================================================
+   HELP AND DIALOGS
+====================================================== */
+
+function openModal(type, html) {
+  settleClock();
+
+  if ($("overlay").hidden) {
+    previousFocus = document.activeElement;
+  }
+
+  modalType = type;
+  $("dialog").innerHTML = html;
+  $("overlay").hidden = false;
+  $("app").inert = true;
+
+  resetClockBaseline();
+  saveGame();
+
+  const firstButton = $("dialog").querySelector("button:not(:disabled)");
+  (firstButton || $("dialog")).focus();
+}
+
+function closeModal(restoreFocus = true) {
+  if ($("overlay").hidden) return;
+
+  if (modalType === "help") {
+    store.tutorialSeen = true;
+    persist();
+  }
+
+  $("overlay").hidden = true;
+  $("app").inert = false;
+  modalType = null;
+
+  resetClockBaseline();
+
+  if (restoreFocus) {
+    const usable =
+      previousFocus?.isConnected &&
+      !previousFocus.disabled &&
+      !previousFocus.hidden;
+
+    (usable ? previousFocus : $("helpButton")).focus();
+  }
+}
+
+function showHelp() {
+  openModal("help", `
+    <button class="dialog-close" id="closeHelpX" aria-label="Close help" title="Close">×</button>
+    <h2 id="dialogTitle">Connect the chain.</h2>
+    <p>Fill the 3 empty slots so all 4 neighboring pairs form one complete compound word.</p>
+    <ul>
+      <li>Tap a word, then tap a slot.</li>
+      <li>No spaces, hyphens, or spelling changes.</li>
+      <li>A glowing link can still lead to a dead end.</li>
+    </ul>
+    <div class="example">
+      FIRE + LIGHT = firelight<br>
+      LIGHT + HOUSE = lighthouse
+    </div>
+    <p>Hints will be available by watching an ad. Daily wins build your streak; practice does not.</p>
+    <button id="closeHelp" class="primary">Let's play</button>
+  `);
+  $("closeHelp").onclick = () => closeModal();
+  $("closeHelpX").onclick = () => closeModal();
+}
+
+function getPracticeIndices() {
+  const fixedPracticeNames = [
+    "Salted Current",
+    "Curious Archive",
+    "Dusky Archive"
+  ];
+
+  return fixedPracticeNames
+    .map(name => PUZZLES.findIndex(puzzle => puzzle.name === name))
+    .filter(index => index !== -1);
+}
+
+function showPractice() {
+  const practiceIndices = getPracticeIndices();
+
+  openModal("practice", `
+    <button class="dialog-close" id="closePracticeX"
+      aria-label="Close practice puzzles" title="Close">×</button>
+
+    <h2 id="dialogTitle">Practice puzzles</h2>
+
+    <p>
+      Choose from three fixed practice puzzles.
+      Practice stays separate from your daily streak.
+    </p>
+
+    <div id="practiceList" class="practice-list"></div>
+    <p class="muted">Three practice puzzles are always available for testing.</p>
+  `);
+
+  practiceIndices.forEach((index, choiceIndex) => {
+    const puzzle = PUZZLES[index];
+    const record = store.records[`practice:${puzzle.id}`];
+    const complete =
+      validRecord(record, puzzle) && isSolved(puzzle, record.slots);
+
+    const button = document.createElement("button");
+    button.className = "practice-choice";
+    button.textContent =
+      `${choiceIndex + 1}. ${puzzle.name}${complete ? " ✓" : ""}`;
+
+    button.onclick = () => openPuzzle("practice", index);
+    $("practiceList").append(button);
+  });
+
+  $("closePracticeX").onclick = () => closeModal();
+}
+
+function showResults() {
+  if (!game || !game.completed) return;
+
+  const daily = game.mode === "daily";
+  const streak = dailyStreak();
+  const nextAvailable = game.index + 1 < PUZZLES.length;
+
+  const message = daily
+    ? nextAvailable
+      ? "Today's chain is complete. Come back tomorrow for the next one."
+      : "Today's chain is complete. Come back tomorrow for the next one."
+    : "Practice puzzle complete. Your daily streak is unchanged.";
+
+  const chain = chainFor(game.puzzle, game.slots);
+
+  const compounds = chain.slice(0, -1).map(
+    (word, index) => pairLabel(game.puzzle, word, chain[index + 1])
+  );
+
+  openModal("results", `
+    <h2 id="dialogTitle">Chain complete! ★</h2>
+    <p>${message}</p>
+
+    <div class="example">
+      ${compounds.join("<br>")}
+    </div>
+
+    <div class="results">
+      <div>
+        <div class="label">Play time</div>
+        <div class="result-value">${formatTime(game.elapsed)}</div>
+      </div>
+      <div>
+        <div class="label">Daily streak</div>
+        <div class="result-value">
+          ${streak} ${streak === 1 ? "day" : "days"}
+        </div>
+      </div>
+    </div>
+
+    <p>
+      4 of 4 compounds connected ·
+      ${game.hintsUsed} ${game.hintsUsed === 1 ? "hint" : "hints"} used
+    </p>
+
+    <button id="shareButton" class="primary">Share result</button>
+    <p id="shareStatus" role="status" aria-live="polite"></p>
+
+    <textarea id="manualShare" rows="7" readonly hidden
+      aria-label="Result text to copy"></textarea>
+
+    <button id="morePractice" class="secondary wide">
+      Choose a practice puzzle
+    </button>
+
+    <button id="closeResults" class="secondary wide">
+      View completed board
+    </button>
+  `);
+
+  $("shareButton").onclick = shareResult;
+  $("morePractice").onclick = showPractice;
+  $("closeResults").onclick = () => closeModal();
+}
+
+/* ======================================================
+   SHARING
+====================================================== */
+
+function resultText() {
+  const label = game.mode === "daily"
+    ? game.date
+    : `Practice ${game.index + 1}`;
+
+  const lines = [
+    `CONDUIT · ${label}`,
+    "Closed compounds only",
+    "4/4 compounds connected",
+    `Time: ${formatTime(game.elapsed)}`,
+    `Hints used: ${game.hintsUsed}`,
+    "CONDUIT · CONDUIT · CONDUIT · CONDUIT · CONDUIT"
+  ];
+
+  if (game.mode === "daily") {
+    lines.push(`Daily streak: ${dailyStreak()}`);
+  }
+
+  return lines.join("\n");
+}
+
+async function shareResult() {
+  if (!game || !game.completed) return;
+
+  const text = resultText();
+  const feedback = $("shareStatus");
+  const field = $("manualShare");
+
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: "CONDUIT", text });
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+
+      if (feedback.isConnected) {
+        feedback.textContent = "Result copied to clipboard.";
+      }
+
+      return;
+    } catch {
+      // Fall back to manual copying.
+    }
+  }
+
+  if (!feedback.isConnected || !field.isConnected) return;
+
+  feedback.textContent = "Select and copy your result below:";
+  field.hidden = false;
+  field.value = text;
+  field.focus();
+  field.select();
+  field.setSelectionRange(0, text.length);
+}
+
+/* ======================================================
+   EVENTS
+====================================================== */
+
+$("dailyButton").onclick = () => {
+  if (mode === "daily" && game && game.completed) {
+    // Replay today's puzzle without erasing its completion from the streak.
+    settleClock();
+    game.slots = [null, null, null];
+    game.elapsed = 0;
+    game.hintsUsed = 0;
+    game.completed = false;
+    selectedWord = null;
+    saveGame();
+    render();
+    resetClockBaseline();
+    setStatus("Daily puzzle restarted. Today's completion still counts toward your streak.");
+  } else if (mode !== "daily" || !game) {
+    openPuzzle("daily");
+  } else {
+    ensureCurrentDay();
+  }
+};
+
+$("practiceButton").onclick = showPractice;
+$("unavailablePractice").onclick = showPractice;
+$("helpButton").onclick = showHelp;
+$("hintButton").onclick = useHint;
+$("resultsButton").onclick = showResults;
+
+$("themeButton").onclick = () => {
+  store.theme = store.theme === "dark" ? "light" : "dark";
+  applyTheme();
+  persist();
+};
+
+$("soundButton").onclick = () => {
+  store.sound = !store.sound;
+  silenceAudio();
+  renderSoundButton();
+  persist();
+  if (store.sound) void playSound("toggle");
+};
+
+$("musicButton").onclick = () => {
+  store.music = !store.music;
+  renderMusicButton();
+  persist();
+  if (store.music) void startBgm();
+  else stopBgm();
+};
+
+$("hapticsButton").onclick = () => {
+  store.haptics = !store.haptics;
+  renderHapticsButton();
+  persist();
+  if (store.haptics) triggerHaptic("light");
+};
+
+document.addEventListener("keydown", event => {
+  if ($("overlay").hidden) return;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeModal();
+    return;
+  }
+
+  if (event.key !== "Tab") return;
+
+  const controls = [...$("dialog").querySelectorAll(
+    'button:not(:disabled), textarea:not([hidden]), [tabindex="0"]'
+  )];
+
+  if (!controls.length) {
+    event.preventDefault();
+    $("dialog").focus();
+    return;
+  }
+
+  const first = controls[0];
+  const last = controls[controls.length - 1];
+  const active = document.activeElement;
+
+  if (!controls.includes(active)) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus();
+  } else if (event.shiftKey && active === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && active === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+document.addEventListener("visibilitychange", () => {
+  settleClock();
+
+  if (document.hidden) {
+    silenceAudio();
+    stopBgm();
+    saveGame();
+  } else {
+    ensureCurrentDay();
+    renderStreak();
+    if (store.music) void startBgm();
+  }
+
+  resetClockBaseline();
+});
+
+window.addEventListener("pagehide", () => {
+  settleClock();
+  saveGame();
+  clockRunning = false;
+  silenceAudio();
+  stopBgm();
+});
+
+window.addEventListener("pageshow", () => {
+  resetClockBaseline();
+  ensureCurrentDay();
+});
+
+let lastSave = performance.now();
+
+setInterval(() => {
+  settleClock();
+
+  if (!document.hidden) ensureCurrentDay();
+
+  if (performance.now() - lastSave >= 5000) {
+    if (game && !game.completed && !document.hidden) {
+      saveGame();
+    }
+
+    lastSave = performance.now();
+  }
+}, 250);
+
+/* ======================================================
+   START
+====================================================== */
+
+async function startConduit() {
+  await loadRemotePuzzleLibrary();
+  applyTheme();
+  renderSoundButton();
+  renderMusicButton();
+  renderHapticsButton();
+  openPuzzle("daily");
+  if (store.music) void startBgm();
+  document.addEventListener("pointerdown", () => {
+    if (store.music && !bgmTimer) void startBgm();
+  });
+  if (!store.tutorialSeen) showHelp();
+}
+
+void startConduit();
+</script>
+<script>
+// Register the offline app-shell cache. The service worker never touches game saves.
+const isNativeConduit =
+  window.Capacitor?.isNativePlatform?.() === true;
+
+if (!isNativeConduit && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
+      .catch(error => console.warn("CONDUIT offline support could not register:", error));
+  });
+}
+</script>
+</body>
+</html>
