@@ -66,8 +66,8 @@ replaceOnce(
 );
 
 replaceOnce(
-  /await AdMob\.initialize\(\{\s*initializeForTesting:\s*true\s*\}\);/,
-  'await AdMob.initialize();',
+  /initializeForTesting:\s*true\s*,/,
+  '',
   'test initialization'
 );
 
