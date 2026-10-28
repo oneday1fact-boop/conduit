@@ -8,12 +8,13 @@ BUNDLE="www/admob-bridge.js"
 BACKUP="$(mktemp)"
 TEMP_SOURCE=".admob-bridge-production-temp.js"
 SYNCED=0
+BACKED_UP=0
 
 cleanup() {
   status=$?
   trap - EXIT
 
-  if ! cp "$BACKUP" "$BUNDLE"; then
+  if [ "$BACKED_UP" = "1" ] && ! cp "$BACKUP" "$BUNDLE"; then
     echo "ERROR: Could not restore the development ad bundle."
     status=1
   fi
@@ -43,6 +44,7 @@ if [ ! -f "$HOME/.conduit-signing/key.properties" ] ||
 fi
 
 cp "$BUNDLE" "$BACKUP"
+BACKED_UP=1
 
 echo "Preparing temporary production ad source..."
 node - "$SOURCE" "$TEMP_SOURCE" <<'NODE'

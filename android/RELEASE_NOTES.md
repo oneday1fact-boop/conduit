@@ -4,10 +4,10 @@ This folder is the user's **existing Android native project**, cleaned of genera
 
 - Actual embedded web game: `app/src/main/assets/public/index.html`.
 - Offline puzzles: `app/src/main/assets/public/puzzle-library.json`.
-- AdMob JS bridge was synchronized with the uploaded production `.aab`, replacing the **test-ad** bridge from the original ZIP.
+- The staged AdMob JS bridge currently contains development test ads. Use the root production script to prepare live Android ads; it restores development assets after the build.
 - No gameplay logic was intentionally changed.
 - `app/build.gradle` excludes backup files during packaging; historical back-ups were removed from `assets/public`.
-- App ID: `com.oneday1fact.conduit`; target SDK 36; versionCode 1 (increase for each Play update).
+- App ID: `com.oneday1fact.conduit`; target SDK 36; next candidate versionCode 2 / versionName 1.0.1 (increase for each Play update).
 - Before building, verify AdMob consent/age declarations and use Google Play internal testing.
 - Signing is read from `~/.conduit-signing/key.properties`; do not commit or share it.
 - For the full release process, see the GitHub `ANDROID_RELEASE.md`.
