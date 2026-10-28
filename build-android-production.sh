@@ -120,7 +120,7 @@ npx cap sync android
 echo "Building signed Android App Bundle..."
 (
   cd android
-  ./gradlew :app:bundleRelease
+  bash ./gradlew :app:bundleRelease
 )
 
 AAB="android/app/build/outputs/bundle/release/app-release.aab"

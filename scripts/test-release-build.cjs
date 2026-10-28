@@ -28,7 +28,7 @@ try {
   write('signing/conduit-upload.jks', 'fixture');
   write('node_modules/.bin/esbuild', '#!/bin/bash\nset -e\ncp "$1" www/admob-bridge.js\n', 0o755);
   write('bin/npx', '#!/bin/bash\nset -e\nmkdir -p android/app/src/main/assets/public\ncp www/admob-bridge.js android/app/src/main/assets/public/admob-bridge.js\nif [ "${FAIL_SYNC:-0}" = "1" ]; then exit 1; fi\n', 0o755);
-  write('android/gradlew', '#!/bin/bash\nset -e\nmkdir -p app/build/outputs/bundle/release\ncp app/src/main/assets/public/admob-bridge.js app/build/outputs/bundle/release/app-release.aab\n', 0o755);
+  write('android/gradlew', '#!/bin/bash\nset -e\nmkdir -p app/build/outputs/bundle/release\ncp app/src/main/assets/public/admob-bridge.js app/build/outputs/bundle/release/app-release.aab\n', 0o644);
   const result = run(false);
   assert.equal(result.status,0,result.stdout+result.stderr);
   const prepared = fs.readFileSync(path.join(fixture,'android/app/build/outputs/bundle/release/app-release.aab'),'utf8');

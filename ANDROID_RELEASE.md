@@ -42,6 +42,8 @@ Internal maintenance update. Retains the current puzzles and saved-progress form
 
 These notes describe the prepared source relative to version 1, not a verified device build. Do not claim a successful native build until it completes with the original signing setup.
 
+The Gradle wrapper is stored without an executable bit; the build script invokes it through Bash so clean checkouts work. CI also compiles the existing `.test` debug variant with JDK 21 without accessing release signing material. A debug compile is not a signed production AAB or an upgrade test.
+
 ## Validation limits
 
 Source/puzzle checks, Capacitor sync, ad transformation/bundling and mocked build-cleanup checks can run without signing material. They do not prove native build success, SDK policy compliance, ad delivery or upgrade preservation. A clean native build and device upgrade test remain required.

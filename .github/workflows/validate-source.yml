@@ -23,3 +23,25 @@ jobs:
         run: node --check www/service-worker.js
       - name: Check web manifest JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('www/manifest.webmanifest','utf8'))"
+
+  android-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install locked dependencies and sync development assets
+        run: |
+          npm ci
+          npx cap sync android
+      - name: Compile Android debug variant without release signing
+        working-directory: android
+        run: bash ./gradlew :app:assembleDebug --no-daemon
