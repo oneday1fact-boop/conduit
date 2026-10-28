@@ -14,9 +14,11 @@
   function cleanRecord(r) {
     if (!r || typeof r.puzzleId !== 'string' || !Array.isArray(r.slots) || r.slots.length !== 3 ||
       !r.slots.every(w => w === null || typeof w === 'string' && /^[A-Z]{1,32}$/.test(w)) ||
-      !Number.isFinite(r.elapsed) || r.elapsed < 0 || !Number.isInteger(r.hintsUsed) || r.hintsUsed < 0 || r.hintsUsed > 1) return null;
+      !Number.isFinite(r.elapsed) || r.elapsed < 0 || r.elapsed > 31536000 || !Number.isInteger(r.hintsUsed) || r.hintsUsed < 0 || r.hintsUsed > 2) return null;
+    const words=r.slots.filter(w=>w!==null);
+    if(new Set(words).size!==words.length) return null;
     return {puzzleId:r.puzzleId, slots:[...r.slots], elapsed:r.elapsed, hintsUsed:r.hintsUsed,
-      completed:r.completed === true, dailyWin:r.dailyWin === true, updatedAt:Number.isFinite(r.updatedAt) ? r.updatedAt : 0};
+      completed:r.completed === true && r.slots.every(w=>w!==null), dailyWin:r.dailyWin === true, updatedAt:Number.isFinite(r.updatedAt) ? r.updatedAt : Number.isFinite(r.modifiedAt) ? r.modifiedAt : 0};
   }
   function mergeRecord(a, b) {
     a = cleanRecord(a); b = cleanRecord(b);
@@ -25,7 +27,7 @@
     const winner = a.completed !== b.completed ? (a.completed ? a : b)
       : a.updatedAt !== b.updatedAt ? (a.updatedAt > b.updatedAt ? a : b)
       : (JSON.stringify(a) >= JSON.stringify(b) ? a : b);
-    return {...winner, dailyWin:a.dailyWin || b.dailyWin};
+    return {...winner, hintsUsed:Math.max(a.hintsUsed,b.hintsUsed), dailyWin:a.dailyWin || b.dailyWin};
   }
 
   function mergeRecords(a = {}, b = {}) {

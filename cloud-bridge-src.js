@@ -1,20 +1,21 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-  sendPasswordResetEmail, sendEmailVerification, signOut, getIdToken} from 'firebase/auth';
-import {getFirestore, collection, doc, onSnapshot, runTransaction} from 'firebase/firestore';
+  sendPasswordResetEmail, sendEmailVerification, signOut, getIdToken, GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
+import {getFirestore, collection, doc, onSnapshot, runTransaction, serverTimestamp} from 'firebase/firestore';
 import {getFunctions, httpsCallable} from 'firebase/functions';
 import {registerPlugin} from '@capacitor/core';
 const Billing = registerPlugin('ConduitBilling');
+const Account = registerPlugin('ConduitAccount');
 let auth, db, functions, user = null, pro = false, generation = 0, stop = [], ready = false;
-let cloudRecords = {}, sent = new Map();
+let cloudRecords = {}, legacyRecords = {}, sent = new Map();
 const emit = (name, detail) => window.dispatchEvent(new CustomEvent('conduit:' + name,{detail}));
-const configured = !!window.CONDUIT_FIREBASE_CONFIG?.projectId;
+const configured = !!window.CONDUIT_FIREBASE_CONFIG?.projectId && window.CONDUIT_CLOUD_SERVICES_READY === true;
 function requireUser() { if (!user) throw new Error('Sign in first.'); }
-function stopListeners() { stop.forEach(fn=>fn()); stop=[]; sent.clear(); cloudRecords={}; pro=false; ready=false; }
+function stopListeners() { stop.forEach(fn=>fn()); stop=[]; sent.clear(); cloudRecords={}; legacyRecords={}; pro=false; ready=false; }
 function init() {
   if (!configured) return;
   const app = initializeApp(window.CONDUIT_FIREBASE_CONFIG);
-  auth=getAuth(app); db=getFirestore(app); functions=getFunctions(app,window.CONDUIT_FUNCTIONS_REGION || 'us-central1');
+  auth=getAuth(app); db=getFirestore(app); functions=getFunctions(app,window.CONDUIT_FUNCTIONS_REGION || 'asia-east2');
   void Billing.addListener('purchaseUpdated',purchase=>{if(user) void verify(purchase).then(refresh).catch(()=>emit('sync',{message:'Purchase received. Use Restore purchases to finish checking Pro.'}));}).catch(()=>{});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden && user) void window.ConduitCloud.restore().catch(()=>{});});
   onAuthStateChanged(auth, next => {
@@ -28,9 +29,14 @@ function init() {
       emit('entitlement',{pro});
     },()=>emit('sync',{message:'Could not check Pro access. Reconnect and try Restore purchases.'})));
     stop.push(onSnapshot(collection(db,'users',next.uid,'progress'), snapshot => {
+      if(epoch!==generation) return;
+      legacyRecords={};snapshot.forEach(d=>{const r=d.data();legacyRecords[d.id]={...r,dailyWin:d.id.startsWith("daily:") && r.completed===true};});
+      emit('progress',{records:window.ConduitProCore.mergeRecords(legacyRecords,cloudRecords)});
+    },()=>{}));
+    stop.push(onSnapshot(collection(db,'users',next.uid,'progressV2'), snapshot => {
       if (epoch!==generation) return;
       cloudRecords={}; snapshot.forEach(d=>{cloudRecords[d.id]=d.data();}); ready=true;
-      emit('progress',{records:cloudRecords});
+      emit('progress',{records:window.ConduitProCore.mergeRecords(legacyRecords,cloudRecords)});
     },()=>emit('sync',{message:'Progress is saved on this device. Cloud sync will retry when connected.'})));
     void refresh().catch(()=>{});
   });
@@ -43,10 +49,14 @@ async function sync(records) {
     for (const [key,record] of changes) {
       if (epoch!==generation) return;
       await runTransaction(db,async transaction=>{
-        const ref=doc(db,'users',uid,'progress',key);
+        const ref=doc(db,'users',uid,'progressV2',key);
         const saved=await transaction.get(ref);
         const merged=window.ConduitProCore.mergeRecord(saved.data(),record);
-        if (JSON.stringify(saved.data())!==JSON.stringify(merged)) transaction.set(ref,merged);
+        if (JSON.stringify(window.ConduitProCore.cleanRecord(saved.data()))!==JSON.stringify(merged)) transaction.set(ref,{
+          schemaVersion:2,puzzleId:merged.puzzleId,slots:merged.slots,elapsed:merged.elapsed,hintsUsed:merged.hintsUsed,
+          rewardedHintUsed:merged.hintsUsed>0,completed:merged.completed,dailyWin:merged.dailyWin,
+          modifiedAt:merged.updatedAt,updatedAt:serverTimestamp()
+        });
       });
       sent.set(key,JSON.stringify(record));
     }
@@ -65,6 +75,11 @@ async function refresh() {
 }
 window.ConduitCloud={configured,init,sync,
   get user(){return user;}, get pro(){return pro;},
+  async google(){
+    if(!configured || !window.CONDUIT_GOOGLE_WEB_CLIENT_ID) throw new Error("Google sign-in setup is not available in this build yet.");
+    const result=await Account.google({clientId:window.CONDUIT_GOOGLE_WEB_CLIENT_ID});
+    await signInWithCredential(auth,GoogleAuthProvider.credential(result.idToken));
+  },
   async login(email,password,create=false){
     if(!configured) throw new Error('Account setup is not available in this build yet.');
     const credential=await (create?createUserWithEmailAndPassword:signInWithEmailAndPassword)(auth,email,password);

@@ -48,3 +48,16 @@
   .bank-header { margin-bottom:6px; }
   .calendar-grid { gap:4px; }
 }
+
+/* Keep all six bank words visible on typical phones; account and preferences live in the header. */
+.header-tools #musicButton,.header-tools #soundButton,.header-tools #hapticsButton,.header-tools #themeButton { display:none; }
+.header-tools { gap:4px; }
+.header-tools .icon-button { width:44px; max-width:44px; flex-basis:44px; min-height:44px; height:44px; font-size:17px; }
+.header-tools .account-link { min-height:44px; padding:8px; font-size:12px; }
+.account-bar { min-height:22px; margin-top:6px; justify-content:center; }
+#status:empty { display:none; }
+@media(max-width:600px) {
+  .rule-banner { margin:3px 0; }
+  .rule-banner br { display:none; }
+  .rule-banner strong { margin-right:4px; }
+}

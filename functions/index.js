@@ -2,6 +2,8 @@
 const {initializeApp}=require('firebase-admin/app');
 const {getAuth}=require('firebase-admin/auth');
 const {getFirestore,FieldValue,FieldPath}=require('firebase-admin/firestore');
+const {setGlobalOptions}=require('firebase-functions/v2');
+setGlobalOptions({region:'asia-east2',maxInstances:5});
 const {onCall,HttpsError}=require('firebase-functions/v2/https');
 const {onMessagePublished}=require('firebase-functions/v2/pubsub');
 const {onSchedule}=require('firebase-functions/v2/scheduler');
@@ -10,8 +12,9 @@ const {PRODUCT,PACKAGE,hash,accountId,validate}=require('./purchase-policy.cjs')
 initializeApp();
 const db=getFirestore();
 const publisher=google.androidpublisher({version:'v3',auth:new google.auth.GoogleAuth({scopes:['https://www.googleapis.com/auth/androidpublisher']})});
-function uidOf(request){
+async function uidOf(request){
   if(!request.auth) throw new HttpsError('unauthenticated','Sign in to continue.');
+  if((await db.doc(`closedAccounts/${request.auth.uid}`).get()).exists) throw new HttpsError("permission-denied","This account has been deleted.");
   return request.auth.uid;
 }
 const entitlement=uid=>db.doc(`users/${uid}/private/entitlement`);
@@ -23,9 +26,9 @@ async function reconcile(uid,token){
   await entitlement(uid).set({pro:valid,productId:PRODUCT,checkedAt:FieldValue.serverTimestamp()});
   return valid;
 }
-exports.billingAccount=onCall(request=>({accountId:accountId(uidOf(request))}));
+exports.billingAccount=onCall(async request=>({accountId:accountId(await uidOf(request))}));
 exports.verifyProPurchase=onCall(async request=>{
-  const uid=uidOf(request), token=request.data?.token;
+  const uid=await uidOf(request), token=request.data?.token;
   if(!request.auth.token.email_verified) throw new HttpsError('failed-precondition','Verify your email first.');
   if(typeof token!=='string' || token.length<8 || token.length>4096) throw new HttpsError('invalid-argument','Invalid purchase.');
   const purchase=await lookup(token);
@@ -40,7 +43,7 @@ exports.verifyProPurchase=onCall(async request=>{
   return {pro:await reconcile(uid,token)};
 });
 exports.refreshPro=onCall(async request=>{
-  const uid=uidOf(request);
+  const uid=await uidOf(request);
   const account=await db.doc(`playAccounts/${uid}`).get();
   if(!account.exists) return {pro:false};
   const purchase=await db.doc(`playPurchases/${account.data().tokenHash}`).get();
@@ -58,6 +61,9 @@ exports.playPurchaseUpdate=onMessagePublished('conduit-play-billing',async event
 });
 // Recovery for missed refund notifications. No client can write purchase tokens or entitlements.
 exports.recheckProPurchases=onSchedule('every 6 hours',async()=>{
+  // Keep deletion guards beyond ID-token expiry, then remove them automatically.
+  const expired=await db.collection('closedAccounts').where('expiresAt','<=',Date.now()).limit(200).get();
+  await Promise.all(expired.docs.map(d=>d.ref.delete()));
   let cursor;
   for(;;){
     let query=db.collection('playPurchases').orderBy(FieldPath.documentId()).limit(200);
@@ -70,8 +76,10 @@ exports.recheckProPurchases=onSchedule('every 6 hours',async()=>{
   }
 });
 exports.deleteConduitAccount=onCall(async request=>{
-  const uid=uidOf(request);
+  const uid=await uidOf(request);
   if(Date.now()/1000-request.auth.token.auth_time>300) throw new HttpsError('unauthenticated','Sign out and sign in again before deleting your account.');
+  await db.doc(`closedAccounts/${uid}`).set({expiresAt:Date.now()+2*60*60*1000});
+  await getAuth().revokeRefreshTokens(uid);
   await db.recursiveDelete(db.doc(`users/${uid}`));
   const account=await db.doc(`playAccounts/${uid}`).get();
   if(account.exists){

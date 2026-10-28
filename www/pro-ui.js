@@ -99,8 +99,13 @@ function showAccount(create=false) {
     $('deleteAccount').onclick=showDeleteAccount;
     wireClose();return;
   }
-  openModal('account',`${closeHeader('account')}<div class="pro-eyebrow">Keep your chain going</div><h2 id="dialogTitle">${create?'Create an account':'Welcome back.'}</h2><p class="muted">Save puzzle progress and restore Pro on another device. Daily and Practice also work without an account.</p><form id="accountForm" class="account-form"><label>Email<input id="accountEmailInput" type="email" autocomplete="email" required maxlength="254"></label><label>Password<input id="accountPasswordInput" type="password" autocomplete="${create?'new-password':'current-password'}" minlength="${create?8:1}" required></label><button id="submitAccount" type="submit" class="primary">${create?'Create account':'Sign in'}</button></form><div class="account-secondary"><button id="toggleAccount">${create?'Already have an account?':'Create an account'}</button><button id="resetPassword">Reset password</button></div><p class="muted">By creating an account, you agree to our <a href="https://oneday1fact-boop.github.io/conduit/" target="_blank" rel="noopener">privacy policy</a>.</p><p id="proFeedback" class="pro-feedback" role="status"></p>`);
+  openModal('account',`${closeHeader('account')}<div class="pro-eyebrow">Keep your chain going</div><h2 id="dialogTitle">${create?'Create an account':'Welcome back.'}</h2><p class="muted">Save puzzle progress and restore Pro on another device. Daily and Practice also work without an account.</p><button id="googleAccount" class="primary wide">Continue with Google</button><form id="accountForm" class="account-form"><label>Email<input id="accountEmailInput" type="email" autocomplete="email" required maxlength="254"></label><label>Password<input id="accountPasswordInput" type="password" autocomplete="${create?'new-password':'current-password'}" minlength="${create?8:1}" required></label><button id="submitAccount" type="submit" class="primary">${create?'Create account':'Sign in'}</button></form><div class="account-secondary"><button id="toggleAccount">${create?'Already have an account?':'Create an account'}</button><button id="resetPassword">Reset password</button></div><p class="muted">By creating an account, you agree to our <a href="https://oneday1fact-boop.github.io/conduit/" target="_blank" rel="noopener">privacy policy</a>.</p><p id="proFeedback" class="pro-feedback" role="status"></p>`);
   wireClose();
+  $('googleAccount').disabled=!cloud.configured || !window.CONDUIT_GOOGLE_WEB_CLIENT_ID;
+  $('googleAccount').onclick=event=>action(event.currentTarget,async()=>{await cloud.google();showAccount();},'Signed in.');
+  if(window.CONDUIT_EMAIL_SIGN_IN_ENABLED!==true) {
+    $('accountForm').hidden=true;$('toggleAccount').hidden=true;$('resetPassword').hidden=true;
+  }
   if(!cloud.configured){$('submitAccount').disabled=true;feedback('Account services are being prepared. Your existing progress stays on this device.');}
   $('toggleAccount').onclick=()=>showAccount(!create);
   $('accountForm').onsubmit=event=>{
@@ -154,3 +159,15 @@ function showCalendar() {
 window.ConduitShowPro=showPro;
 $('proButton').onclick=showPro;$('accountButton').onclick=()=>showAccount();
 window.conduitStarted.then(()=>cloud.init()).catch(()=>accountLabel('Progress saved on this device'));
+
+function showSettings() {
+  openModal('settings',`${closeHeader('settings')}<h2 id="dialogTitle">Make it yours.</h2><div class="pro-actions" id="settingsList"></div>`);
+  wireClose();
+  const choices=[['Music','music','musicButton'],['Sound effects','sound','soundButton'],['Haptics','haptics','hapticsButton'],['Light theme','theme','themeButton']];
+  for(const [label,key,id] of choices) {
+    const button=document.createElement('button');button.className='secondary';
+    const update=()=>{const enabled=key==='theme'?store.theme==='light':store[key];button.textContent=label+' · '+(enabled?'On':'Off');button.setAttribute('aria-pressed',String(enabled));};
+    button.onclick=()=>{$(id).click();update();};update();$('settingsList').append(button);
+  }
+}
+$('settingsButton').onclick=showSettings;

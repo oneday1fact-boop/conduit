@@ -24,3 +24,13 @@ test('newest partial record wins; archive completion does not fabricate a Daily 
  assert.equal(c.mergeRecord(record(),record({updatedAt:2,elapsed:20})).elapsed,20);
  assert.equal(c.mergeRecord(record({completed:true}),record()).dailyWin,false);
 });
+
+test('an offline progress merge does not restore an already-used rewarded hint',()=>{
+ assert.equal(c.mergeRecord(record({hintsUsed:1}),record({updatedAt:99,hintsUsed:0})).hintsUsed,1);
+});
+
+test('existing schema-1 Firebase records retain modified time and previously used hints',()=>{
+ const r=c.cleanRecord(record({updatedAt:{seconds:1},modifiedAt:123,hintsUsed:2}));
+ assert.equal(r.updatedAt,123);assert.equal(r.hintsUsed,2);
+ assert.equal(c.cleanRecord(record({completed:true,slots:[null,null,null]})).completed,false);
+});
