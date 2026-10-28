@@ -8,12 +8,13 @@ BUNDLE="www/admob-bridge.js"
 BACKUP="$(mktemp)"
 TEMP_SOURCE=".admob-bridge-production-temp.js"
 SYNCED=0
+BACKED_UP=0
 
 cleanup() {
   status=$?
   trap - EXIT
 
-  if ! cp "$BACKUP" "$BUNDLE"; then
+  if [ "$BACKED_UP" = "1" ] && ! cp "$BACKUP" "$BUNDLE"; then
     echo "ERROR: Could not restore the development ad bundle."
     status=1
   fi
@@ -43,6 +44,7 @@ if [ ! -f "$HOME/.conduit-signing/key.properties" ] ||
 fi
 
 cp "$BUNDLE" "$BACKUP"
+BACKED_UP=1
 
 echo "Preparing temporary production ad source..."
 node - "$SOURCE" "$TEMP_SOURCE" <<'NODE'
@@ -66,8 +68,8 @@ replaceOnce(
 );
 
 replaceOnce(
-  /await AdMob\.initialize\(\{\s*initializeForTesting:\s*true\s*\}\);/,
-  'await AdMob.initialize();',
+  /initializeForTesting:\s*true\s*,/,
+  '',
   'test initialization'
 );
 
@@ -118,7 +120,7 @@ npx cap sync android
 echo "Building signed Android App Bundle..."
 (
   cd android
-  ./gradlew :app:bundleRelease
+  bash ./gradlew :app:bundleRelease
 )
 
 AAB="android/app/build/outputs/bundle/release/app-release.aab"
