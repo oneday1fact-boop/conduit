@@ -1,9 +1,0 @@
-{
-  "name": "conduit-billing",
-  "main": "dist/index.mjs",
-  "compatibility_date": "2026-10-28",
-  "compatibility_flags": ["nodejs_compat"],
-  "workers_dev": true,
-  "vars": {"FIREBASE_PROJECT_ID":"conduit-22893","SERVICE_ENABLED":"false"},
-  "triggers": {"crons":["0 * * * *"]}
-}

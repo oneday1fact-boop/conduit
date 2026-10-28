@@ -1,3 +1,4 @@
+import {requestBilling} from './billing-client.mjs';
 import {initializeApp} from 'firebase/app';
 import {getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword,
   sendPasswordResetEmail, sendEmailVerification, signOut, getIdToken, GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
@@ -73,15 +74,9 @@ async function refresh() {
   pro=result.pro===true; emit('entitlement',{pro}); return pro;
 }
 async function billingRequest(route,data={}) {
-  requireUser();
-  if(!window.CONDUIT_BILLING_API_URL) throw new Error('Purchase services are not available in this build yet.');
-  const base=new URL(window.CONDUIT_BILLING_API_URL);
-  if(base.protocol!=='https:' || base.username || base.password || base.search || base.hash) throw new Error('Invalid purchase service configuration.');
-  const token=await getIdToken(user);
-  const response=await fetch(base.href.replace(/\/$/,'')+'/v1/'+route,{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(data)});
-  const result=await response.json();if(!response.ok) throw new Error(result.error || 'Could not check this purchase. Try again.');
-  return result;
+  return requestBilling(()=>({user,epoch:generation,url:window.CONDUIT_BILLING_API_URL}),getIdToken,fetch,route,data);
 }
+
 window.ConduitCloud={configured,init,sync,
   get billingReady(){return !!window.CONDUIT_BILLING_API_URL;},
   get user(){return user;}, get pro(){return pro;},
