@@ -1,0 +1,80 @@
+name: CONDUIT source validation
+
+on:
+  push:
+    branches: [main, android-release-preparation-20261027, 'feature/**']
+  pull_request:
+
+jobs:
+  check-source:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Validate puzzle library and release file structure
+        run: node scripts/validate-source.cjs
+      - name: Verify release preparation and cleanup
+        run: node scripts/test-release-build.cjs
+      - name: Verify free-tier purchase backend
+        run: |
+          npm ci --prefix billing-worker
+          npm test --prefix billing-worker
+          npm run build --prefix billing-worker
+      - name: Verify Pro progress merges, dates and purchase policy
+        run: node --test tests/*.test.cjs
+      - name: Check service worker syntax
+        run: node --check www/service-worker.js
+      - name: Check web manifest JSON
+        run: node -e "JSON.parse(require('node:fs').readFileSync('www/manifest.webmanifest','utf8'))"
+
+  android-compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install locked dependencies and sync development assets
+        run: |
+          npm ci
+          npx cap sync android
+      - name: Compile Android debug variant without release signing
+        working-directory: android
+        run: bash ./gradlew :app:assembleDebug --no-daemon
+
+      - name: Save installable debug build
+        uses: actions/upload-artifact@v4
+        with:
+          name: CONDUIT-1.1.0-debug-test
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+
+  firestore-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - run: npm ci
+      - name: Verify rules against an isolated local Firestore emulator
+        run: npx --yes --package=firebase-tools@15.34.1 firebase emulators:exec --only firestore --project demo-conduit "node --test tests/firestore.emulator.cjs"
