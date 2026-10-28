@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    match /users/{uid}/progress/{key} {
+      allow read: if owner(uid);
+      allow create, update: if owner(uid)
+        && key.matches('^(daily:[0-9]{4}-[0-9]{2}-[0-9]{2}|practice:[A-Za-z0-9_-]{1,120})$')
+        && request.resource.data.keys().hasOnly(['puzzleId','slots','elapsed','hintsUsed','completed','dailyWin','updatedAt'])
+        && request.resource.data.puzzleId is string && request.resource.data.puzzleId.size() <= 120
+        && request.resource.data.slots is list && request.resource.data.slots.size() == 3
+        && request.resource.data.elapsed is number && request.resource.data.elapsed >= 0
+        && request.resource.data.hintsUsed is int && request.resource.data.hintsUsed >= 0 && request.resource.data.hintsUsed <= 1
+        && request.resource.data.completed is bool && request.resource.data.dailyWin is bool && request.resource.data.updatedAt is number;
+      allow delete: if false;
+    }
+    match /users/{uid}/private/entitlement { allow read: if owner(uid); allow write: if false; }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

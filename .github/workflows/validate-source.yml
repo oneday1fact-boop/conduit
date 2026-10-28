@@ -15,10 +15,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: npm ci
       - name: Validate puzzle library and release file structure
         run: node scripts/validate-source.cjs
       - name: Verify release preparation and cleanup
         run: node scripts/test-release-build.cjs
+      - name: Verify Pro progress merges, dates and purchase policy
+        run: node --test tests/*.test.cjs
       - name: Check service worker syntax
         run: node --check www/service-worker.js
       - name: Check web manifest JSON

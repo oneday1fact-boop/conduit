@@ -917,6 +917,7 @@ header {
 }
 
 </style>
+<link rel="stylesheet" href="./pro.css">
 </head>
 
 <body>
@@ -953,9 +954,11 @@ header {
   </header>
 
   <main>
+    <div class="account-bar"><span id="accountStatus">Progress saved on this device</span><button id="accountButton" class="account-link">Sign in</button></div>
     <nav class="mode-switch" aria-label="Game mode">
-      <button id="dailyButton">Daily puzzle</button>
+      <button id="dailyButton">Daily</button>
       <button id="practiceButton">Practice</button>
+      <button id="proButton" aria-label="Pro archive">Pro <span aria-hidden="true">✦</span></button>
     </nav>
 
     <section class="panel row" aria-label="Puzzle information">
@@ -1020,6 +1023,9 @@ header {
 </div>
 
 <script src="./admob-bridge.js"></script>
+<script src="./pro-core.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./cloud-bridge.js"></script>
 <script>
 "use strict";
 
@@ -1937,6 +1943,7 @@ function loadStore() {
   }
 }
 
+let activeStorageKey = STORAGE_KEY;
 let store = loadStore();
 let game = null;
 let mode = "daily";
@@ -1947,7 +1954,8 @@ let displayedDate = localDateKey();
 
 function persist() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    localStorage.setItem(activeStorageKey, JSON.stringify(store));
+    window.dispatchEvent(new Event("conduit:localsave"));
     $("storageWarning").hidden = true;
   } catch {
     $("storageWarning").hidden = false;
@@ -1982,7 +1990,10 @@ function saveGame() {
       puzzleId: game.puzzle.id,
       slots: [...game.slots],
       elapsed: game.elapsed,
-      hintsUsed: game.hintsUsed
+      hintsUsed: game.hintsUsed,
+      completed: game.completed || store.records[game.key]?.completed === true || (game.mode !== "practice" && store.completedDates.includes(game.date)),
+      dailyWin: store.completedDates.includes(game.date) && game.mode !== "practice",
+      updatedAt: Date.now()
     };
   }
 
@@ -2394,7 +2405,10 @@ function poweredConnections() {
   return connections;
 }
 
-function openPuzzle(nextMode, index = 0) {
+function openPuzzle(nextMode, index = 0, archiveDate = null) {
+  if (nextMode === "pro" && (!window.ConduitCloud?.pro || !ConduitProCore.available(archiveDate, localDateKey(), PUZZLES.length))) {
+    window.ConduitShowPro?.(); return;
+  }
   settleClock();
   saveGame();
   closeModal(false);
@@ -2403,8 +2417,8 @@ function openPuzzle(nextMode, index = 0) {
   displayedDate = localDateKey();
   selectedWord = null;
 
-  if (mode === "daily") {
-    index = dailyIndex(displayedDate);
+  if (mode === "daily" || mode === "pro") {
+    index = dailyIndex(mode === "pro" ? archiveDate : displayedDate);
   }
 
   if (!PUZZLES[index]) {
@@ -2416,8 +2430,9 @@ function openPuzzle(nextMode, index = 0) {
   }
 
   const puzzle = PUZZLES[index];
-  const key = mode === "daily"
-    ? `daily:${displayedDate}`
+  const puzzleDate = mode === "pro" ? archiveDate : displayedDate;
+  const key = mode !== "practice"
+    ? `daily:${puzzleDate}`
     : `practice:${puzzle.id}`;
 
   const record = store.records[key];
@@ -2426,7 +2441,7 @@ function openPuzzle(nextMode, index = 0) {
   game = {
     mode,
     index,
-    date: displayedDate,
+    date: puzzleDate,
     key,
     puzzle,
     slots: restored ? [...record.slots] : [null, null, null],
@@ -2637,6 +2652,8 @@ function render() {
     "aria-pressed", String(mode === "practice")
   );
 
+  $("proButton").classList.toggle("active", mode === "pro");
+  $("proButton").setAttribute("aria-pressed", String(mode === "pro"));
   renderStreak();
   renderSoundButton();
 
@@ -2672,9 +2689,9 @@ function render() {
   }
 
   $("puzzleTitle").textContent =
-    `${mode === "daily" ? "Daily" : "Practice"}: ${game.puzzle.name}`;
+    `${mode === "daily" ? "Daily" : mode === "pro" ? "Archive" : "Practice"}: ${game.puzzle.name}`;
 
-  $("puzzleDescription").textContent = mode === "daily"
+  $("puzzleDescription").textContent = mode !== "practice"
     ? `${game.date} · 3 missing words · 3 decoys`
     : "";
 
@@ -3136,7 +3153,7 @@ function showResults() {
     ? nextAvailable
       ? "Today's chain is complete. Come back tomorrow for the next one."
       : "Today's chain is complete. Come back tomorrow for the next one."
-    : "Practice puzzle complete. Your daily streak is unchanged.";
+    : game.mode === "pro" ? "Archive puzzle complete. Your daily streak is unchanged." : "Practice puzzle complete. Your daily streak is unchanged.";
 
   const chain = chainFor(game.puzzle, game.slots);
 
@@ -3197,7 +3214,7 @@ function showResults() {
 function resultText() {
   const label = game.mode === "daily"
     ? game.date
-    : `Practice ${game.index + 1}`;
+    : game.mode === "pro" ? `Archive ${game.date}` : `Practice ${game.index + 1}`;
 
   const lines = [
     `CONDUIT · ${label}`,
@@ -3326,7 +3343,7 @@ document.addEventListener("keydown", event => {
   if (event.key !== "Tab") return;
 
   const controls = [...$("dialog").querySelectorAll(
-    'button:not(:disabled), textarea:not([hidden]), [tabindex="0"]'
+    'button:not(:disabled), input:not(:disabled), textarea:not([hidden]), a[href], [tabindex="0"]'
   )];
 
   if (!controls.length) {
@@ -3414,8 +3431,9 @@ async function startConduit() {
   if (!store.tutorialSeen) showHelp();
 }
 
-void startConduit();
+window.conduitStarted = startConduit();
 </script>
+<script src="./pro-ui.js"></script>
 <script>
 // Register the offline app-shell cache. The service worker never touches game saves.
 const isNativeConduit =

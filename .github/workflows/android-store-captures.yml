@@ -4,6 +4,9 @@ on:
     paths:
       - '.github/workflows/android-store-captures.yml'
       - 'scripts/capture-android-store.py'
+      - 'www/**'
+      - 'android/app/src/main/java/**'
+      - 'android/app/build.gradle'
 jobs:
   capture:
     runs-on: ubuntu-latest
