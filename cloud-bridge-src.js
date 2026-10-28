@@ -2,11 +2,10 @@ import {initializeApp} from 'firebase/app';
 import {getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword,
   sendPasswordResetEmail, sendEmailVerification, signOut, getIdToken, GoogleAuthProvider, signInWithCredential} from 'firebase/auth';
 import {getFirestore, collection, doc, onSnapshot, runTransaction, serverTimestamp} from 'firebase/firestore';
-import {getFunctions, httpsCallable} from 'firebase/functions';
 import {registerPlugin} from '@capacitor/core';
 const Billing = registerPlugin('ConduitBilling');
 const Account = registerPlugin('ConduitAccount');
-let auth, db, functions, user = null, pro = false, generation = 0, stop = [], ready = false;
+let auth, db, user = null, pro = false, generation = 0, stop = [], ready = false;
 let cloudRecords = {}, legacyRecords = {}, sent = new Map();
 const emit = (name, detail) => window.dispatchEvent(new CustomEvent('conduit:' + name,{detail}));
 const configured = !!window.CONDUIT_FIREBASE_CONFIG?.projectId && window.CONDUIT_CLOUD_SERVICES_READY === true;
@@ -15,7 +14,7 @@ function stopListeners() { stop.forEach(fn=>fn()); stop=[]; sent.clear(); cloudR
 function init() {
   if (!configured) return;
   const app = initializeApp(window.CONDUIT_FIREBASE_CONFIG);
-  auth=getAuth(app); db=getFirestore(app); functions=getFunctions(app,window.CONDUIT_FUNCTIONS_REGION || 'asia-east2');
+  auth=getAuth(app); db=getFirestore(app);
   void Billing.addListener('purchaseUpdated',purchase=>{if(user) void verify(purchase).then(refresh).catch(()=>emit('sync',{message:'Purchase received. Use Restore purchases to finish checking Pro.'}));}).catch(()=>{});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden && user) void window.ConduitCloud.restore().catch(()=>{});});
   onAuthStateChanged(auth, next => {
@@ -66,14 +65,25 @@ async function sync(records) {
 async function verify(purchase) {
   if(purchase.state===2) throw new Error('Payment is pending. Pro unlocks after Google Play confirms payment.');
   if(purchase.state!==1) return;
-  await httpsCallable(functions,'verifyProPurchase')({token:purchase.token});
+  await billingRequest('billing/verify',{token:purchase.token});
 }
 async function refresh() {
   requireUser();
-  const result=await httpsCallable(functions,'refreshPro')({});
-  pro=result.data.pro===true; emit('entitlement',{pro}); return pro;
+  const result=await billingRequest('billing/restore');
+  pro=result.pro===true; emit('entitlement',{pro}); return pro;
+}
+async function billingRequest(route,data={}) {
+  requireUser();
+  if(!window.CONDUIT_BILLING_API_URL) throw new Error('Purchase services are not available in this build yet.');
+  const base=new URL(window.CONDUIT_BILLING_API_URL);
+  if(base.protocol!=='https:' || base.username || base.password || base.search || base.hash) throw new Error('Invalid purchase service configuration.');
+  const token=await getIdToken(user);
+  const response=await fetch(base.href.replace(/\/$/,'')+'/v1/'+route,{method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},body:JSON.stringify(data)});
+  const result=await response.json();if(!response.ok) throw new Error(result.error || 'Could not check this purchase. Try again.');
+  return result;
 }
 window.ConduitCloud={configured,init,sync,
+  get billingReady(){return !!window.CONDUIT_BILLING_API_URL;},
   get user(){return user;}, get pro(){return pro;},
   async google(){
     if(!configured || !window.CONDUIT_GOOGLE_WEB_CLIENT_ID) throw new Error("Google sign-in setup is not available in this build yet.");
@@ -90,9 +100,9 @@ window.ConduitCloud={configured,init,sync,
   async price(){return (await Billing.product()).price;},
   async buy(){requireUser(); if(!user.emailVerified) {await user.reload(); if(!user.emailVerified) throw new Error('Verify your email before buying Pro, then sign in again.');}
     await getIdToken(user,true);
-    const id=await httpsCallable(functions,'billingAccount')({});
-    const purchase=await Billing.purchase({accountId:id.data.accountId}); await verify(purchase); await refresh();},
+    const id=await billingRequest('billing/account');
+    const purchase=await Billing.purchase({accountId:id.accountId}); await verify(purchase); await refresh();},
   async restore(){requireUser(); const result=await Billing.restore(); for(const p of result.purchases) await verify(p); return refresh();},
-  async deleteAccount(){requireUser(); await httpsCallable(functions,'deleteConduitAccount')({}); await signOut(auth);},
+  async deleteAccount(){requireUser(); await billingRequest('account/delete'); await signOut(auth);},
   async resendVerification(){requireUser(); await sendEmailVerification(user);}
 };

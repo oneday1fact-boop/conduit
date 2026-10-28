@@ -1,4 +1,4 @@
-const {test}=require('node:test');const assert=require('node:assert/strict');const {validate,accountId,hash}=require('../functions/purchase-policy.cjs');
+const {test}=require('node:test');const assert=require('node:assert/strict');const {validate,accountId,hash}=require('../shared/purchase-policy.cjs');
 const purchase={purchaseState:0,consumptionState:0,obfuscatedExternalAccountId:accountId('user'),quantity:1,refundableQuantity:1,productId:'conduit_pro_lifetime'};
 test('paid unconsumed purchase bound to this account is valid',()=>assert.equal(validate(purchase,'user'),true));
 test('pending, refunded, consumed, wrong product and other-account tokens never grant Pro',()=>{

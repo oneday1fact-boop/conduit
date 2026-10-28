@@ -129,6 +129,7 @@ function showPro() {
   const button=$('buyPro');
   button.onclick=event=>action(event.currentTarget,()=>cloud.buy(),'Pro unlocked.');
   if(!cloud.configured){button.textContent='Pro coming soon';feedback('Pro purchase services are not configured in this build. Planned US price: $2.99 once.');return;}
+  if(!cloud.billingReady){button.textContent='Pro coming soon';feedback('The secure purchase service is being prepared. Pro is $2.99 once when available.');return;}
   if(!cloud.user){button.textContent='Sign in to unlock Pro';button.disabled=false;button.onclick=()=>showAccount();return;}
   cloud.price().then(price=>{if(button.isConnected){button.textContent=`Unlock Pro · ${price} once`;button.disabled=false;}}).catch(()=>{if(button.isConnected){button.textContent='Unavailable on this install';feedback('Install CONDUIT from Google Play to purchase or restore Pro.');}});
 }

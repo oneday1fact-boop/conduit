@@ -7,7 +7,8 @@ window.CONDUIT_FIREBASE_CONFIG = {
   "messagingSenderId": "242135700377",
   "appId": "1:242135700377:web:aa18db72520d491b0ab908"
 };
-window.CONDUIT_FUNCTIONS_REGION = "asia-east2";
+// Separate free-tier verification Worker; fill only after its deployed endpoint is verified.
+window.CONDUIT_BILLING_API_URL = null;
 window.CONDUIT_GOOGLE_WEB_CLIENT_ID = "242135700377-lmhpkcsktm72erjt33tnd4r5klkel7gt.apps.googleusercontent.com";
 // Enable only after rules/backend deployment, policy review and end-to-end validation.
 window.CONDUIT_CLOUD_SERVICES_READY = false;

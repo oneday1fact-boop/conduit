@@ -20,8 +20,11 @@ jobs:
         run: node scripts/validate-source.cjs
       - name: Verify release preparation and cleanup
         run: node scripts/test-release-build.cjs
-      - name: Check backend syntax
-        run: node --check functions/index.js
+      - name: Verify free-tier purchase backend
+        run: |
+          npm ci --prefix billing-worker
+          npm test --prefix billing-worker
+          npm run build --prefix billing-worker
       - name: Verify Pro progress merges, dates and purchase policy
         run: node --test tests/*.test.cjs
       - name: Check service worker syntax
