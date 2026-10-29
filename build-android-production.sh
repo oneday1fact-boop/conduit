@@ -43,7 +43,7 @@ if [ ! -f "$HOME/.conduit-signing/key.properties" ] ||
   exit 1
 fi
 
-node scripts/check-release-config.cjs
+node scripts/check-release-config.cjs "$@"
 
 cp "$BUNDLE" "$BACKUP"
 BACKED_UP=1

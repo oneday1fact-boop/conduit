@@ -1,11 +1,19 @@
 // Public Firebase config must be present before building a release that advertises cloud/Pro.
 const fs=require('node:fs');const vm=require('node:vm');
 const context={window:{}};
+const args=process.argv.slice(2);
+const bootstrap=args.length===1 && args[0]==='--internal-billing-bootstrap';
+if(args.length && !bootstrap){console.error('ERROR: Unknown release build option');process.exit(1);}
 try {
  vm.runInNewContext(fs.readFileSync('www/firebase-config.js','utf8'),context,{timeout:1000});
  const config=context.window.CONDUIT_FIREBASE_CONFIG;
  for(const key of ['apiKey','authDomain','projectId','appId']) {
   if(typeof config?.[key]!=='string' || !config[key].trim() || /YOUR_|REPLACE|EXAMPLE/i.test(config[key])) throw new Error('Missing Firebase '+key);
+ }
+ if(bootstrap) {
+  if(context.window.CONDUIT_CLOUD_SERVICES_READY!==false) throw new Error('Billing bootstrap requires cloud services to remain disabled');
+  console.log('PASS: BILLING BOOTSTRAP ONLY. Upload to an internal-testing draft to unlock Play product setup. Do not roll out this build. Final Pro release requires validated services and a new version code.');
+  process.exit(0);
  }
  if(context.window.CONDUIT_CLOUD_SERVICES_READY!==true) throw new Error('Cloud services have not completed deployment and validation');
  if(!context.window.CONDUIT_GOOGLE_WEB_CLIENT_ID?.endsWith('.apps.googleusercontent.com')) throw new Error('Google sign-in client is missing');
