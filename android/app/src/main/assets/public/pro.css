@@ -1,0 +1,63 @@
+/* Daily, Practice and Archive share the same accessible game board. */
+.mode-switch { grid-template-columns:repeat(3,minmax(0,1fr)); padding:4px; gap:4px; background:var(--panel); border:1px solid var(--border); border-radius:16px; }
+.mode-switch button { border-color:transparent; background:transparent; padding:9px 4px; min-height:44px; }
+.mode-switch .active { box-shadow:0 2px 8px #0002; }
+#proButton span { color:var(--amber); }
+.account-bar { display:flex; gap:8px; align-items:center; justify-content:space-between; min-height:36px; color:var(--muted); font-size:11px; }
+.account-link { border:0; border-radius:8px; background:transparent; color:var(--cyan); padding:8px 4px; font-weight:700; min-height:40px; white-space:nowrap; }
+.account-bar span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pro-eyebrow { text-transform:uppercase; letter-spacing:2px; color:var(--amber); font-size:11px; font-weight:800; margin-bottom:8px; }
+.pro-card { background:linear-gradient(145deg,var(--cyan-bg),var(--panel)); border:1px solid var(--border); border-radius:18px; padding:18px; margin:18px 0; }
+.pro-card p { color:var(--muted); line-height:1.6; }
+.pro-features { display:grid; gap:12px; margin:18px 0; }
+.pro-features div { display:flex; gap:12px; align-items:center; }
+.pro-features b { font-size:20px; color:var(--cyan); width:24px; }
+.pro-actions { display:grid; gap:10px; }
+.calendar-toolbar { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:20px 0 16px; }
+.calendar-toolbar h3 { font-size:17px; margin:0; }
+.calendar-nav { background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:12px; min-width:44px; min-height:44px; font-size:22px; }
+.calendar-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:5px; }
+.calendar-weekday { text-align:center; color:var(--muted); font-size:11px; padding:8px 0; }
+.calendar-day { min-width:0; min-height:46px; aspect-ratio:1; border-radius:11px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; }
+.calendar-day small { height:9px; font-size:9px; line-height:9px; }
+.calendar-day.complete { background:var(--cyan-bg); border-color:var(--green); color:var(--green); }
+.calendar-day.started { border-color:var(--amber); }
+.calendar-day:disabled { opacity:.28; }
+.calendar-legend { display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:11px; padding:16px 0; }
+.calendar-legend .complete { color:var(--green); }.calendar-legend .started { color:var(--amber); }
+.pro-feedback { min-height:22px; color:var(--muted); font-size:13px; line-height:1.5; }
+.account-form { display:grid; gap:12px; margin:20px 0; }
+.account-form label { display:grid; gap:6px; font-size:13px; color:var(--muted); }
+.account-form input { font:inherit; border:1px solid var(--border); border-radius:12px; background:var(--surface); color:var(--text); padding:12px; width:100%; min-height:44px; }
+.account-form input:focus-visible { outline:2px solid var(--cyan); }
+.account-secondary { display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; }
+.account-secondary button { background:none; border:0; padding:10px 0; color:var(--cyan); min-height:44px; }
+.account-danger { color:var(--amber)!important; }
+.dialog { max-height:calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); overflow-y:auto; }
+#dialogTitle { padding-right:20px; }
+@media(max-width:600px) {
+  .app { padding-top:max(8px,env(safe-area-inset-top)); }
+  header { padding-bottom:2px; }
+  .mode-switch { margin:3px 0 8px; }
+  .rule-banner { font-size:10px; margin:4px 0; }
+  .game-tools { margin:5px 0 2px; }
+  #puzzleTitle { font-size:16px; }
+  #board { margin:5px 0; }
+  .node { min-height:44px; padding:6px 10px; }
+  .connection { height:13px; }
+  .bank-header { margin-bottom:6px; }
+  .calendar-grid { gap:4px; }
+}
+
+/* Keep all six bank words visible on typical phones; account and preferences live in the header. */
+.header-tools #musicButton,.header-tools #soundButton,.header-tools #hapticsButton,.header-tools #themeButton { display:none; }
+.header-tools { gap:4px; }
+.header-tools .icon-button { width:44px; max-width:44px; flex-basis:44px; min-height:44px; height:44px; font-size:17px; }
+.header-tools .account-link { min-height:44px; padding:8px; font-size:12px; }
+.account-bar { min-height:22px; margin-top:6px; justify-content:center; }
+#status:empty { display:none; }
+@media(max-width:600px) {
+  .rule-banner { margin:3px 0; }
+  .rule-banner br { display:none; }
+  .rule-banner strong { margin-right:4px; }
+}
