@@ -1,4 +1,6 @@
-import policy from '../../shared/purchase-policy.cjs';
+import {createHash} from 'node:crypto';
+import createPolicy from '../../shared/purchase-rules.cjs';
+const policy=createPolicy(value=>createHash('sha256').update(value).digest('hex'));
 const {PRODUCT,PACKAGE,hash,accountId,validate}=policy;
 export class Failure extends Error {constructor(status,message){super(message);this.status=status;}}
 export function service(db,publisher,removeAuth) {
