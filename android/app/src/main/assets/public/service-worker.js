@@ -1,5 +1,5 @@
 /* CONDUIT offline app shell. Bump CACHE_NAME when changing this file's strategy. */
-const CACHE_NAME = "conduit-offline-shell-v2";
+const CACHE_NAME = "conduit-offline-shell-v3";
 const APP_FILES = [
   "./",
   "./index.html",

@@ -940,18 +940,17 @@ header {
     </div>
 
     <div class="header-tools" aria-label="Game controls">
-      <button id="settingsButton" class="icon-button" aria-label="Game settings" title="Game settings">⚙</button>
-      <button id="accountButton" class="account-link">Sign in</button>
+      <button id="accountButton" class="icon-button" aria-label="Sign in to your account" title="Sign in to your account"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></button>
       <button id="helpButton" class="icon-button" title="How to play"
-        aria-label="How to play">?</button>
+        aria-label="How to play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 0 1 6 0c0 2-3 2-3 4m0 3h.01"/></svg></button>
       <button id="musicButton" class="icon-button" title="Background music: off"
-        aria-label="Turn background music on" aria-pressed="false">🎵</button>
+        aria-label="Turn background music on" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="17" cy="16" rx="3" ry="3"/></svg></button>
       <button id="soundButton" class="icon-button" title="Sound effects: off"
-        aria-label="Turn sound effects on" aria-pressed="false">🔊</button>
+        aria-label="Turn sound effects on" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4 5 9H2v6h3l6 5zM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button>
       <button id="hapticsButton" class="icon-button" title="Haptic feedback: on"
-        aria-label="Turn haptic feedback off" aria-pressed="true">📳</button>
+        aria-label="Turn haptic feedback off" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M3 7 1 10l2 3-2 3m20-9 2 3-2 3 2 3M11 17h2"/></svg></button>
       <button id="themeButton" class="icon-button" title="Switch day/night mode"
-        aria-label="Switch color theme">☀️</button>
+        aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></svg></button>
     </div>
   </header>
 
@@ -1500,11 +1499,11 @@ const PUZZLE_DATA = [
    "OFF SIDE LINE WORK HORSE", "POT SHOE BUTTER"],
   ["Blue Beacon",
    "CHAIR LIFT OFF SIDE WALK", "TOOTH TOWN UP"],
-  ["Salted Current",
+  ["Cascading Sparks",
    "WATER FALL BACK FIRE FLY", "STONE WORK MAIL"],
-  ["Curious Archive",
+  ["Feathered Workshop",
    "BLACK BIRD HOUSE WORK SHOP", "POT PRINT RAIN"],
-  ["Dusky Archive",
+  ["Paperback Trek",
    "PAPER BACK PACK HORSE SHOE", "BOY YARD FLY"],
   ["Silver Detour",
    "FALL BACK YARD WORK HORSE", "OFF WOOD LIGHT"],
@@ -1814,7 +1813,11 @@ function validateLibraryPayload(payload) {
 
     return {
       id: item.id,
-      name: item.name.trim(),
+      name: ({
+        "closed-v1-water-fall-back-fire-fly": "Cascading Sparks",
+        "closed-v1-black-bird-house-work-shop": "Feathered Workshop",
+        "closed-v1-paper-back-pack-horse-shoe": "Paperback Trek"
+      })[item.id] || item.name.trim(),
       chain: [...item.chain],
       decoys: [...item.decoys]
     };
@@ -2138,14 +2141,14 @@ let audioMaster = null;
 let audioVersion = 0;
 
 function renderSoundButton() {
-  $("soundButton").textContent = store.sound ? "🔊" : "🔇";
+
   $("soundButton").setAttribute("aria-pressed", String(store.sound));
   $("soundButton").setAttribute("aria-label", store.sound ? "Turn sound effects off" : "Turn sound effects on");
   $("soundButton").title = `Sound effects: ${store.sound ? "on" : "off"}`;
 }
 
 function renderMusicButton() {
-  $("musicButton").textContent = store.music ? "🎵" : "♪";
+
   $("musicButton").setAttribute("aria-pressed", String(store.music));
   $("musicButton").setAttribute("aria-label", store.music ? "Turn background music off" : "Turn background music on");
   $("musicButton").title = `Background music: ${store.music ? "on" : "off"}`;
@@ -3018,7 +3021,7 @@ function applyTheme() {
 
   document.documentElement.classList.toggle("dark", dark);
 
-  $("themeButton").textContent = dark ? "☀️" : "🌙";
+  $("themeButton").setAttribute("aria-pressed", String(!dark));
   $("themeButton").setAttribute(
     "aria-label",
     dark ? "Switch to light theme" : "Switch to dark theme"
@@ -3097,14 +3100,15 @@ function showHelp() {
 }
 
 function getPracticeIndices() {
-  const fixedPracticeNames = [
-    "Salted Current",
-    "Curious Archive",
-    "Dusky Archive"
+  // Stable identities preserve Practice saves even when editorial titles change.
+  const fixedPracticeIds = [
+    "closed-v1-water-fall-back-fire-fly",
+    "closed-v1-black-bird-house-work-shop",
+    "closed-v1-paper-back-pack-horse-shoe"
   ];
 
-  return fixedPracticeNames
-    .map(name => PUZZLES.findIndex(puzzle => puzzle.name === name))
+  return fixedPracticeIds
+    .map(id => PUZZLES.findIndex(puzzle => puzzle.id === id))
     .filter(index => index !== -1);
 }
 

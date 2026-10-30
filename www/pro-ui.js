@@ -5,7 +5,8 @@ const cloud=window.ConduitCloud, core=window.ConduitProCore;
 const userKey=uid=>`${STORAGE_KEY}:account:${uid}`;
 function accountLabel(message) {
   $('accountStatus').textContent=message || (cloud.user ? 'Signed in · saving progress' : 'Progress saved on this device');
-  $('accountButton').textContent=cloud.user ? 'Account' : 'Sign in';
+  $('accountButton').setAttribute('aria-label',cloud.user ? 'Your account' : 'Sign in to your account');
+  $('accountButton').title=cloud.user ? 'Your account' : 'Sign in to your account';
 }
 function snapshotRecords() {
   const records={};
@@ -161,14 +162,3 @@ window.ConduitShowPro=showPro;
 $('proButton').onclick=showPro;$('accountButton').onclick=()=>showAccount();
 window.conduitStarted.then(()=>cloud.init()).catch(()=>accountLabel('Progress saved on this device'));
 
-function showSettings() {
-  openModal('settings',`${closeHeader('settings')}<h2 id="dialogTitle">Make it yours.</h2><div class="pro-actions" id="settingsList"></div>`);
-  wireClose();
-  const choices=[['Music','music','musicButton'],['Sound effects','sound','soundButton'],['Haptics','haptics','hapticsButton'],['Light theme','theme','themeButton']];
-  for(const [label,key,id] of choices) {
-    const button=document.createElement('button');button.className='secondary';
-    const update=()=>{const enabled=key==='theme'?store.theme==='light':store[key];button.textContent=label+' · '+(enabled?'On':'Off');button.setAttribute('aria-pressed',String(enabled));};
-    button.onclick=()=>{$(id).click();update();};update();$('settingsList').append(button);
-  }
-}
-$('settingsButton').onclick=showSettings;

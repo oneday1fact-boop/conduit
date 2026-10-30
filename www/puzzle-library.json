@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": 6,
+  "contentVersion": 7,
   "dailyLaunchDate": "2026-10-17",
   "description": "CONDUIT puzzle library, content version 6. Candidate 2 schedule with automated decoy-conflict replacements; requires editorial review before publication.",
   "approvedCompounds": [
@@ -666,7 +666,7 @@
     },
     {
       "id": "closed-v1-black-bird-house-work-shop",
-      "name": "Curious Archive",
+      "name": "Feathered Workshop",
       "chain": [
         "BLACK",
         "BIRD",
@@ -1546,7 +1546,7 @@
     },
     {
       "id": "closed-v1-paper-back-pack-horse-shoe",
-      "name": "Dusky Archive",
+      "name": "Paperback Trek",
       "chain": [
         "PAPER",
         "BACK",
@@ -8954,7 +8954,7 @@
     },
     {
       "id": "closed-v1-water-fall-back-fire-fly",
-      "name": "Salted Current",
+      "name": "Cascading Sparks",
       "chain": [
         "WATER",
         "FALL",
