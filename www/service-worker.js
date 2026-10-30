@@ -1,8 +1,9 @@
 /* CONDUIT offline app shell. Bump CACHE_NAME when changing this file's strategy. */
-const CACHE_NAME = "conduit-offline-shell-v1";
+const CACHE_NAME = "conduit-offline-shell-v4";
 const APP_FILES = [
   "./",
   "./index.html",
+  "./pro.css", "./pro-core.js", "./pro-ui.js", "./firebase-config.js", "./cloud-bridge.js", "./admob-bridge.js",
   "./puzzle-library.json",
   "./manifest.webmanifest",
   "./icons/icon-192.png",

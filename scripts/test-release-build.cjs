@@ -15,6 +15,7 @@ try {
   const script = fs.readFileSync(path.join(root, 'build-android-production.sh'), 'utf8')
     .replaceAll('$HOME/.conduit-signing', fixture + '/signing');
   write('build-android-production.sh', script);
+  write('scripts/check-release-config.cjs', fs.readFileSync(path.join(root, 'scripts/check-release-config.cjs')));
   write('admob-bridge-src.js', fs.readFileSync(path.join(root, 'admob-bridge-src.js')));
   const original = '// ORIGINAL DEVELOPMENT BUNDLE\n';
   write('www/admob-bridge.js', original);
@@ -26,6 +27,9 @@ try {
   assert.equal(fs.readFileSync(path.join(fixture,'www/admob-bridge.js'),'utf8'), original);
   write('signing/key.properties', '# disposable fixture, no credentials');
   write('signing/conduit-upload.jks', 'fixture');
+  assert.notEqual(run(false).status, 0, 'Missing Firebase config must block a signed Pro release');
+  assert.equal(fs.readFileSync(path.join(fixture,'www/admob-bridge.js'),'utf8'), original);
+  write('www/firebase-config.js', 'window.CONDUIT_FIREBASE_CONFIG = {apiKey:"fixture",authDomain:"fixture.firebaseapp.com",projectId:"fixture",appId:"fixture"};window.CONDUIT_CLOUD_SERVICES_READY=true;window.CONDUIT_BILLING_API_URL="https://billing.example.test";window.CONDUIT_GOOGLE_WEB_CLIENT_ID="fixture.apps.googleusercontent.com";');
   write('node_modules/.bin/esbuild', '#!/bin/bash\nset -e\ncp "$1" www/admob-bridge.js\n', 0o755);
   write('bin/npx', '#!/bin/bash\nset -e\nmkdir -p android/app/src/main/assets/public\ncp www/admob-bridge.js android/app/src/main/assets/public/admob-bridge.js\nif [ "${FAIL_SYNC:-0}" = "1" ]; then exit 1; fi\n', 0o755);
   write('android/gradlew', '#!/bin/bash\nset -e\nmkdir -p app/build/outputs/bundle/release\ncp app/src/main/assets/public/admob-bridge.js app/build/outputs/bundle/release/app-release.aab\n', 0o644);

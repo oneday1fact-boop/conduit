@@ -2,15 +2,28 @@
 from pathlib import Path
 import subprocess,time,re,xml.etree.ElementTree as ET
 OUT=Path('store-captures');OUT.mkdir(exist_ok=True)
+launcher_recovered=False
 def adb(*args):
  return subprocess.check_output(['adb',*args])
 def snap(name):
  (OUT/(name+'.png')).write_bytes(adb('exec-out','screencap','-p'))
 def tree():
+ global launcher_recovered
  adb('shell','uiautomator','dump','/sdcard/conduit-ui.xml')
  raw=adb('shell','cat','/sdcard/conduit-ui.xml')
  (OUT/'latest-ui.xml').write_bytes(raw)
- return ET.fromstring(raw)
+ root=ET.fromstring(raw)
+ # Recover only the observed disposable emulator launcher ANR, never a CONDUIT crash.
+ if not launcher_recovered and any(n.get('text')=="Pixel Launcher isn't responding" for n in root.iter('node')):
+  for node in root.iter('node'):
+   if node.get('resource-id')=='android:id/aerr_close':
+    x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds','')))
+    launcher_recovered=True
+    adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2))
+    adb('shell','am','start','-n','com.oneday1fact.conduit.test/com.oneday1fact.conduit.MainActivity')
+    time.sleep(3)
+    return tree()
+ return root
 def tap(label,contains=False):
  for attempt in range(4):
   root=tree()
@@ -43,9 +56,23 @@ try:
  snap('00-first-launch')
  tap("Let's play")
  snap('01-daily-puzzle')
+ # Actual compact portrait viewport, then restore the normal capture device.
+ adb('shell','wm','size','640x1280')
+ adb('shell','wm','density','320')
+ time.sleep(2)
+ snap('08-compact-320-portrait')
+ adb('shell','wm','size','1080x1920')
+ adb('shell','wm','density','420')
+ time.sleep(2)
+ tap('Pro archive')
+ snap('06-pro-upgrade')
+ tap('Close Pro')
+ tap('Sign in to your account')
+ snap('07-account-sign-in')
+ tap('Close account')
  tap('Practice')
  snap('02-practice-selection')
- tap('Salted Current',contains=True)
+ tap('Cascading Sparks',contains=True)
  snap('03-practice-puzzle')
  tap('FALL');tap('Slot 1:',contains=True)
  snap('04-puzzle-in-progress')
@@ -59,4 +86,4 @@ except Exception:
 finally:
  try:tree()
  except Exception:pass
- (OUT/'capture-provenance.txt').write_text('Actual Android emulator screenshots of CONDUIT debug build from repository source. No game HTML or saved puzzle state was modified for capture. UI actions: close help, select Practice/Salted Current, place FALL/BACK/FIRE. Debug app uses test ads; no ad was requested.\n')
+ (OUT/'capture-provenance.txt').write_text('Actual Android emulator screenshots of CONDUIT debug build from repository source. No game HTML or saved puzzle state was modified for capture. UI actions: close help, select Practice/Cascading Sparks, place FALL/BACK/FIRE. Debug app uses test ads; no ad was requested.\n')
