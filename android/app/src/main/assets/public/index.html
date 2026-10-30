@@ -1538,7 +1538,10 @@ function triggerHaptic(kind = "light") {
       window.ConduitNative.haptic(kind);
       return;
     }
-    const gameHaptics = window.Capacitor?.Plugins?.ConduitHaptics;
+    const capacitor = window.Capacitor;
+    const gameHaptics = capacitor?.Plugins?.ConduitHaptics ||
+      (capacitor?.isPluginAvailable?.("ConduitHaptics")
+        ? capacitor.registerPlugin("ConduitHaptics") : null);
     if (typeof gameHaptics?.perform === "function") {
       void gameHaptics.perform({kind}).catch(() => {});
       return;

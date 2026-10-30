@@ -67,12 +67,17 @@ test('account switching isolates local saves and sign-out restores guest progres
 test('native haptics follow the player toggle and distinguish completion feedback',async()=>{
  const {dom,w,click}=await game();try{
  const effects=[];
- w.Capacitor={Plugins:{ConduitHaptics:{perform:async({kind})=>{effects.push(kind);}}}};
+ let registrations=0;
+ w.Capacitor={Plugins:{},isPluginAvailable:name=>name==='ConduitHaptics',registerPlugin(name){
+  assert.equal(name,'ConduitHaptics');registrations++;
+  return this.Plugins[name]={perform:async({kind})=>{effects.push(kind);}};
+ }};
  click('hapticsButton'); // Off: no feedback, including subsequent tile selections.
  click('practiceButton');w.document.querySelector('.practice-choice').click();
  click('tile-FALL');assert.deepEqual(effects,[]);
  click('hapticsButton');assert.deepEqual(effects,['light']);
  click('slot-0');click('tile-BACK');click('slot-1');click('tile-FIRE');click('slot-2');
+ assert.equal(registrations,1);
  assert.ok(effects.includes('success'));
  assert.equal(effects.filter(k=>k==='complete').length,1);
  assert.equal(w.document.getElementById('hapticsButton').getAttribute('aria-pressed'),'true');
