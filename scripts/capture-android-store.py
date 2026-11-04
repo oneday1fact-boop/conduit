@@ -6,6 +6,10 @@ launcher_recovered=False
 def adb(*args):
  return subprocess.check_output(['adb',*args])
 def snap(name):
+ # Wait for accessibility idle and the slow CI compositor before capturing pixels.
+ try:tree()
+ except Exception:pass
+ time.sleep(1.5)
  (OUT/(name+'.png')).write_bytes(adb('exec-out','screencap','-p'))
 def tree():
  global launcher_recovered
@@ -69,6 +73,10 @@ try:
  adb('shell','wm','density','320')
  time.sleep(2)
  snap('08-compact-320-portrait')
+ tap('How to play');snap('10-compact-help');tap('Close help')
+ tap('Pro archive');snap('11-compact-pro');tap('Close Pro')
+ tap('Sign in to your account');snap('12-compact-account');tap('Close account')
+ tap('Practice');snap('13-compact-practice');tap('Close practice puzzles')
  # Tall emulator viewport from the squashed-board regression.
  adb('shell','wm','size','640x2560')
  time.sleep(2)
