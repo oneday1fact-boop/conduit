@@ -1,9 +1,20 @@
 name: Android game screenshot capture
 on:
+  push:
+    branches: ['feature/pro-cloud-sync']
+    paths:
+      - '.github/workflows/android-store-captures.yml'
+      - 'scripts/capture-android-store.py'
+      - 'www/**'
+      - 'android/app/src/main/java/**'
+      - 'android/app/build.gradle'
   pull_request:
     paths:
       - '.github/workflows/android-store-captures.yml'
       - 'scripts/capture-android-store.py'
+      - 'www/**'
+      - 'android/app/src/main/java/**'
+      - 'android/app/build.gradle'
 jobs:
   capture:
     runs-on: ubuntu-latest
