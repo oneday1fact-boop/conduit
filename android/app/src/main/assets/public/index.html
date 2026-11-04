@@ -1025,6 +1025,7 @@ header {
 
 <script src="./admob-bridge.js"></script>
 <script src="./pro-core.js"></script>
+<script src="./dialog-layout.js"></script>
 <script src="./firebase-config.js"></script>
 <script src="./cloud-bridge.js"></script>
 <script>
@@ -2423,6 +2424,8 @@ function openModal(type, html) {
   $("dialog").innerHTML = html;
   $("overlay").hidden = false;
   $("app").inert = true;
+  $("dialog").dataset.screen = type;
+  window.ConduitDialogLayout?.mount($("dialog"));
 
   resetClockBaseline();
   saveGame();
@@ -2727,7 +2730,7 @@ document.addEventListener("keydown", event => {
 
   const controls = [...$("dialog").querySelectorAll(
     'button:not(:disabled), input:not(:disabled), textarea:not([hidden]), a[href], [tabindex="0"]'
-  )];
+  )].filter(node => !node.closest('[hidden]'));
 
   if (!controls.length) {
     event.preventDefault();

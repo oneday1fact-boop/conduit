@@ -25,7 +25,7 @@ def tree():
     return tree()
  return root
 def tap(label,contains=False):
- for attempt in range(4):
+ for attempt in range(8):
   root=tree()
   nodes=[]
   for node in root.iter('node'):
@@ -40,6 +40,14 @@ def tap(label,contains=False):
    adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2))
    time.sleep(.7)
    return
+  # Fitted dialogs expose additional content with Next, without scrolling.
+  if label!='Next':
+   next_node=next((n for n in root.iter('node') if n.get('text')=='Next' and n.get('enabled')=='true'),None)
+   if next_node is not None:
+    x1,y1,x2,y2=map(int,re.findall(r'\d+',next_node.get('bounds','')))
+    adb('shell','input','tap',str((x1+x2)//2),str((y1+y2)//2))
+    time.sleep(.4)
+    continue
   time.sleep(1)
  snap('error-'+re.sub('[^a-z]+','-',label.lower()))
  raise RuntimeError('Control not found: '+label)
@@ -61,6 +69,16 @@ try:
  adb('shell','wm','density','320')
  time.sleep(2)
  snap('08-compact-320-portrait')
+ # Tall emulator viewport from the squashed-board regression.
+ adb('shell','wm','size','640x2560')
+ time.sleep(2)
+ root=tree()
+ slots=[n for n in root.iter('node') if (n.get('content-desc','') or n.get('text','')).startswith('Slot ')]
+ assert len(slots)>=3, 'Expected three accessible game slots'
+ for node in slots:
+  x1,y1,x2,y2=map(int,re.findall(r'\d+',node.get('bounds','')))
+  assert y2-y1>=60, 'Tall emulator collapsed a gameplay slot'
+ snap('09-tall-320-portrait')
  adb('shell','wm','size','1080x1920')
  adb('shell','wm','density','420')
  time.sleep(2)
